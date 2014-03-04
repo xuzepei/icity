@@ -1,0 +1,117 @@
+//
+// Prefix header for all source files of the 'RCFang' target in the 'RCFang' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import "RCTool.h"
+#endif
+
+
+#ifndef DEBUG
+#define NSLog //
+#endif
+
+#define TIME_OUT 20
+
+#define CT_UNKNOWN 0
+#define CT_XML 1
+#define CT_JSON 2
+
+//TAB TAG
+typedef enum {
+	TT_0 = 0,
+	TT_1,
+	TT_2,
+    TT_3,
+    TT_4
+} TAB_TAG;
+
+//搜索类别
+typedef enum {
+	STT_UNKNOWN = -1,
+	STT_0,
+	STT_1,
+    STT_2
+} SearchTabType;
+
+
+typedef enum{
+    SHT_UNKNOWN = -1,
+    SHT_MESSAGE,
+    SHT_QQ,
+    SHT_SINA
+}SHARE_TYPE;
+
+
+typedef enum{
+    HT_UNKNOWN = 0,
+    HT_XINFANG,
+    HT_ERSHOU,
+    HT_ZUFANG
+}HOUSE_TYPE;
+
+typedef enum{
+    FT_UNKNOWN = -1,
+    FT_CHAXUN,
+    FT_CHULI,
+    FT_JIAOFEI,
+    FT_CHEGUAN,
+    FT_BAOXIAN,
+    FT_XINWEN,
+    FT_FAGUI,
+    FT_GONGGAO
+}FUNCTION_TYPE;
+
+typedef enum{
+    PT_CWVIP = 1,
+    PT_SGVIP,
+    PT_XUFEIVIP,
+    PT_WZJF,
+    PT_CGYW,
+}PAY_TYPE;
+
+#define NAVIGATION_BAR_COLOR [UIColor colorWithRed:236/255.0 green:233/255.0 blue:226/255.0 alpha:1.00]
+//#define NAVIGATION_BAR_TITLE_COLOR [UIColor colorWithRed:0.92 green:0.20 blue:0.04 alpha:1.00]
+
+#define NAVIGATION_BAR_TITLE_COLOR [UIColor grayColor]
+
+
+#define G_TITLE_COLOR [UIColor colorWithRed:0.92 green:0.20 blue:0.04 alpha:1.00]
+#define G_DESC_COLOR [UIColor colorWithRed:0.47 green:0.47 blue:0.47 alpha:1.00]
+#define G_BORDER_COLOR [UIColor colorWithRed:176/255.0 green:176/255.0 blue:176/255.0 alpha:1.00]
+#define G_PURPLE_COLOR [UIColor colorWithRed:111/255.0 green:76/255.0 blue:144/255.0 alpha:1.0]
+
+#define STATUS_BAR_HEIGHT 20.0
+#define NAVIGATION_BAR_HEIGHT 44.0
+#define TAB_BAR_HEIGHT 50.0
+
+#define PICKER_VIEW_HEIGHT 256.0
+
+#define VERSION @"1.0"
+
+#define JUHE_APP_KEY @"9d4145f9e002947ec70e1871f4e52206"
+#define JUHE_BASE_URL @"http://v.juhe.cn/wz"
+
+//#define BASE_URL @"http://demo.by111.com/fxggapp/Api"
+#define BASE_URL @"http://acs.akange.com:81"
+#define APIID @"GmtaLHag"
+#define PWD @"kaWxTRZYM5hsIdi4"
+
+#define SHOW_COMMENT_NOTIFICATION @"SHOW_COMMENT_NOTIFICATION"
+#define CLICKED_APPLY_BUTTON_NOTIFICATION @"CLICKED_APPLY_BUTTON_NOTIFICATION"
+#define UPDATE_USERINFO_NOTIFICATION @"UPDATE_USERINFO_NOTIFICATION"
+
+#define SHARE_TEXT @"风行车管家，乐山人民手中的交通便民直通车，为您提供全方位的违章查询、违章自助简便处理与缴费，政策法规咨询指导，车管业务咨询办理，保险咨询办理等项目，下载地址：http://www.che0833.com"
+
+#define TEST_TN @"201308221041280034552"
+#define TEST_MODE @"01"
+#define PRO_MODE @"00"
