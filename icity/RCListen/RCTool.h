@@ -128,4 +128,7 @@
 
 + (BOOL)hasNoError:(NSDictionary*)dict;
 
+//获取设备ID
++ (NSString*)getDeviceID;
+
 @end

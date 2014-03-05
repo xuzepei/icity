@@ -9,6 +9,7 @@
 #import "RCMainViewController.h"
 #import "RCHttpRequest.h"
 #import "RCPublicCell.h"
+#import "RCJingDianViewController.h"
 
 #define AD_HEIGHT 160.0
 
@@ -418,6 +419,16 @@
 	[tableView deselectRowAtIndexPath: indexPath animated: YES];
     
     [self hidePopView];
+    
+    if(1 == indexPath.section)
+    {
+        NSDictionary* item = (NSDictionary*)[self getCellDataAtIndexPath: indexPath];
+
+        RCJingDianViewController* controller = [[RCJingDianViewController alloc] initWithNibName:nil bundle:nil];
+        [controller updateContent:item];
+        [self.navigationController pushViewController:controller animated:YES];
+        [controller release];
+    }
 }
 
 

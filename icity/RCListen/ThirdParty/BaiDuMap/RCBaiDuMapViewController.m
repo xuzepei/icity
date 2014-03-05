@@ -102,6 +102,7 @@
                     region.center = coor;
                     region.span = span;
                     
+                    [_mapView setZoomEnabled:YES];
                     [_mapView setZoomLevel:11];
                     
                     [_mapView setRegion:region animated:YES];

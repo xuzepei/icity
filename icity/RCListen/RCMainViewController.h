@@ -18,7 +18,6 @@ RCMainTitleViewDelegate,RCPopMenuViewDelegate>
 }
 
 @property(nonatomic,retain)RCAdScrollView* adScrollView;
-//@property(nonatomic,retain)UITableView* tableView;
 @property(assign)int textIndex;
 @property(assign)CGFloat adHeight;
 @property(nonatomic,retain)NSDictionary* item;

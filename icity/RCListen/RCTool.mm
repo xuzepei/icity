@@ -1259,5 +1259,23 @@ void systemSoundCompletionProc(SystemSoundID ssID,void *clientData)
     [ud synchronize];
 }
 
++ (NSString*)getDeviceID
+{
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString* uuidStr = [userDefaults objectForKey:@"uuid"];
+    if([uuidStr length])
+        return uuidStr;
+    
+    CFUUIDRef uuidObject = CFUUIDCreate(kCFAllocatorDefault);
+    uuidStr = [(NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuidObject) autorelease];
+    CFRelease(uuidObject);
+    
+    [userDefaults setObject:uuidStr forKey:@"uuid"];
+    [userDefaults synchronize];
+    
+    return uuidStr;
+}
+
+
 
 @end

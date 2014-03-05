@@ -115,3 +115,5 @@ typedef enum{
 #define TEST_TN @"201308221041280034552"
 #define TEST_MODE @"01"
 #define PRO_MODE @"00"
+
+#define VIDEO_LIVE_URL @"http://ios.m3u8.iwreader.com:1935/SRT_Live/WRADIO.stream/playlist.m3u8"

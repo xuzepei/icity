@@ -20,6 +20,9 @@
 @property(nonatomic,retain)NSDictionary* current_jq;
 @property(nonatomic,retain)NSMutableArray* pointArray;
 
+@property(nonatomic,retain)UIStepper* stepper;
+@property(nonatomic,retain)UIButton* gpsButton;
+
 - (void)updateContent:(NSDictionary*)item titleMenu:(NSArray*)array;
 
 @end

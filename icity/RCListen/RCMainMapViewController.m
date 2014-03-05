@@ -42,6 +42,9 @@
     
     self.pointArray = nil;
     
+    self.stepper = nil;
+    self.gpsButton = nil;
+    
     [super dealloc];
 }
 
@@ -49,6 +52,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self initButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -57,6 +62,12 @@
     
     if(_titleView)
        [[RCTool frontWindow] addSubview:_titleView];
+    
+    if(self.gpsButton)
+        [[RCTool frontWindow] addSubview:self.gpsButton];
+    
+    if(self.stepper)
+        [[RCTool frontWindow] addSubview:self.stepper];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -65,6 +76,12 @@
     
     if(_titleView)
         [_titleView removeFromSuperview];
+    
+    if(self.gpsButton)
+        [self.gpsButton removeFromSuperview];
+    
+    if(self.stepper)
+        [self.stepper removeFromSuperview];
     
     [self hidePopView];
 }
@@ -188,6 +205,56 @@
         NSDictionary* token = [NSDictionary dictionaryWithObject:_pointArray forKey:@"points"];
         [super updateContent:token];
     }
+}
+
+- (void)initButton
+{
+    if(nil == _stepper)
+    {
+        _stepper = [[UIStepper alloc] initWithFrame:CGRectMake(20,[RCTool getScreenSize].height - 60, 100, 40)];
+        _stepper.value = 11;
+        _stepper.maximumValue = 20;
+        _stepper.minimumValue = 5;
+        _stepper.stepValue = 1;
+        _stepper.tintColor = [UIColor blackColor];
+        [_stepper setDecrementImage:[UIImage imageNamed:@"zoom_out"] forState:UIControlStateNormal];
+        [_stepper setIncrementImage:[UIImage imageNamed:@"zoom_in"] forState:UIControlStateNormal];
+        [_stepper addTarget:self action:@selector(stepperValueChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    
+    [[RCTool frontWindow] addSubview:self.stepper];
+    
+    if(nil == _gpsButton)
+    {
+        self.gpsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.gpsButton setImage:[UIImage imageNamed:@"gps_button"] forState:UIControlStateNormal];
+        self.gpsButton.frame = CGRectMake(0, 0, 40, 40);
+        self.gpsButton.center = CGPointMake([RCTool getScreenSize].width - 46, [RCTool getScreenSize].height - 46);
+        self.gpsButton.layer.borderColor = [UIColor blackColor].CGColor;
+        self.gpsButton.layer.borderWidth = 1;
+        self.gpsButton.layer.cornerRadius = 7.0f;
+        
+        [self.gpsButton addTarget:self action:@selector(clickedGPSButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    [[RCTool frontWindow] addSubview:self.gpsButton];
+}
+
+- (void)stepperValueChanged:(id)sender
+{
+    UIStepper* stepper = (UIStepper*)sender;
+    if(stepper)
+    {
+        NSLog(@"stepper.value:%f",stepper.value);
+        
+        [self.mapView setZoomLevel:(float)stepper.value];
+    }
+    
+}
+
+- (void)clickedGPSButton:(id)sender
+{
+    NSLog(@"clickedGPSButton");
 }
 
 

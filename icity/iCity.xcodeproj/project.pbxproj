@@ -107,7 +107,6 @@
 		093D11F216F04E120077CC9A /* RCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 093D11F116F04E120077CC9A /* RCPickerView.m */; };
 		093D11F516F06FFA0077CC9A /* RCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 093D11F416F06FFA0077CC9A /* RCSearchCell.m */; };
 		0941EEBA16EB8DE200327D1A /* RCHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941EEB916EB8DE200327D1A /* RCHttpRequest.m */; };
-		0941EECD16EB8F8E00327D1A /* RCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941EECC16EB8F8E00327D1A /* RCHomeViewController.m */; };
 		0941EED116EB95B800327D1A /* iCity-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0941EED016EB95B800327D1A /* iCity-Info.plist */; };
 		0950B93916F174D20039D561 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0950B93816F174D20039D561 /* CoreText.framework */; };
 		0950B94216F17F020039D561 /* fangdai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0950B94016F17F020039D561 /* fangdai@2x.png */; };
@@ -143,6 +142,16 @@
 		09B897DB18C4DF8100D7A20D /* arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B897DA18C4DF8100D7A20D /* arrow_down@2x.png */; };
 		09B897E218C4E35C00D7A20D /* RCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B897E018C4E35C00D7A20D /* RCMainViewController.m */; };
 		09B897E318C4E35C00D7A20D /* RCMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B897E118C4E35C00D7A20D /* RCMainViewController.xib */; };
+		09B908BF18C6EE0C00C84CC8 /* RCJingDianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B908BD18C6EE0C00C84CC8 /* RCJingDianViewController.m */; };
+		09B908C018C6EE0C00C84CC8 /* RCJingDianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B908BE18C6EE0C00C84CC8 /* RCJingDianViewController.xib */; };
+		09B908C318C6F10700C84CC8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B908C218C6F10700C84CC8 /* MediaPlayer.framework */; };
+		09B908E018C6FE6100C84CC8 /* weather_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B908DF18C6FE6100C84CC8 /* weather_bg@2x.png */; };
+		09B908E318C6FE8100C84CC8 /* RCWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B908E218C6FE8100C84CC8 /* RCWeatherView.m */; };
+		09B908E518C7195A00C84CC8 /* function_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B908E418C7195A00C84CC8 /* function_bg@2x.png */; };
+		09B908E818C7198700C84CC8 /* RCFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B908E718C7198700C84CC8 /* RCFunctionView.m */; };
+		09B908EA18C723A400C84CC8 /* gps_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B908E918C723A400C84CC8 /* gps_button@2x.png */; };
+		09B908ED18C7276400C84CC8 /* zoom_in@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B908EB18C7276400C84CC8 /* zoom_in@2x.png */; };
+		09B908EE18C7276400C84CC8 /* zoom_out@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B908EC18C7276400C84CC8 /* zoom_out@2x.png */; };
 		09CF7EDE16A3D7740050A603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CF7EDD16A3D7740050A603 /* UIKit.framework */; };
 		09CF7EE016A3D7740050A603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CF7EDF16A3D7740050A603 /* Foundation.framework */; };
 		09CF7EE216A3D7740050A603 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CF7EE116A3D7740050A603 /* CoreGraphics.framework */; };
@@ -391,8 +400,6 @@
 		093D11F416F06FFA0077CC9A /* RCSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSearchCell.m; sourceTree = "<group>"; };
 		0941EEB816EB8DE200327D1A /* RCHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHttpRequest.h; sourceTree = "<group>"; };
 		0941EEB916EB8DE200327D1A /* RCHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHttpRequest.m; sourceTree = "<group>"; };
-		0941EECB16EB8F8E00327D1A /* RCHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHomeViewController.h; sourceTree = "<group>"; };
-		0941EECC16EB8F8E00327D1A /* RCHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHomeViewController.m; sourceTree = "<group>"; };
 		0941EED016EB95B800327D1A /* iCity-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iCity-Info.plist"; sourceTree = "<group>"; };
 		0950B93816F174D20039D561 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		0950B94016F17F020039D561 /* fangdai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fangdai@2x.png"; sourceTree = "<group>"; };
@@ -481,6 +488,19 @@
 		09B897DF18C4E35C00D7A20D /* RCMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMainViewController.h; sourceTree = "<group>"; };
 		09B897E018C4E35C00D7A20D /* RCMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMainViewController.m; sourceTree = "<group>"; };
 		09B897E118C4E35C00D7A20D /* RCMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCMainViewController.xib; sourceTree = "<group>"; };
+		09B908BC18C6EE0C00C84CC8 /* RCJingDianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCJingDianViewController.h; sourceTree = "<group>"; };
+		09B908BD18C6EE0C00C84CC8 /* RCJingDianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCJingDianViewController.m; sourceTree = "<group>"; };
+		09B908BE18C6EE0C00C84CC8 /* RCJingDianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCJingDianViewController.xib; sourceTree = "<group>"; };
+		09B908C218C6F10700C84CC8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		09B908DF18C6FE6100C84CC8 /* weather_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_bg@2x.png"; sourceTree = "<group>"; };
+		09B908E118C6FE8100C84CC8 /* RCWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCWeatherView.h; sourceTree = "<group>"; };
+		09B908E218C6FE8100C84CC8 /* RCWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCWeatherView.m; sourceTree = "<group>"; };
+		09B908E418C7195A00C84CC8 /* function_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "function_bg@2x.png"; sourceTree = "<group>"; };
+		09B908E618C7198700C84CC8 /* RCFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCFunctionView.h; sourceTree = "<group>"; };
+		09B908E718C7198700C84CC8 /* RCFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCFunctionView.m; sourceTree = "<group>"; };
+		09B908E918C723A400C84CC8 /* gps_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gps_button@2x.png"; sourceTree = "<group>"; };
+		09B908EB18C7276400C84CC8 /* zoom_in@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zoom_in@2x.png"; sourceTree = "<group>"; };
+		09B908EC18C7276400C84CC8 /* zoom_out@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zoom_out@2x.png"; sourceTree = "<group>"; };
 		09CF7ED916A3D7740050A603 /* iCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09CF7EDD16A3D7740050A603 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09CF7EDF16A3D7740050A603 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -541,6 +561,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09B908C318C6F10700C84CC8 /* MediaPlayer.framework in Frameworks */,
 				09CF7EE216A3D7740050A603 /* CoreGraphics.framework in Frameworks */,
 				09CF7F2316A3EA810050A603 /* SystemConfiguration.framework in Frameworks */,
 				0979E3BA1814BDF700DDB418 /* OpenGLES.framework in Frameworks */,
@@ -1030,8 +1051,13 @@
 				09084F2918C4DBFA0007DAA4 /* RCMainTitleView.m */,
 				09B508B918C5AEAA00CFF6F1 /* RCPopMenuView.h */,
 				09B508BA18C5AEAA00CFF6F1 /* RCPopMenuView.m */,
-				0941EECB16EB8F8E00327D1A /* RCHomeViewController.h */,
-				0941EECC16EB8F8E00327D1A /* RCHomeViewController.m */,
+				09B908BC18C6EE0C00C84CC8 /* RCJingDianViewController.h */,
+				09B908BD18C6EE0C00C84CC8 /* RCJingDianViewController.m */,
+				09B908BE18C6EE0C00C84CC8 /* RCJingDianViewController.xib */,
+				09B908E118C6FE8100C84CC8 /* RCWeatherView.h */,
+				09B908E218C6FE8100C84CC8 /* RCWeatherView.m */,
+				09B908E618C7198700C84CC8 /* RCFunctionView.h */,
+				09B908E718C7198700C84CC8 /* RCFunctionView.m */,
 				09FF092C16EC22920083CE91 /* RCAdScrollView.h */,
 				09FF092D16EC22920083CE91 /* RCAdScrollView.m */,
 				09FF092F16EC25750083CE91 /* RCAdView.h */,
@@ -1077,6 +1103,11 @@
 		095C59C816AF804200F7B949 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				09B908EB18C7276400C84CC8 /* zoom_in@2x.png */,
+				09B908EC18C7276400C84CC8 /* zoom_out@2x.png */,
+				09B908E918C723A400C84CC8 /* gps_button@2x.png */,
+				09B908E418C7195A00C84CC8 /* function_bg@2x.png */,
+				09B908DF18C6FE6100C84CC8 /* weather_bg@2x.png */,
 				09D01B1C18C62151007637EB /* overlay_1@2x.png */,
 				09D01B1D18C62151007637EB /* overlay@2x.png */,
 				09B508BC18C5BE7900CFF6F1 /* arrow_top@2x.png */,
@@ -1228,6 +1259,7 @@
 		09CF7EDC16A3D7740050A603 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				09B908C218C6F10700C84CC8 /* MediaPlayer.framework */,
 				0979E3B91814BDF700DDB418 /* OpenGLES.framework */,
 				0920238E172E38B5009EAB94 /* libz.dylib */,
 				0920238A172E2FD5009EAB94 /* libxml2.dylib */,
@@ -1401,10 +1433,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0941EED116EB95B800327D1A /* iCity-Info.plist in Resources */,
+				09B908E518C7195A00C84CC8 /* function_bg@2x.png in Resources */,
 				09FF094116EC503A0083CE91 /* Icon.png in Resources */,
 				09FF094316EC50450083CE91 /* Icon@2x.png in Resources */,
 				0950B94216F17F020039D561 /* fangdai@2x.png in Resources */,
 				09FE845D16F740F1008C5846 /* fangchandaogou@2x.png in Resources */,
+				09B908C018C6EE0C00C84CC8 /* RCJingDianViewController.xib in Resources */,
 				09B897DB18C4DF8100D7A20D /* arrow_down@2x.png in Resources */,
 				0915D381170DAA0600D86E9A /* zbar-back.png in Resources */,
 				0915D382170DAA0600D86E9A /* zbar-help.html in Resources */,
@@ -1419,9 +1453,12 @@
 				09D01B1F18C62151007637EB /* overlay@2x.png in Resources */,
 				092A477318C4E5F9001C2B3C /* map_item@2x.png in Resources */,
 				092A477218C4E5F9001C2B3C /* list_item@2x.png in Resources */,
+				09B908EA18C723A400C84CC8 /* gps_button@2x.png in Resources */,
 				09ADE14C17E027C0003D0B2B /* display_full_image_button_selected.png in Resources */,
+				09B908E018C6FE6100C84CC8 /* weather_bg@2x.png in Resources */,
 				09ADE14D17E027C0003D0B2B /* display_full_image_button_selected@2x.png in Resources */,
 				09ADE14E17E027C0003D0B2B /* display_full_image_button.png in Resources */,
+				09B908ED18C7276400C84CC8 /* zoom_in@2x.png in Resources */,
 				09ADE14F17E027C0003D0B2B /* display_full_image_button@2x.png in Resources */,
 				09ADE15417E028E6003D0B2B /* WRMessageFullImageDisplayController.xib in Resources */,
 				0988951E17F43DFF00F5AB13 /* Default@2x.png in Resources */,
@@ -1429,6 +1466,7 @@
 				090D365D1810D3F3006EC3D5 /* RCIndexAdViewController.xib in Resources */,
 				090D36641810DB73006EC3D5 /* RCIndexAdCell0.xib in Resources */,
 				090D366A1810E3B3006EC3D5 /* RCIndexAdCell1.xib in Resources */,
+				09B908EE18C7276400C84CC8 /* zoom_out@2x.png in Resources */,
 				0979E3B81814BD9E00DDB418 /* RCBaiDuMapViewController.xib in Resources */,
 				0979E3BC1814BE6100DDB418 /* mapapi.bundle in Resources */,
 			);
@@ -1447,11 +1485,11 @@
 				09CF7F2116A3E9D30050A603 /* RCTool.mm in Sources */,
 				09CF7F3716A3ECFF0050A603 /* TBXML.m in Sources */,
 				0941EEBA16EB8DE200327D1A /* RCHttpRequest.m in Sources */,
-				0941EECD16EB8F8E00327D1A /* RCHomeViewController.m in Sources */,
 				09FF092E16EC22920083CE91 /* RCAdScrollView.m in Sources */,
 				09FF093116EC25750083CE91 /* RCAdView.m in Sources */,
 				09FF093616EC2E6E0083CE91 /* RCImageHttpRequest.m in Sources */,
 				09FF093716EC2E6E0083CE91 /* RCImageLoader.m in Sources */,
+				09B908E318C6FE8100C84CC8 /* RCWeatherView.m in Sources */,
 				099B1AFF16EF75E700984120 /* RCTabBar.m in Sources */,
 				093D11F216F04E120077CC9A /* RCPickerView.m in Sources */,
 				093D11F516F06FFA0077CC9A /* RCSearchCell.m in Sources */,
@@ -1513,6 +1551,7 @@
 				0920236D172E2D56009EAB94 /* ASIDataDecompressor.m in Sources */,
 				0920236E172E2D56009EAB94 /* ASIDownloadCache.m in Sources */,
 				09D01B2818C635E5007637EB /* RCShareTextViewController.m in Sources */,
+				09B908E818C7198700C84CC8 /* RCFunctionView.m in Sources */,
 				0920236F172E2D56009EAB94 /* ASIFormDataRequest.m in Sources */,
 				09202370172E2D56009EAB94 /* ASIHTTPRequest.m in Sources */,
 				09202371172E2D56009EAB94 /* ASIInputStream.m in Sources */,
@@ -1526,6 +1565,7 @@
 				09202379172E2D56009EAB94 /* ASICloudFilesObjectRequest.m in Sources */,
 				0920237A172E2D56009EAB94 /* ASICloudFilesRequest.m in Sources */,
 				0920237C172E2D56009EAB94 /* Reachability.m in Sources */,
+				09B908BF18C6EE0C00C84CC8 /* RCJingDianViewController.m in Sources */,
 				0920237D172E2D56009EAB94 /* ASIS3Bucket.m in Sources */,
 				0920237E172E2D56009EAB94 /* ASIS3BucketObject.m in Sources */,
 				0920237F172E2D56009EAB94 /* ASIS3BucketRequest.m in Sources */,
