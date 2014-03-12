@@ -91,7 +91,7 @@ typedef enum{
 #define G_PURPLE_COLOR [UIColor colorWithRed:111/255.0 green:76/255.0 blue:144/255.0 alpha:1.0]
 
 #define STATUS_BAR_HEIGHT 20.0
-#define NAVIGATION_BAR_HEIGHT 44.0
+#define NAVIGATION_BAR_HEIGHT 64.0f
 #define TAB_BAR_HEIGHT 50.0
 
 #define PICKER_VIEW_HEIGHT 256.0

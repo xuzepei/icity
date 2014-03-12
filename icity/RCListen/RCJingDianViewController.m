@@ -8,6 +8,11 @@
 
 #import "RCJingDianViewController.h"
 #import "RCHttpRequest.h"
+#import "RCJianJieViewController.h"
+#import "RCJiuDianViewController.h"
+#import "RCMeiShiViewController.h"
+#import "RCYuLeViewController.h"
+#import "RCXiangCeViewController.h"
 
 #define VIDEO_HEIGHT 180.0f
 #define WEATHER_HEIGHT 52.0f
@@ -60,6 +65,20 @@
     [super awakeFromNib];
     
     //[self initVideoPlayer];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear: animated];
+    
+    self.title = [self.item objectForKey:@"jd_name"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear: animated];
+    
+    self.title = nil;
 }
 
 - (void)viewDidLoad
@@ -290,6 +309,28 @@
 - (void)clickedFunction:(int)index
 {
     NSLog(@"clickedFunction:%d",index);
+    
+    if(0 == index)
+    {
+        RCJianJieViewController* temp = [[RCJianJieViewController alloc] initWithNibName:nil bundle:nil];
+        [temp updateContent:self.content];
+        [self.navigationController pushViewController:temp animated:YES];
+        [temp release];
+    }
+    else if(1 == index)
+    {
+        RCJiuDianViewController* temp = [[RCJiuDianViewController alloc] initWithNibName:nil bundle:nil];
+        //[temp updateContent:self.content];
+        [self.navigationController pushViewController:temp animated:YES];
+        [temp release];
+    }
+    else if(2 == index)
+    {
+        RCMeiShiViewController* temp = [[RCMeiShiViewController alloc] initWithNibName:nil bundle:nil];
+        //[temp updateContent:self.content];
+        [self.navigationController pushViewController:temp animated:YES];
+        [temp release];
+    }
 }
 
 @end

@@ -16,6 +16,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.backgroundColor = [UIColor whiteColor];
+        
         [self initToolbar];
 
         _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 40, 320, 216)];
@@ -80,14 +82,14 @@
 {
     if(nil == _toolbar)
     {
-        _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+        _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 36)];
         _toolbar.tintColor = [UIColor blackColor];
         
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 10, 200, 20)];
         _titleLabel.backgroundColor = [UIColor clearColor];
-        _titleLabel.textColor = [UIColor whiteColor];
+        _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.font = [UIFont systemFontOfSize:18];
-        _titleLabel.textAlignment = UITextAlignmentCenter;
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
         //_titleLabel.shadowColor = [UIColor blackColor];
         //_titleLabel.shadowOffset = CGSizeMake(1.0, 1.0);
         
