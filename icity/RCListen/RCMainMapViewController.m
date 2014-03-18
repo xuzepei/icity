@@ -26,6 +26,8 @@
         
         [self initPopMenu];
         
+        [self initButton];
+        
     }
     return self;
 }
@@ -53,7 +55,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self initButton];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -255,6 +257,15 @@
 - (void)clickedGPSButton:(id)sender
 {
     NSLog(@"clickedGPSButton");
+    
+    if(nil == super.mapView)
+        return;
+    
+
+    BMKCoordinateRegion region;
+    region.center.latitude  = super.mapView.userLocation.location.coordinate.latitude;
+    region.center.longitude = super.mapView.userLocation.location.coordinate.longitude;
+    [super.mapView setRegion:region animated:YES];
 }
 
 

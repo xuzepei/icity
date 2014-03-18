@@ -110,10 +110,12 @@ typedef enum{
 #define CLICKED_APPLY_BUTTON_NOTIFICATION @"CLICKED_APPLY_BUTTON_NOTIFICATION"
 #define UPDATE_USERINFO_NOTIFICATION @"UPDATE_USERINFO_NOTIFICATION"
 
-#define SHARE_TEXT @"风行车管家，乐山人民手中的交通便民直通车，为您提供全方位的违章查询、违章自助简便处理与缴费，政策法规咨询指导，车管业务咨询办理，保险咨询办理等项目，下载地址：http://www.che0833.com"
+#define SHARE_TEXT @"爱城市+"
 
 #define TEST_TN @"201308221041280034552"
 #define TEST_MODE @"01"
 #define PRO_MODE @"00"
 
 #define VIDEO_LIVE_URL @"http://ios.m3u8.iwreader.com:1935/SRT_Live/WRADIO.stream/playlist.m3u8"
+
+#define BAIDU_MAP_KEY @"jiGOmsk5zpWZU2EemWHj14o4"

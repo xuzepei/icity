@@ -70,7 +70,7 @@ static iToastSettings *sharedSettings = nil;
 	
 	UIImage *image = [theSettings.images valueForKey:[NSString stringWithFormat:@"%i", type]];
 	
-	UIFont *font = [UIFont systemFontOfSize:16];
+	UIFont *font = [UIFont systemFontOfSize:14];
 	CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(280, 60)];
 	
 	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width + kComponentPadding, textSize.height + kComponentPadding)];
@@ -121,8 +121,8 @@ static iToastSettings *sharedSettings = nil;
 		[imageView release];
 	}
 	
-	v.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
-	v.layer.cornerRadius = 5;
+	v.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+	v.layer.cornerRadius = 3;
 	
 	UIWindow *window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
 	
@@ -136,7 +136,7 @@ static iToastSettings *sharedSettings = nil;
 			if (theSettings.gravity == iToastGravityTop) {
 				point = CGPointMake(window.frame.size.width / 2, 45);
 			} else if (theSettings.gravity == iToastGravityBottom) {
-				point = CGPointMake(window.frame.size.width / 2, window.frame.size.height - 45);
+				point = CGPointMake(window.frame.size.width / 2, window.frame.size.height - 80);
 			} else if (theSettings.gravity == iToastGravityCenter) {
 				point = CGPointMake(window.frame.size.width/2, window.frame.size.height/2);
 			} else {
@@ -367,7 +367,7 @@ static iToastSettings *sharedSettings = nil;
 + (iToastSettings *) getSharedSettings{
 	if (!sharedSettings) {
 		sharedSettings = [iToastSettings new];
-		sharedSettings.gravity = iToastGravityCenter;
+		sharedSettings.gravity = iToastGravityBottom;
 		sharedSettings.duration = iToastDurationShort;
 	}
 	

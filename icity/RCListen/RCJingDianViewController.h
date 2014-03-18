@@ -10,8 +10,12 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "RCWeatherView.h"
 #import "RCFunctionView.h"
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface RCJingDianViewController : UIViewController
+@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
 @property(nonatomic,retain)NSDictionary* content;
@@ -20,6 +24,10 @@
 @property(nonatomic,retain)IBOutlet UIScrollView* scrollView;
 @property(nonatomic,retain)RCWeatherView* weatherView;
 @property(nonatomic,retain)RCFunctionView* functionView;
+@property(nonatomic,retain)UIToolbar* toolbar;
+@property(nonatomic,retain)UIBarButtonItem* shareItem;
+@property(nonatomic,retain)UIBarButtonItem* favItem;
+@property(assign)BOOL isFaved;
 
 - (void)updateContent:(NSDictionary*)item;
 

@@ -255,15 +255,15 @@
 {
     [super viewDidLoad];
     
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0,0, 52, 33);
-    [button setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"fanhui_on"] forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(clickedLeftBarButtonItem:) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-    
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+//    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    button.frame = CGRectMake(0,0, 52, 33);
+//    [button setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
+//    [button setImage:[UIImage imageNamed:@"fanhui_on"] forState:UIControlStateHighlighted];
+//    [button addTarget:self action:@selector(clickedLeftBarButtonItem:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+//    
+//    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 }
 
 - (void)clickedLeftBarButtonItem:(id)sender
@@ -383,7 +383,7 @@
 
 	[[UIApplication sharedApplication] setStatusBarStyle:_prevStatusStyle animated:animated];
     
-    self.navigationController.navigationBar.tintColor = NAVIGATION_BAR_COLOR;
+//    self.navigationController.navigationBar.tintColor = NAVIGATION_BAR_COLOR;
 }
 
 

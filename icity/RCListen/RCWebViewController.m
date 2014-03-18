@@ -31,15 +31,15 @@
 //        self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 //        [rightBarButtonItem release];
         
-        UILabel* titleLabel = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
-        titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.font = [UIFont systemFontOfSize:20.0];
-        //titleLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.textColor = NAVIGATION_BAR_TITLE_COLOR;
-        titleLabel.text = @"网址";
-        self.navigationItem.titleView = titleLabel;
-        [titleLabel sizeToFit];
+//        UILabel* titleLabel = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+//        titleLabel.backgroundColor = [UIColor clearColor];
+//        titleLabel.font = [UIFont systemFontOfSize:20.0];
+//        //titleLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+//        titleLabel.textAlignment = NSTextAlignmentCenter;
+//        titleLabel.textColor = NAVIGATION_BAR_TITLE_COLOR;
+//        titleLabel.text = @"网址";
+//        self.navigationItem.titleView = titleLabel;
+//        [titleLabel sizeToFit];
         
         [self initWebView];
         
@@ -68,13 +68,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0,0, 52, 33);
-    [button setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"fanhui_on"] forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(clickedLeftBarButtonItem:) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
+//    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+//    button.frame = CGRectMake(0,0, 52, 33);
+//    [button setImage:[UIImage imageNamed:@"fanhui"] forState:UIControlStateNormal];
+//    [button setImage:[UIImage imageNamed:@"fanhui_on"] forState:UIControlStateHighlighted];
+//    [button addTarget:self action:@selector(clickedLeftBarButtonItem:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     
     [self initWebView];
     
@@ -117,9 +117,9 @@
     UILabel* titleLabel = (UILabel*)self.navigationItem.titleView;
     
     if([title length])
-        titleLabel.text = title;
+        self.title = title;
     else
-        titleLabel.text = _urlString;
+        self.title = _urlString;
     
     [self updateToolbarItem];
     
@@ -208,7 +208,7 @@
 - (void)initWebView
 {
     if (nil == _webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height - STATUS_BAR_HEIGHT - NAVIGATION_BAR_HEIGHT*2)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height)];
         _webView.delegate = self;
         //_webView.scalesPageToFit = YES;
     }
@@ -216,7 +216,7 @@
     CGFloat height = NAVIGATION_BAR_HEIGHT*2;
     if(self.hideToolbar)
         height = NAVIGATION_BAR_HEIGHT;
-    _webView.frame = CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height - STATUS_BAR_HEIGHT - height);
+    _webView.frame = CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height);
     
     [self.view addSubview: _webView];
     

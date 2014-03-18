@@ -16,7 +16,7 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor whiteColor];
         
         self.image = [UIImage imageNamed:@"button_view_bg"];
     }
@@ -49,14 +49,14 @@
     }
     
     [[UIColor blackColor] set];
-    [_text drawInRect:CGRectMake(0,(self.bounds.size.height - 16)/2.0, self.bounds.size.width, self.bounds.size.height) withFont:[UIFont boldSystemFontOfSize:16]
+    CGSize size = [_text drawInRect:CGRectMake(0,(self.bounds.size.height - 16)/2.0, self.bounds.size.width, self.bounds.size.height) withFont:[UIFont boldSystemFontOfSize:16]
         lineBreakMode:NSLineBreakByWordWrapping
             alignment:NSTextAlignmentCenter];
     
     UIImage* image = [UIImage imageNamed:@"arrow_down"];
     if(image)
     {
-        [image drawAtPoint:CGPointMake(104, 20)];
+        [image drawAtPoint:CGPointMake(self.bounds.size.width /2.0 + size.width/2.0 +4.0, 20)];
     }
     
 

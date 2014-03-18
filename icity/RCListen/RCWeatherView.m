@@ -41,15 +41,14 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
-    
-    if(nil == self.item)
-        return;
-    
     UIImage* bg = [UIImage imageNamed:@"weather_bg"];
     if(bg)
     {
         [bg drawInRect:self.bounds];
     }
+    
+    if(nil == self.item)
+        return;
     
     CGFloat offset_x = 6.0;
     

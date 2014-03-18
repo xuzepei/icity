@@ -20,6 +20,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 
+        if(nil == _mapView)
+        {
+            _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, [RCTool getScreenSize].width, [RCTool getScreenSize].height - STATUS_BAR_HEIGHT - NAVIGATION_BAR_HEIGHT)];
+            self.view = self.mapView;
+            
+            [_mapView setShowsUserLocation:YES]; 
+        }
     }
     return self;
 }
@@ -29,6 +36,7 @@
     self.mapView = nil;
     self.address = nil;
     self.myTitle = nil;
+    self.search = nil;
     
     [super dealloc];
 }
@@ -37,13 +45,52 @@
 {
     [super viewDidLoad];
     
-    if(nil == _mapView)
-    {
-        _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, [RCTool getScreenSize].width, [RCTool getScreenSize].height - STATUS_BAR_HEIGHT - NAVIGATION_BAR_HEIGHT)];
-        self.view = self.mapView;
-    }
+    if(nil == self.item)
+        return;
     
     NSArray* points = [self.item objectForKey:@"points"];
+    if(0 == [points count])
+        return;
+    
+    if(1 == [points count])
+    {
+        NSDictionary* point = [points lastObject];
+        NSString* address = [point objectForKey:@"jd_gps"];
+        if(0 == [address length])
+            address = [point objectForKey:@"gps"];
+        
+        NSArray* array = [address componentsSeparatedByString:@","];
+        if(2 == [array count])
+        {
+            CLLocationCoordinate2D endLocation;
+            endLocation.latitude = [[array objectAtIndex:1] floatValue];
+            endLocation.longitude = [[array objectAtIndex:0] floatValue];
+            
+            CLLocationCoordinate2D startLocation = _mapView.userLocation.location.coordinate;
+            
+            BMKPlanNode* start = [[BMKPlanNode alloc]init];
+            start.pt = startLocation;
+            start.name = nil;
+            
+            BMKPlanNode* end = [[BMKPlanNode alloc]init];
+            end.pt = endLocation;
+            end.name = nil;
+            
+            if(nil == _search)
+            {
+                _search = [[BMKSearch alloc]init];
+                _search.delegate = self;
+            }
+            
+            BOOL flag = [_search drivingSearch:nil startNode:start endCity:nil endNode:end];
+            if (!flag) {
+                NSLog(@"search failed");
+            }
+            [start release];
+            [end release];
+        }
+    }
+
 }
 
 - (void)clickedLeftBarButtonItem:(id)sender
@@ -67,7 +114,7 @@
     //[self addAnnotation:self.address title:nil];
 }
 
-- (void)updateContent:(NSDictionary*)item
+- (void)updateContent:(NSDictionary *)item zoom:(int)zoom
 {
     if(nil == item)
         return;
@@ -80,6 +127,10 @@
     
     NSDictionary* point = [points objectAtIndex:0];
     self.address = [point objectForKey:@"jd_gps"];
+    
+    if(0 == [self.address length])
+        self.address = [point objectForKey:@"gps"];
+    
     
     if([self.address length])
     {
@@ -102,10 +153,10 @@
                     region.center = coor;
                     region.span = span;
                     
-                    [_mapView setZoomEnabled:YES];
-                    [_mapView setZoomLevel:11];
+                    [_mapView setRegion:region animated:NO];
                     
-                    [_mapView setRegion:region animated:YES];
+                    [_mapView setZoomEnabled:YES];
+                    [_mapView setZoomLevel:zoom];
                 }
             }
         }
@@ -114,9 +165,65 @@
     for(NSDictionary* point in points)
     {
         NSString* address = [point objectForKey:@"jd_gps"];
+        if(0 == [address length])
+            address = [point objectForKey:@"gps"];
+        
         NSString* title = [point objectForKey:@"jd_name"];
+        if(0 == [title length])
+            title = [point objectForKey:@"name"];
+        
         [self addAnnotation:address title:title];
     }
+    
+    if(1 == [points count])
+    {
+        NSDictionary* point = [points lastObject];
+        NSString* address = [point objectForKey:@"jd_gps"];
+        if(0 == [address length])
+            address = [point objectForKey:@"gps"];
+        
+        NSArray* array = [address componentsSeparatedByString:@","];
+        if(2 == [array count])
+        {
+            CLLocationCoordinate2D endLocation;
+            endLocation.latitude = [[array objectAtIndex:1] floatValue];
+            endLocation.longitude = [[array objectAtIndex:0] floatValue];
+            
+            CLLocationCoordinate2D startLocation = _mapView.userLocation.location.coordinate;
+            
+            BMKPlanNode* start = [[BMKPlanNode alloc]init];
+            start.pt = startLocation;
+            start.name = nil;
+            
+            BMKPlanNode* end = [[BMKPlanNode alloc]init];
+            end.pt = endLocation;
+            end.name = nil;
+            
+            if(nil == _search)
+            {
+                _search = [[BMKSearch alloc]init];
+                _search.delegate = self;
+            }
+            
+            BOOL flag = [_search drivingSearch:nil startNode:start endCity:nil endNode:end];
+            if (!flag) {
+                NSLog(@"search failed");
+            }
+            [start release];
+            [end release];
+        }
+    }
+
+}
+
+- (void)onGetTransitRouteResult:(BMKPlanResult*)result errorCode:(int)error
+{
+    NSLog(@"onGetTransitRouteResult:error%d",error);
+}
+
+- (void)updateContent:(NSDictionary*)item
+{
+    [self updateContent:item zoom:11];
 }
 
 #pragma mark - Annotation

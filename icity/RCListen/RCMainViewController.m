@@ -10,6 +10,7 @@
 #import "RCHttpRequest.h"
 #import "RCPublicCell.h"
 #import "RCJingDianViewController.h"
+#import "RCWebViewController.h"
 
 #define AD_HEIGHT 160.0
 
@@ -283,6 +284,39 @@
     NSLog(@"clickedAd");
     
     [self hidePopView];
+    
+    NSDictionary* item = (NSDictionary*)token;
+    if(nil == item)
+        return;
+    
+    NSString* ip_linkurl = [item objectForKey:@"ip_linkurl"];
+    if(0 == [ip_linkurl length])
+    {
+        return;
+    }
+    else if([ip_linkurl length] <= 5)
+    {
+        NSString* jd_name = [item objectForKey:@"ip_name"];
+        if(0 == [jd_name length])
+            jd_name = @"";
+        
+        NSString* jd_id = ip_linkurl;
+        NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:jd_name,@"jd_name",jd_id,@"jd_id",nil];
+        
+        RCJingDianViewController* controller = [[RCJingDianViewController alloc] initWithNibName:nil bundle:nil];
+        [controller updateContent:dict];
+        [self.navigationController pushViewController:controller animated:YES];
+        [controller release];
+    }
+    else if([ip_linkurl length] > 5)
+    {
+        RCWebViewController* temp = [[RCWebViewController alloc] init:YES];
+        temp.hidesBottomBarWhenPushed = YES;
+        [temp updateContent:ip_linkurl title:[item objectForKey:@"ip_name"]];
+        [self.navigationController pushViewController:temp animated:YES];
+        [temp release];
+    }
+
 }
 
 #pragma mark - Table View
