@@ -214,7 +214,7 @@
     if(nil == _stepper)
     {
         _stepper = [[UIStepper alloc] initWithFrame:CGRectMake(20,[RCTool getScreenSize].height - 60, 100, 40)];
-        _stepper.value = 11;
+        _stepper.value = 13;
         _stepper.maximumValue = 20;
         _stepper.minimumValue = 5;
         _stepper.stepValue = 1;
@@ -260,7 +260,6 @@
     
     if(nil == super.mapView)
         return;
-    
 
     BMKCoordinateRegion region;
     region.center.latitude  = super.mapView.userLocation.location.coordinate.latitude;

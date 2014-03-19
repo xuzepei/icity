@@ -438,8 +438,8 @@
         return;
     
     NSArray* array = [NSArray arrayWithObject:item];
-    RCJingDianMapViewController* temp = [[RCJingDianMapViewController alloc] initWithNibName:nil bundle:nil];
-    [temp updateContent:array title:[item objectForKey:@"name"]];
+    RCRouteMapViewController* temp = [[RCRouteMapViewController alloc] initWithNibName:nil bundle:nil];
+    [temp updateContent:array title:@"路径规划"];
     [self.navigationController pushViewController:temp animated:YES];
     [temp release];
 }

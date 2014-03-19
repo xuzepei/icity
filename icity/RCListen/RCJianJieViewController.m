@@ -8,6 +8,9 @@
 
 #import "RCJianJieViewController.h"
 #import "RCImageLoader.h"
+#import "RCHttpRequest.h"
+
+#define SHARE_TAG 112
 
 @interface RCJianJieViewController ()
 
@@ -43,12 +46,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    CGRect rect = self.imageView.frame;
+    rect.origin.y = NAVIGATION_BAR_HEIGHT;
+    self.imageView.frame = rect;
+    
     self.textView.text = [self.item objectForKey:@"jd_desc"];
+    rect = self.textView.frame;
+    rect.size.height = [RCTool getScreenSize].height - NAVIGATION_BAR_HEIGHT - 160;
+    self.textView.frame = rect;
     
     NSString* imageUrl = [self.item objectForKey:@"jd_picurl"];
     UIImage* image = [RCTool getImageFromLocal:imageUrl];
     if(image)
         self.imageView.image = image;
+    
+    [self initToolbar];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +69,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)updateContent:(NSDictionary*)item
+- (void)updateContent:(NSDictionary*)item token:(NSDictionary*)token
 {
     self.item = item;
     
@@ -75,6 +87,45 @@
                                          delegate:self
                                             token:nil];
     }
+    
+    NSString* jd_id = @"";
+    if(token)
+        jd_id = [token objectForKey:@"jd_id"];
+    NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=jdinfo&jd_id=%@&token=%@",BASE_URL,jd_id,[RCTool getDeviceID]];
+    
+    RCHttpRequest* temp = [[[RCHttpRequest alloc] init] autorelease];
+    BOOL b = [temp request:urlString delegate:self resultSelector:@selector(finishedContentRequest:) token:nil];
+    if(b)
+    {
+        //self.isLoading = YES;
+        //[RCTool showIndicator:@"请稍候..."];
+    }
+}
+
+- (void)finishedContentRequest:(NSString*)jsonString
+{
+//    self.isLoading = NO;
+//    [RCTool hideIndicator];
+    
+    if(0 == [jsonString length])
+        return;
+    
+    NSDictionary* result = [RCTool parseToDictionary: jsonString];
+    if(result && [result isKindOfClass:[NSDictionary class]])
+    {
+        if([RCTool hasNoError:result])
+        {
+            NSDictionary* data = [result objectForKey:@"data"];
+            if(data && [data isKindOfClass:[NSDictionary class]])
+            {
+                    NSString* scflag = [data objectForKey:@"scflag"];
+                    if([scflag isEqualToString:@"1"])
+                        self.isFaved = YES;
+                
+                [self updateFavBarItem];
+            }
+        }
+    }
 }
 
 - (void)succeedLoad:(id)result token:(id)token
@@ -87,6 +138,196 @@
 	{
 		self.imageView.image = [RCTool getImageFromLocal:imageUrl];
 	}
+}
+
+#pragma mark - Toolbar
+
+- (void)initToolbar
+{
+    if(nil == _toolbar)
+    {
+        _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, [RCTool getScreenSize].height - 44, [RCTool getScreenSize].width, 44)];
+        _toolbar.alpha = 0.7;
+        
+        UIBarButtonItem* fixedSpaceItem0 = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                          target:nil
+                                                                                          action:nil] autorelease];
+        fixedSpaceItem0.width = 46;
+        
+        _shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_share"] style:UIBarButtonItemStylePlain target:self action:@selector(clickedShareButton:)];
+        
+        UIBarButtonItem* fixedSpaceItem1 = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                          target:nil
+                                                                                          action:nil] autorelease];
+        fixedSpaceItem1.width = 140;
+        
+        NSString* imageName = @"btn_fav";
+        if(self.isFaved)
+            imageName = @"btn_select_fav";
+        
+        self.favItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:imageName] style:UIBarButtonItemStylePlain target:self action:@selector(clickedFavButton:)] autorelease];
+        
+        [_toolbar setItems:[NSArray arrayWithObjects:fixedSpaceItem0,_shareItem,fixedSpaceItem1,self.favItem,nil] animated:YES];
+    }
+    
+    [self.view addSubview:_toolbar];
+}
+
+- (void)updateFavBarItem
+{
+    
+    UIBarButtonItem* fixedSpaceItem0 = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                      target:nil
+                                                                                      action:nil] autorelease];
+    fixedSpaceItem0.width = 46;
+    
+    if(nil == _shareItem)
+    {
+        _shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_share"] style:UIBarButtonItemStylePlain target:self action:@selector(clickedShareButton:)];
+    }
+    
+    UIBarButtonItem* fixedSpaceItem1 = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                      target:nil
+                                                                                      action:nil] autorelease];
+    fixedSpaceItem1.width = 140;
+    
+    NSString* imageName = @"btn_fav";
+    if(self.isFaved)
+        imageName = @"btn_select_fav";
+    
+    self.favItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:imageName] style:UIBarButtonItemStylePlain target:self action:@selector(clickedFavButton:)] autorelease];
+    
+    [_toolbar setItems:[NSArray arrayWithObjects:fixedSpaceItem0,_shareItem,fixedSpaceItem1,self.favItem,nil] animated:YES];
+}
+
+- (void)clickedShareButton:(id)sender
+{
+    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作"
+                                                              delegate:self
+                                                     cancelButtonTitle:@"取消"
+                                                destructiveButtonTitle:nil
+                                                     otherButtonTitles:@"新浪微博分享",@"腾讯微博分享",nil];
+    actionSheet.tag = SHARE_TAG;
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    [actionSheet showFromToolbar:self.toolbar];
+    [actionSheet release];
+}
+
+- (void)clickedFavButton:(id)sender
+{
+    NSString* action = @"";
+    if(self.isFaved)
+    {
+        action = @"delsc";
+    }
+    else{
+        
+        action = @"addsc";
+    }
+    
+    NSString* jd_id = @"";
+    if(self.item)
+        jd_id = [self.item objectForKey:@"jd_id"];
+    
+    NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=%@&token=%@&jd_id=%@",BASE_URL,action,[RCTool getDeviceID],jd_id];
+    
+    RCHttpRequest* temp = [[[RCHttpRequest alloc] init] autorelease];
+    [temp request:urlString delegate:self resultSelector:@selector(finishedFavRequest:) token:nil];
+}
+
+- (void)finishedFavRequest:(NSString*)jsonString
+{
+    if(0 == [jsonString length])
+        return;
+    
+    NSDictionary* result = [RCTool parseToDictionary: jsonString];
+    if(result && [result isKindOfClass:[NSDictionary class]])
+    {
+        if([RCTool hasNoError:result])
+        {
+            self.isFaved = self.isFaved?NO:YES;
+            
+            if(self.isFaved)
+                [[iToast makeText:@"添加收藏成功!"] show];
+            else
+                [[iToast makeText:@"取消收藏成功!"] show];
+            
+            [self updateFavBarItem];
+        }
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(SHARE_TAG == actionSheet.tag)
+    {
+        if(1 == buttonIndex)
+        {
+            [self shareText:[RCTool getShareText] type:SHT_QQ];
+        }
+        else if(0 == buttonIndex)
+        {
+            [self shareText:[RCTool getShareText] type:SHT_SINA];
+        }
+    }
+}
+
+- (void)shareText:(NSString*)text type:(SHARE_TYPE)type
+{
+    if(SHT_QQ == type)
+    {
+        SLComposeViewController* slComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTencentWeibo];
+        
+        [slComposerSheet setInitialText:text];
+        
+        UIImage* image = nil;
+        if(self.item)
+        {
+            NSString* imageUrl = [self.item objectForKey:@"jd_title_pic"];
+            if([imageUrl length])
+            {
+                image = [RCTool getImageFromLocal:imageUrl];
+            }
+        }
+        if(image)
+            [slComposerSheet addImage:image];
+        [self presentViewController:slComposerSheet animated:YES completion:nil];
+        
+        [slComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+            
+            if (result != SLComposeViewControllerResultCancelled)
+            {
+                [RCTool showAlert:@"提示" message:@"成功分享到腾讯微博！"];
+            }
+        }];
+        
+    }
+    else if(SHT_SINA == type)
+    {
+        SLComposeViewController* slComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeSinaWeibo];
+        
+        [slComposerSheet setInitialText:text];
+        UIImage* image = nil;
+        if(self.item)
+        {
+            NSString* imageUrl = [self.item objectForKey:@"jd_title_pic"];
+            if([imageUrl length])
+            {
+                image = [RCTool getImageFromLocal:imageUrl];
+            }
+        }
+        if(image)
+            [slComposerSheet addImage:image];
+        [self presentViewController:slComposerSheet animated:YES completion:nil];
+        
+        [slComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+            
+            if (result != SLComposeViewControllerResultCancelled)
+            {
+                [RCTool showAlert:@"提示" message:@"成功分享到新浪微博！"];
+            }
+        }];
+    }
 }
 
 @end

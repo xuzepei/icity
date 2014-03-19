@@ -7,14 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import "iToast.h"
 
-@interface RCJianJieViewController : UIViewController
+@interface RCJianJieViewController : UIViewController<UIActionSheetDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
 @property(nonatomic,retain)IBOutlet UIImageView* imageView;
 @property(nonatomic,retain)IBOutlet UITextView* textView;
 @property(nonatomic,retain)UIImage* image;
 
-- (void)updateContent:(NSDictionary*)item;
+@property(nonatomic,retain)UIToolbar* toolbar;
+@property(nonatomic,retain)UIBarButtonItem* shareItem;
+@property(nonatomic,retain)UIBarButtonItem* favItem;
+@property(assign)BOOL isFaved;
+
+- (void)updateContent:(NSDictionary*)item token:(NSDictionary*)token;
 
 @end

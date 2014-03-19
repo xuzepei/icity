@@ -15,6 +15,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
+#import "RCPlayerMaskView.h"
 @interface RCJingDianViewController : UIViewController<UIActionSheetDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
@@ -28,6 +29,10 @@
 @property(nonatomic,retain)UIBarButtonItem* shareItem;
 @property(nonatomic,retain)UIBarButtonItem* favItem;
 @property(assign)BOOL isFaved;
+@property(nonatomic,retain)RCPlayerMaskView* maskView;
+@property(nonatomic,retain)UIButton* playButton;
+@property(assign)BOOL isPlaying;
+@property(assign)BOOL isLoading;
 
 - (void)updateContent:(NSDictionary*)item;
 

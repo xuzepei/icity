@@ -11,6 +11,7 @@
 #import "RCPickerView.h"
 #import "RCButtonView.h"
 #import "RCJingDianMapViewController.h"
+#import "RCRouteMapViewController.h"
 
 @interface RCMeiShiViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 

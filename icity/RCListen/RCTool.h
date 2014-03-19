@@ -131,4 +131,11 @@
 //获取设备ID
 + (NSString*)getDeviceID;
 
+
+#pragma mark - Photo
++ (UIImage *)scaleAndRotateImage:(UIImage *)image;
++ (NSString*)saveSendImageToLocal:(UIImage *)image;
++ (NSData*)getSendImageDataFromLocal:(NSString*)imagePath;
++ (UIImage*)getSendImageFromLocal:(NSString*)imagePath;
+
 @end

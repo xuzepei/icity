@@ -10,6 +10,7 @@
 #import "RCHttpRequest.h"
 #import "RCWebViewController.h"
 #import "RCImageLoader.h"
+#import "RCUploadPhotoViewController.h"
 
 #define BG_COLOR [UIColor colorWithRed:236/255.0 green:236/255.0 blue:234/255.0 alpha:1.0]
 
@@ -30,9 +31,9 @@
         
         self.view.backgroundColor = BG_COLOR;
         
-        UIImage *image = [UIImage imageNamed:@"map_item"];
+        UIImage *image = [UIImage imageNamed:@"upload_btn"];
         image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        UIBarButtonItem* rightItem = [[[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(clickedMapButtonItem:)] autorelease];
+        UIBarButtonItem* rightItem = [[[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(clickedUploadButtonItem:)] autorelease];
         
         self.navigationItem.rightBarButtonItem = rightItem;
     }
@@ -82,9 +83,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)clickedMapButtonItem:(id)sender
+- (void)clickedUploadButtonItem:(id)sender
 {
-    NSLog(@"clickedMapButtonItem");
+    NSLog(@"clickedUploadButtonItem");
+    NSString* jq_id = @"";
+    if(self.item)
+        jq_id = [self.item objectForKey:@"jd_jq_id"];
+    
+    if(0 == [jq_id length])
+        return;
+    
+    
+    RCUploadPhotoViewController* temp = [[RCUploadPhotoViewController alloc] initWithNibName:nil bundle:nil];
+    if(self.item)
+        jq_id = [self.item objectForKey:@"jd_jq_id"];
+    temp.jqid = jq_id;
+    [self.navigationController pushViewController:temp animated:YES];
+    [temp release];
 }
 
 - (void)updateContent:(NSDictionary*)item
@@ -181,17 +196,6 @@
         [self updateContent:self.item];
     }
 }
-
-//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView
-//				  willDecelerate:(BOOL)decelerate{
-//
-//    CGPoint contentoffset = scrollView.contentOffset;
-//
-//    if(contentoffset.y >= lastItemRect.origin.y - 290)
-//    {
-//        [self updateContent:self.item];
-//    }
-//}
 
 #pragma mark - TMQuiltViewDelegate
 

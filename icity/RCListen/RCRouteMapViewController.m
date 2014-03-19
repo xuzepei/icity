@@ -1,18 +1,18 @@
 //
-//  RCJingDianMapViewController.m
+//  RCRouteMapViewController.h
 //  iCity
 //
-//  Created by xuzepei on 3/18/14.
+//  Created by xuzepei on 3/19/14.
 //  Copyright (c) 2014 xuzepei. All rights reserved.
 //
 
-#import "RCJingDianMapViewController.h"
+#import "RCRouteMapViewController.h"
 
-@interface RCJingDianMapViewController ()
+@interface RCRouteMapViewController ()
 
 @end
 
-@implementation RCJingDianMapViewController
+@implementation RCRouteMapViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,14 +35,6 @@
     
     [super dealloc];
 }
-
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//    // Do any additional setup after loading the view from its nib.
-//    
-//    
-//}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -122,7 +114,9 @@
 - (void)clickedGPSButton:(id)sender
 {
     NSLog(@"clickedGPSButton");
-
+    
+    [self route:nil];
+    
     BMKCoordinateRegion region;
     region.center.latitude  = super.mapView.userLocation.location.coordinate.latitude;
     region.center.longitude = super.mapView.userLocation.location.coordinate.longitude;
@@ -138,6 +132,13 @@
     
     NSDictionary* token = [NSDictionary dictionaryWithObject:itemArray forKey:@"points"];
     [super updateContent:token zoom:17];
+    
+    [self performSelector:@selector(route:) withObject:nil afterDelay:3.0];
+}
+
+- (void)route:(id)agrument
+{
+    [super route];
 }
 
 @end

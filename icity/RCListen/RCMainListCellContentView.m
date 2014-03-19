@@ -13,6 +13,14 @@
 
 #define IMAGE_RECT_0 CGRectMake(8, 0, [RCTool getScreenSize].width - 16, 182)
 
+#define COLOR_0 [UIColor colorWithRed:235/255.0 green:126/255.0 blue:97/255.0 alpha:1.0]
+#define COLOR_1 [UIColor colorWithRed:236/255.0 green:200/255.0 blue:94/255.0 alpha:1.0]
+#define COLOR_2 [UIColor colorWithRed:0/255.0 green:153/255.0 blue:68/255.0 alpha:1.0]
+#define COLOR_3 [UIColor colorWithRed:12/255.0 green:199/255.0 blue:180/255.0 alpha:1.0]
+#define COLOR_4 [UIColor colorWithRed:49/255.0 green:49/255.0 blue:49/255.0 alpha:1.0]
+
+#define AREA_WIDTH  100.0f
+
 @implementation RCMainListCellContentView
 
 - (id)initWithFrame:(CGRect)frame
@@ -40,6 +48,75 @@
     if(self.image)
     {
         [self.image drawInRect:CGRectMake(0,4, self.bounds.size.width, 80)];
+    }
+    
+    int index = [[self.token objectForKey:@"index"] intValue];
+    int tempIndex = index % 5;
+    
+    BOOL isLeft = YES;
+    int image_index = 1;
+    if(index & 1)
+    {
+        isLeft = NO;
+        image_index = 0;
+    }
+    
+    CGRect tempRect = CGRectMake(0, 4, AREA_WIDTH, 80);
+    if(NO == isLeft)
+    {
+        tempRect.origin.x = self.bounds.size.width - AREA_WIDTH;
+    }
+    
+    NSString* imageName = [NSString stringWithFormat:@"%d_%d",tempIndex,image_index];
+    
+    UIImage* arrowImage = [UIImage imageNamed:imageName];
+    if(arrowImage)
+    {
+        if(isLeft)
+        {
+            [arrowImage drawAtPoint:CGPointMake(AREA_WIDTH, 38)];
+        }
+        else
+        {
+             [arrowImage drawAtPoint:CGPointMake(self.bounds.size.width - AREA_WIDTH - arrowImage.size.width, 38)];
+        }
+    }
+    
+
+    if(0 == tempIndex)
+    {
+        [COLOR_0 set];
+    }
+    else if(1 == tempIndex)
+    {
+        [COLOR_1 set];
+    }
+    else if(2 == tempIndex)
+    {
+        [COLOR_2 set];
+    }
+    else if(3 == tempIndex)
+    {
+        [COLOR_3 set];
+    }
+    else if(4 == tempIndex)
+    {
+        [COLOR_4 set];
+    }
+    
+    UIRectFill(tempRect);
+    
+    [[UIColor whiteColor] set];
+    NSString* jd_name = [self.item objectForKey:@"jd_name"];
+    if([jd_name length])
+    {
+        [jd_name drawInRect:CGRectMake(tempRect.origin.x+2, tempRect.origin.y + 16, tempRect.size.width - 4, 20) withFont:[UIFont boldSystemFontOfSize:14] lineBreakMode:NSLineBreakByTruncatingTail alignment:NSTextAlignmentCenter];
+    }
+    
+    NSString* jd_title = [self.item objectForKey:@"jd_title"];
+    if([jd_title length])
+    {
+        [jd_title drawInRect:CGRectMake(tempRect.origin.x + 2, tempRect.origin.y + 36, tempRect.size.width -4, 50)  withFont:[UIFont systemFontOfSize:12] lineBreakMode:NSLineBreakByTruncatingTail alignment:NSTextAlignmentCenter];
     }
 }
 

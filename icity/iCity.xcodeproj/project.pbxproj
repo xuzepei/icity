@@ -114,8 +114,21 @@
 		0950B93916F174D20039D561 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0950B93816F174D20039D561 /* CoreText.framework */; };
 		0950B94216F17F020039D561 /* fangdai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0950B94016F17F020039D561 /* fangdai@2x.png */; };
 		095E5DE716AE6C6400FD47CE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 095E5DE616AE6C6400FD47CE /* AVFoundation.framework */; };
+		09700F6118D9BE3F00F9E26D /* btn_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F5F18D9BE3F00F9E26D /* btn_pause@2x.png */; };
+		09700F6218D9BE3F00F9E26D /* btn_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6018D9BE3F00F9E26D /* btn_play@2x.png */; };
+		09700F6518D9BE8300F9E26D /* RCPlayerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09700F6418D9BE8300F9E26D /* RCPlayerMaskView.m */; };
+		09700F7018D9D0DB00F9E26D /* 0_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6618D9D0DB00F9E26D /* 0_0@2x.png */; };
+		09700F7118D9D0DB00F9E26D /* 0_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6718D9D0DB00F9E26D /* 0_1@2x.png */; };
+		09700F7218D9D0DB00F9E26D /* 1_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6818D9D0DB00F9E26D /* 1_0@2x.png */; };
+		09700F7318D9D0DB00F9E26D /* 1_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6918D9D0DB00F9E26D /* 1_1@2x.png */; };
+		09700F7418D9D0DB00F9E26D /* 2_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6A18D9D0DB00F9E26D /* 2_0@2x.png */; };
+		09700F7518D9D0DB00F9E26D /* 2_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6B18D9D0DB00F9E26D /* 2_1@2x.png */; };
+		09700F7618D9D0DB00F9E26D /* 3_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6C18D9D0DB00F9E26D /* 3_0@2x.png */; };
+		09700F7718D9D0DB00F9E26D /* 3_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6D18D9D0DB00F9E26D /* 3_1@2x.png */; };
+		09700F7818D9D0DB00F9E26D /* 4_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6E18D9D0DB00F9E26D /* 4_0@2x.png */; };
+		09700F7918D9D0DB00F9E26D /* 4_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09700F6F18D9D0DB00F9E26D /* 4_1@2x.png */; };
 		0979E3B61814BD9E00DDB418 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0979E3B21814BD9E00DDB418 /* libbaidumapapi.a */; };
-		0979E3B71814BD9E00DDB418 /* RCBaiDuMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0979E3B41814BD9E00DDB418 /* RCBaiDuMapViewController.m */; };
+		0979E3B71814BD9E00DDB418 /* RCBaiDuMapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0979E3B41814BD9E00DDB418 /* RCBaiDuMapViewController.mm */; };
 		0979E3B81814BD9E00DDB418 /* RCBaiDuMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0979E3B51814BD9E00DDB418 /* RCBaiDuMapViewController.xib */; };
 		0979E3BA1814BDF700DDB418 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0979E3B91814BDF700DDB418 /* OpenGLES.framework */; };
 		0979E3BC1814BE6100DDB418 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0979E3BB1814BE6100DDB418 /* mapapi.bundle */; };
@@ -177,6 +190,16 @@
 		09C48F3618D83A9B00774BCB /* btn_select_fav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C48F3218D83A9B00774BCB /* btn_select_fav@2x.png */; };
 		09C48F3718D83A9B00774BCB /* btn_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C48F3318D83A9B00774BCB /* btn_share@2x.png */; };
 		09C48F3818D83A9B00774BCB /* video_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C48F3418D83A9B00774BCB /* video_default@2x.png */; };
+		09C9FFA618D92C760027BACE /* RCPopMenuView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9FFA518D92C760027BACE /* RCPopMenuView2.m */; };
+		09C9FFAA18D934000027BACE /* more_btn_fav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9FFA718D934000027BACE /* more_btn_fav@2x.png */; };
+		09C9FFAB18D934000027BACE /* more_btn_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9FFA818D934000027BACE /* more_btn_search@2x.png */; };
+		09C9FFAC18D934000027BACE /* upload_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9FFA918D934000027BACE /* upload_btn@2x.png */; };
+		09C9FFAF18D935F30027BACE /* RCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9FFAE18D935F30027BACE /* RCSearchViewController.m */; };
+		09C9FFB318D943D70027BACE /* RCFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9FFB218D943D70027BACE /* RCFavoriteViewController.m */; };
+		09C9FFB618D96B310027BACE /* RouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9FFB518D96B310027BACE /* RouteAnnotation.m */; };
+		09C9FFBC18D96D100027BACE /* RCRouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9FFBB18D96D100027BACE /* RCRouteMapViewController.m */; };
+		09C9FFC318D982FD0027BACE /* RCUploadPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C9FFC118D982FD0027BACE /* RCUploadPhotoViewController.m */; };
+		09C9FFC618D9842D0027BACE /* add_pic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9FFC518D9842D0027BACE /* add_pic@2x.png */; };
 		09CF7EDE16A3D7740050A603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CF7EDD16A3D7740050A603 /* UIKit.framework */; };
 		09CF7EE016A3D7740050A603 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CF7EDF16A3D7740050A603 /* Foundation.framework */; };
 		09CF7EE216A3D7740050A603 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CF7EE116A3D7740050A603 /* CoreGraphics.framework */; };
@@ -433,9 +456,23 @@
 		0950B93816F174D20039D561 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		0950B94016F17F020039D561 /* fangdai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fangdai@2x.png"; sourceTree = "<group>"; };
 		095E5DE616AE6C6400FD47CE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		09700F5F18D9BE3F00F9E26D /* btn_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_pause@2x.png"; sourceTree = "<group>"; };
+		09700F6018D9BE3F00F9E26D /* btn_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_play@2x.png"; sourceTree = "<group>"; };
+		09700F6318D9BE8300F9E26D /* RCPlayerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPlayerMaskView.h; sourceTree = "<group>"; };
+		09700F6418D9BE8300F9E26D /* RCPlayerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPlayerMaskView.m; sourceTree = "<group>"; };
+		09700F6618D9D0DB00F9E26D /* 0_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0_0@2x.png"; sourceTree = "<group>"; };
+		09700F6718D9D0DB00F9E26D /* 0_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0_1@2x.png"; sourceTree = "<group>"; };
+		09700F6818D9D0DB00F9E26D /* 1_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_0@2x.png"; sourceTree = "<group>"; };
+		09700F6918D9D0DB00F9E26D /* 1_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_1@2x.png"; sourceTree = "<group>"; };
+		09700F6A18D9D0DB00F9E26D /* 2_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_0@2x.png"; sourceTree = "<group>"; };
+		09700F6B18D9D0DB00F9E26D /* 2_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_1@2x.png"; sourceTree = "<group>"; };
+		09700F6C18D9D0DB00F9E26D /* 3_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_0@2x.png"; sourceTree = "<group>"; };
+		09700F6D18D9D0DB00F9E26D /* 3_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3_1@2x.png"; sourceTree = "<group>"; };
+		09700F6E18D9D0DB00F9E26D /* 4_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_0@2x.png"; sourceTree = "<group>"; };
+		09700F6F18D9D0DB00F9E26D /* 4_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4_1@2x.png"; sourceTree = "<group>"; };
 		0979E3B21814BD9E00DDB418 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
 		0979E3B31814BD9E00DDB418 /* RCBaiDuMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCBaiDuMapViewController.h; sourceTree = "<group>"; };
-		0979E3B41814BD9E00DDB418 /* RCBaiDuMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCBaiDuMapViewController.m; sourceTree = "<group>"; };
+		0979E3B41814BD9E00DDB418 /* RCBaiDuMapViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCBaiDuMapViewController.mm; sourceTree = "<group>"; };
 		0979E3B51814BD9E00DDB418 /* RCBaiDuMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCBaiDuMapViewController.xib; sourceTree = "<group>"; };
 		0979E3B91814BDF700DDB418 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		0979E3BB1814BE6100DDB418 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
@@ -565,6 +602,22 @@
 		09C48F3218D83A9B00774BCB /* btn_select_fav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_select_fav@2x.png"; sourceTree = "<group>"; };
 		09C48F3318D83A9B00774BCB /* btn_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share@2x.png"; sourceTree = "<group>"; };
 		09C48F3418D83A9B00774BCB /* video_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_default@2x.png"; sourceTree = "<group>"; };
+		09C9FFA418D92C760027BACE /* RCPopMenuView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPopMenuView2.h; sourceTree = "<group>"; };
+		09C9FFA518D92C760027BACE /* RCPopMenuView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPopMenuView2.m; sourceTree = "<group>"; };
+		09C9FFA718D934000027BACE /* more_btn_fav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more_btn_fav@2x.png"; sourceTree = "<group>"; };
+		09C9FFA818D934000027BACE /* more_btn_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more_btn_search@2x.png"; sourceTree = "<group>"; };
+		09C9FFA918D934000027BACE /* upload_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload_btn@2x.png"; sourceTree = "<group>"; };
+		09C9FFAD18D935F30027BACE /* RCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSearchViewController.h; sourceTree = "<group>"; };
+		09C9FFAE18D935F30027BACE /* RCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCSearchViewController.m; sourceTree = "<group>"; };
+		09C9FFB118D943D70027BACE /* RCFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCFavoriteViewController.h; sourceTree = "<group>"; };
+		09C9FFB218D943D70027BACE /* RCFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCFavoriteViewController.m; sourceTree = "<group>"; };
+		09C9FFB418D96B310027BACE /* RouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteAnnotation.h; sourceTree = "<group>"; };
+		09C9FFB518D96B310027BACE /* RouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteAnnotation.m; sourceTree = "<group>"; };
+		09C9FFBA18D96D100027BACE /* RCRouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCRouteMapViewController.h; sourceTree = "<group>"; };
+		09C9FFBB18D96D100027BACE /* RCRouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCRouteMapViewController.m; sourceTree = "<group>"; };
+		09C9FFC018D982FD0027BACE /* RCUploadPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCUploadPhotoViewController.h; sourceTree = "<group>"; };
+		09C9FFC118D982FD0027BACE /* RCUploadPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCUploadPhotoViewController.m; sourceTree = "<group>"; };
+		09C9FFC518D9842D0027BACE /* add_pic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_pic@2x.png"; sourceTree = "<group>"; };
 		09CF7ED916A3D7740050A603 /* iCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09CF7EDD16A3D7740050A603 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09CF7EDF16A3D7740050A603 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1117,6 +1170,8 @@
 				09084F2918C4DBFA0007DAA4 /* RCMainTitleView.m */,
 				09B508B918C5AEAA00CFF6F1 /* RCPopMenuView.h */,
 				09B508BA18C5AEAA00CFF6F1 /* RCPopMenuView.m */,
+				09C9FFA418D92C760027BACE /* RCPopMenuView2.h */,
+				09C9FFA518D92C760027BACE /* RCPopMenuView2.m */,
 				09B908BC18C6EE0C00C84CC8 /* RCJingDianViewController.h */,
 				09B908BD18C6EE0C00C84CC8 /* RCJingDianViewController.m */,
 				09B908BE18C6EE0C00C84CC8 /* RCJingDianViewController.xib */,
@@ -1170,6 +1225,10 @@
 				09A24A1518CF1A93005931E4 /* RCXiangCeViewController.h */,
 				09A24A1618CF1A93005931E4 /* RCXiangCeViewController.m */,
 				09A24A1718CF1A93005931E4 /* RCXiangCeViewController.xib */,
+				09C9FFC018D982FD0027BACE /* RCUploadPhotoViewController.h */,
+				09C9FFC118D982FD0027BACE /* RCUploadPhotoViewController.m */,
+				09700F6318D9BE8300F9E26D /* RCPlayerMaskView.h */,
+				09700F6418D9BE8300F9E26D /* RCPlayerMaskView.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1183,6 +1242,8 @@
 				093D11F116F04E120077CC9A /* RCPickerView.m */,
 				093D11F316F06FFA0077CC9A /* RCSearchCell.h */,
 				093D11F416F06FFA0077CC9A /* RCSearchCell.m */,
+				09C9FFAD18D935F30027BACE /* RCSearchViewController.h */,
+				09C9FFAE18D935F30027BACE /* RCSearchViewController.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1190,6 +1251,22 @@
 		095C59C816AF804200F7B949 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				09700F6618D9D0DB00F9E26D /* 0_0@2x.png */,
+				09700F6718D9D0DB00F9E26D /* 0_1@2x.png */,
+				09700F6818D9D0DB00F9E26D /* 1_0@2x.png */,
+				09700F6918D9D0DB00F9E26D /* 1_1@2x.png */,
+				09700F6A18D9D0DB00F9E26D /* 2_0@2x.png */,
+				09700F6B18D9D0DB00F9E26D /* 2_1@2x.png */,
+				09700F6C18D9D0DB00F9E26D /* 3_0@2x.png */,
+				09700F6D18D9D0DB00F9E26D /* 3_1@2x.png */,
+				09700F6E18D9D0DB00F9E26D /* 4_0@2x.png */,
+				09700F6F18D9D0DB00F9E26D /* 4_1@2x.png */,
+				09700F5F18D9BE3F00F9E26D /* btn_pause@2x.png */,
+				09700F6018D9BE3F00F9E26D /* btn_play@2x.png */,
+				09C9FFC518D9842D0027BACE /* add_pic@2x.png */,
+				09C9FFA718D934000027BACE /* more_btn_fav@2x.png */,
+				09C9FFA818D934000027BACE /* more_btn_search@2x.png */,
+				09C9FFA918D934000027BACE /* upload_btn@2x.png */,
 				09C48F3118D83A9B00774BCB /* btn_fav@2x.png */,
 				09C48F3218D83A9B00774BCB /* btn_select_fav@2x.png */,
 				09C48F3318D83A9B00774BCB /* btn_share@2x.png */,
@@ -1224,10 +1301,12 @@
 				0979E3BB1814BE6100DDB418 /* mapapi.bundle */,
 				0979E3B21814BD9E00DDB418 /* libbaidumapapi.a */,
 				0979E3B31814BD9E00DDB418 /* RCBaiDuMapViewController.h */,
-				0979E3B41814BD9E00DDB418 /* RCBaiDuMapViewController.m */,
+				0979E3B41814BD9E00DDB418 /* RCBaiDuMapViewController.mm */,
 				0979E3B51814BD9E00DDB418 /* RCBaiDuMapViewController.xib */,
 				09D01B2018C622AD007637EB /* RCPointOverlayView.h */,
 				09D01B2118C622AD007637EB /* RCPointOverlayView.m */,
+				09C9FFB418D96B310027BACE /* RouteAnnotation.h */,
+				09C9FFB518D96B310027BACE /* RouteAnnotation.m */,
 			);
 			path = BaiDuMap;
 			sourceTree = "<group>";
@@ -1326,6 +1405,8 @@
 				09B508C118C5D80300CFF6F1 /* RCMainMapViewController.xib */,
 				09C48F2E18D81A2B00774BCB /* RCJingDianMapViewController.h */,
 				09C48F2F18D81A2B00774BCB /* RCJingDianMapViewController.m */,
+				09C9FFBA18D96D100027BACE /* RCRouteMapViewController.h */,
+				09C9FFBB18D96D100027BACE /* RCRouteMapViewController.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -1344,6 +1425,15 @@
 				09C48F2318D7E03E00774BCB /* TMQuiltViewController.m */,
 			);
 			path = TMQuiltView;
+			sourceTree = "<group>";
+		};
+		09C9FFB018D943C40027BACE /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				09C9FFB118D943D70027BACE /* RCFavoriteViewController.h */,
+				09C9FFB218D943D70027BACE /* RCFavoriteViewController.m */,
+			);
+			name = Favorite;
 			sourceTree = "<group>";
 		};
 		09CF7ECE16A3D7740050A603 = {
@@ -1400,6 +1490,7 @@
 		09CF7EE516A3D7740050A603 /* iCity */ = {
 			isa = PBXGroup;
 			children = (
+				09C9FFB018D943C40027BACE /* Favorite */,
 				09B508BE18C5C9BB00CFF6F1 /* Map */,
 				09ADE12317E002A8003D0B2B /* Other */,
 				0941EEBF16EB8EB700327D1A /* Search */,
@@ -1540,16 +1631,24 @@
 				09A24A0518CF0A86005931E4 /* RCJianJieViewController.xib in Resources */,
 				0950B94216F17F020039D561 /* fangdai@2x.png in Resources */,
 				09FE845D16F740F1008C5846 /* fangchandaogou@2x.png in Resources */,
+				09700F7318D9D0DB00F9E26D /* 1_1@2x.png in Resources */,
 				09B908C018C6EE0C00C84CC8 /* RCJingDianViewController.xib in Resources */,
 				09B897DB18C4DF8100D7A20D /* arrow_down@2x.png in Resources */,
+				09700F7618D9D0DB00F9E26D /* 3_0@2x.png in Resources */,
 				0915D381170DAA0600D86E9A /* zbar-back.png in Resources */,
+				09700F7418D9D0DB00F9E26D /* 2_0@2x.png in Resources */,
 				0948767C18D6FD6F00CB71BB /* btn_here@2x.png in Resources */,
 				0915D382170DAA0600D86E9A /* zbar-help.html in Resources */,
+				09700F7518D9D0DB00F9E26D /* 2_1@2x.png in Resources */,
 				0915D383170DAA0600D86E9A /* zbar-helpicons.png in Resources */,
+				09C9FFAC18D934000027BACE /* upload_btn@2x.png in Resources */,
 				0915D384170DAA0600D86E9A /* zbar-samples.png in Resources */,
+				09700F6118D9BE3F00F9E26D /* btn_pause@2x.png in Resources */,
 				0915D38D170DABA500D86E9A /* done.caf in Resources */,
 				0920237B172E2D56009EAB94 /* README-GHUnit in Resources */,
 				09B508C318C5D80300CFF6F1 /* RCMainMapViewController.xib in Resources */,
+				09700F7718D9D0DB00F9E26D /* 3_1@2x.png in Resources */,
+				09700F7218D9D0DB00F9E26D /* 1_0@2x.png in Resources */,
 				09B508BD18C5BE7900CFF6F1 /* arrow_top@2x.png in Resources */,
 				09D01B1E18C62151007637EB /* overlay_1@2x.png in Resources */,
 				09B897E318C4E35C00D7A20D /* RCMainViewController.xib in Resources */,
@@ -1568,18 +1667,26 @@
 				09ADE14F17E027C0003D0B2B /* display_full_image_button@2x.png in Resources */,
 				09C48F3718D83A9B00774BCB /* btn_share@2x.png in Resources */,
 				09C48F3618D83A9B00774BCB /* btn_select_fav@2x.png in Resources */,
+				09700F7918D9D0DB00F9E26D /* 4_1@2x.png in Resources */,
+				09C9FFAA18D934000027BACE /* more_btn_fav@2x.png in Resources */,
 				09A24A0F18CF1A42005931E4 /* RCMeiShiViewController.xib in Resources */,
 				09ADE15417E028E6003D0B2B /* WRMessageFullImageDisplayController.xib in Resources */,
 				09A24A1918CF1A93005931E4 /* RCXiangCeViewController.xib in Resources */,
 				09C48F3818D83A9B00774BCB /* video_default@2x.png in Resources */,
 				09C48F2D18D812C300774BCB /* Images.xcassets in Resources */,
+				09C9FFC618D9842D0027BACE /* add_pic@2x.png in Resources */,
+				09700F7018D9D0DB00F9E26D /* 0_0@2x.png in Resources */,
 				0988951E17F43DFF00F5AB13 /* Default@2x.png in Resources */,
 				0988952017F43E0600F5AB13 /* Default-568h@2x.png in Resources */,
+				09700F7118D9D0DB00F9E26D /* 0_1@2x.png in Resources */,
 				090D365D1810D3F3006EC3D5 /* RCIndexAdViewController.xib in Resources */,
 				090D36641810DB73006EC3D5 /* RCIndexAdCell0.xib in Resources */,
 				090D366A1810E3B3006EC3D5 /* RCIndexAdCell1.xib in Resources */,
 				09B908EE18C7276400C84CC8 /* zoom_out@2x.png in Resources */,
+				09C9FFAB18D934000027BACE /* more_btn_search@2x.png in Resources */,
 				0979E3B81814BD9E00DDB418 /* RCBaiDuMapViewController.xib in Resources */,
+				09700F7818D9D0DB00F9E26D /* 4_0@2x.png in Resources */,
+				09700F6218D9BE3F00F9E26D /* btn_play@2x.png in Resources */,
 				0979E3BC1814BE6100DDB418 /* mapapi.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1615,6 +1722,7 @@
 				090E3C26170C639200217C33 /* NSObject+SBJSON.m in Sources */,
 				090E3C27170C639200217C33 /* NSString+SBJSON.m in Sources */,
 				090E3C28170C639200217C33 /* SBJSON.m in Sources */,
+				09C9FFA618D92C760027BACE /* RCPopMenuView2.m in Sources */,
 				090E3C29170C639200217C33 /* SBJsonBase.m in Sources */,
 				090E3C2A170C639200217C33 /* SBJsonParser.m in Sources */,
 				090E3C2B170C639200217C33 /* SBJsonWriter.m in Sources */,
@@ -1624,7 +1732,9 @@
 				0920230A172E1855009EAB94 /* CUShareClient.m in Sources */,
 				0920230B172E1855009EAB94 /* CUShareOAuthView.m in Sources */,
 				0920230C172E1855009EAB94 /* CURenrenShareClient.m in Sources */,
+				09C9FFB318D943D70027BACE /* RCFavoriteViewController.m in Sources */,
 				0920230D172E1855009EAB94 /* CUSinaShareClient.m in Sources */,
+				09C9FFB618D96B310027BACE /* RouteAnnotation.m in Sources */,
 				09B508BB18C5AEAA00CFF6F1 /* RCPopMenuView.m in Sources */,
 				0920230E172E1855009EAB94 /* CUTencentShareClient.m in Sources */,
 				0920230F172E1855009EAB94 /* GTMBase64.m in Sources */,
@@ -1657,6 +1767,7 @@
 				09202327172E1855009EAB94 /* WBAuthorize.m in Sources */,
 				09202328172E1855009EAB94 /* WBEngine.m in Sources */,
 				09202329172E1855009EAB94 /* WBLogInAlertView.m in Sources */,
+				09700F6518D9BE8300F9E26D /* RCPlayerMaskView.m in Sources */,
 				0920232A172E1855009EAB94 /* WBRequest.m in Sources */,
 				0920232B172E1855009EAB94 /* WBSendView.m in Sources */,
 				09A24A0418CF0A86005931E4 /* RCJianJieViewController.m in Sources */,
@@ -1683,6 +1794,7 @@
 				09846F9918D72DF700A2E91B /* RCMeiShiCellContentView.m in Sources */,
 				09202379172E2D56009EAB94 /* ASICloudFilesObjectRequest.m in Sources */,
 				0920237A172E2D56009EAB94 /* ASICloudFilesRequest.m in Sources */,
+				09C9FFAF18D935F30027BACE /* RCSearchViewController.m in Sources */,
 				0920237C172E2D56009EAB94 /* Reachability.m in Sources */,
 				09B908BF18C6EE0C00C84CC8 /* RCJingDianViewController.m in Sources */,
 				0920237D172E2D56009EAB94 /* ASIS3Bucket.m in Sources */,
@@ -1694,6 +1806,7 @@
 				09A24A0E18CF1A42005931E4 /* RCMeiShiViewController.m in Sources */,
 				09C48F2918D7EAF000774BCB /* TMPhotoQuiltViewCell.m in Sources */,
 				09202382172E2D56009EAB94 /* ASIS3ServiceRequest.m in Sources */,
+				09C9FFC318D982FD0027BACE /* RCUploadPhotoViewController.m in Sources */,
 				09202386172E2DEB009EAB94 /* JSONKit.m in Sources */,
 				09202389172E2E18009EAB94 /* NSString+URLEncoding.m in Sources */,
 				09AD959D173C8AFA0060B3A5 /* RCPlaceHolderTextView.m in Sources */,
@@ -1707,6 +1820,7 @@
 				0999746717C3013500CC1C0C /* RCHttpRequestManager.m in Sources */,
 				098DA0D217CE47E5009B0728 /* RCTabBar2.m in Sources */,
 				09F871C418C4D0C700FE4E4F /* RCPublicCell.m in Sources */,
+				09C9FFBC18D96D100027BACE /* RCRouteMapViewController.m in Sources */,
 				09A24A0918CF1985005931E4 /* RCJiuDianViewController.m in Sources */,
 				09A24A1318CF1A87005931E4 /* RCYuLeViewController.m in Sources */,
 				09084F2A18C4DBFA0007DAA4 /* RCMainTitleView.m in Sources */,
@@ -1719,7 +1833,7 @@
 				090D36681810E39D006EC3D5 /* RCIndexAdCell1.m in Sources */,
 				090D366D1810FF24006EC3D5 /* RCIndexAdCell2.m in Sources */,
 				090D367518111715006EC3D5 /* RCLinkButton.m in Sources */,
-				0979E3B71814BD9E00DDB418 /* RCBaiDuMapViewController.m in Sources */,
+				0979E3B71814BD9E00DDB418 /* RCBaiDuMapViewController.mm in Sources */,
 				09D01B2218C622AD007637EB /* RCPointOverlayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

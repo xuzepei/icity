@@ -37,9 +37,14 @@
         
         if(nil == _videoIndicator)
         {
-            _videoIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+            _videoIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
             _videoIndicator.hidesWhenStopped = YES;
-            _videoIndicator.center = CGPointMake(160, 120);
+            _videoIndicator.center = CGPointMake(160, 180);
+        }
+        
+        if(nil == _maskView)
+        {
+            _maskView = [[RCPlayerMaskView alloc] initWithFrame:CGRectMake(0, 0, [RCTool getScreenSize].width, VIDEO_HEIGHT)];
         }
     }
     return self;
@@ -67,6 +72,9 @@
     self.shareItem = nil;
     self.favItem = nil;
     
+    self.maskView = nil;
+    self.playButton = nil;
+    
     [super dealloc];
 }
 
@@ -82,6 +90,11 @@
     [super viewWillAppear: animated];
     
     self.title = [self.item objectForKey:@"jd_name"];
+    
+//    if(self.playButton)
+//       [[RCTool frontWindow] addSubview:self.playButton];
+    
+    [self updateContent:self.item];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -89,6 +102,14 @@
     [super viewWillDisappear: animated];
     
     self.title = nil;
+    
+    if(self.videoIndicator)
+        [self.videoIndicator removeFromSuperview];
+    
+    if(self.isPlaying)
+    {
+        [self clickedPlayButton:nil];
+    }
 }
 
 - (void)viewDidLoad
@@ -106,6 +127,8 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
     
     [self initToolbar];
+    
+    [self initButtons];
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,6 +139,9 @@
 
 - (void)updateContent:(NSDictionary*)item
 {
+    if(self.isLoading)
+        return;
+    
     self.item = item;
     
     self.title = [self.item objectForKey:@"jd_name"];
@@ -126,11 +152,19 @@
     NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=jdinfo&jd_id=%@&token=%@",BASE_URL,jd_id,[RCTool getDeviceID]];
     
     RCHttpRequest* temp = [[[RCHttpRequest alloc] init] autorelease];
-    [temp request:urlString delegate:self resultSelector:@selector(finishedContentRequest:) token:nil];
+    BOOL b = [temp request:urlString delegate:self resultSelector:@selector(finishedContentRequest:) token:nil];
+    if(b)
+    {
+        self.isLoading = YES;
+        [RCTool showIndicator:@"请稍候..."];
+    }
 }
 
 - (void)finishedContentRequest:(NSString*)jsonString
 {
+    self.isLoading = NO;
+    [RCTool hideIndicator];
+    
     if(0 == [jsonString length])
         return;
     
@@ -169,7 +203,7 @@
     {
         _videoPlayer =
         [[MPMoviePlayerController alloc]
-         initWithContentURL:[NSURL URLWithString:VIDEO_LIVE_URL]];
+         initWithContentURL:[NSURL URLWithString:@""]];
         
         [_videoPlayer setControlStyle:MPMovieControlStyleNone];
         [_videoPlayer setScalingMode:MPMovieScalingModeFill];
@@ -200,8 +234,37 @@
     
     [self.scrollView addSubview:_videoPlayer.view];
     
-    [_videoPlayer prepareToPlay];
-    [_videoPlayer play];
+//    [_videoPlayer prepareToPlay];
+//    [_videoPlayer play];
+    
+    [self.scrollView addSubview:_maskView];
+}
+
+- (BOOL)play
+{
+    if(nil == self.content)
+        return NO;
+    
+    NSString* urlString = [self.content objectForKey:@"jd_video_m3u8"];
+    
+    if(0 == [urlString length])
+    {
+        return NO;
+    }
+    
+    NSLog(@"video url:%@",urlString);
+    
+    NSURL* url = [NSURL URLWithString:urlString];
+    if(_videoPlayer)
+    {
+        [_videoPlayer setContentURL:url];
+        [_videoPlayer prepareToPlay];
+        [_videoPlayer play];
+        
+        return YES;
+    }
+    
+    return NO;
 }
 
 - (void)moviePlayerLoadStateDidChange:(NSNotification*)notification
@@ -209,9 +272,16 @@
     MPMovieLoadState state = [_videoPlayer loadState];
     if(MPMovieLoadStateUnknown == state || MPMovieLoadStateStalled == state)
     {
+        [self.scrollView addSubview:_maskView];
+        [self.scrollView addSubview:_playButton];
+        
         [self.videoIndicator startAnimating];
+        [[RCTool frontWindow] addSubview:self.videoIndicator];
     }
     else{
+        
+        [_maskView removeFromSuperview];
+        
         [self.videoIndicator stopAnimating];
     }
 }
@@ -299,6 +369,43 @@
 //    }
 }
 
+- (void)initButtons
+{
+    if(nil == _playButton)
+    {
+        self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.playButton.frame = CGRectMake(250, VIDEO_HEIGHT - 60, 60, 60);
+        [self.playButton setImage:[UIImage imageNamed:@"btn_play"] forState:UIControlStateNormal];
+        [self.playButton addTarget:self action:@selector(clickedPlayButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    [_scrollView addSubview:self.playButton];
+}
+
+- (void)clickedPlayButton:(id)sender
+{
+    if(self.isPlaying)
+    {
+        self.isPlaying = NO;
+        
+        [self.playButton setImage:[UIImage imageNamed:@"btn_play"] forState:UIControlStateNormal];
+        
+        if(_videoPlayer)
+        {
+            [_videoPlayer pause];
+        }
+    }
+    else
+    {
+        if([self play])
+        {
+            self.isPlaying = YES;
+            
+            [self.playButton setImage:[UIImage imageNamed:@"btn_pause"] forState:UIControlStateNormal];
+        }
+    }
+}
+
 #pragma mark - Weather
 
 - (void)initWeatherView
@@ -331,10 +438,13 @@
 {
     NSLog(@"clickedFunction:%d",index);
     
+    if(self.isPlaying)
+        [self clickedPlayButton:nil];
+    
     if(0 == index)
     {
         RCJianJieViewController* temp = [[RCJianJieViewController alloc] initWithNibName:nil bundle:nil];
-        [temp updateContent:self.content];
+        [temp updateContent:self.content token:self.item];
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
     }
@@ -375,6 +485,7 @@
     if(nil == _toolbar)
     {
         _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, [RCTool getScreenSize].height - 44, [RCTool getScreenSize].width, 44)];
+        _toolbar.alpha = 0.7;
         
         UIBarButtonItem* fixedSpaceItem0 = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                                                                           target:nil
@@ -433,7 +544,7 @@
                                                               delegate:self
                                                      cancelButtonTitle:@"取消"
                                                 destructiveButtonTitle:nil
-                                                     otherButtonTitles:@"通过新浪微博分享",@"通过腾讯微博分享",nil];
+                                                     otherButtonTitles:@"新浪微博分享",@"腾讯微博分享",nil];
     actionSheet.tag = SHARE_TAG;
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     [actionSheet showFromToolbar:self.toolbar];

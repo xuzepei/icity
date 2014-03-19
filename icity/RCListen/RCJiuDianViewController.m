@@ -10,6 +10,7 @@
 #import "RCHttpRequest.h"
 #import "RCPublicCell.h"
 #import "RCWebViewController.h"
+#import "RCRouteMapViewController.h"
 
 #define HEADER_VIEW_HEIGHT 40.0f
 #define HEADER_BUTTON0_TAG 100
@@ -434,8 +435,8 @@
         return;
     
     NSArray* array = [NSArray arrayWithObject:item];
-    RCJingDianMapViewController* temp = [[RCJingDianMapViewController alloc] initWithNibName:nil bundle:nil];
-    [temp updateContent:array title:[item objectForKey:@"name"]];
+    RCRouteMapViewController* temp = [[RCRouteMapViewController alloc] initWithNibName:nil bundle:nil];
+    [temp updateContent:array title:@"路径规划"];
     [self.navigationController pushViewController:temp animated:YES];
     [temp release];
 }

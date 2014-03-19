@@ -11,6 +11,8 @@
 #import "RCPublicCell.h"
 #import "RCJingDianViewController.h"
 #import "RCWebViewController.h"
+#import "RCSearchViewController.h"
+#import "RCFavoriteViewController.h"
 
 #define AD_HEIGHT 160.0
 
@@ -30,6 +32,8 @@
         _titleMenuArray = [[NSMutableArray alloc] init];
         
         [self initTitleView];
+        
+        [self initPopMenu2];
 
         self.refreshControl = [[[UIRefreshControl alloc] init] autorelease];
         //self.refreshControl.tintColor = [UIColor orangeColor];
@@ -61,6 +65,7 @@
     self.current_jq = nil;
     self.titleView = nil;
     self.popMenuView = nil;
+    self.popMenuView2 = nil;
     
     [super dealloc];
 }
@@ -102,7 +107,13 @@
 
 - (void)clickedRightButtonItem:(id)sender
 {
-    
+    if(_popMenuView2)
+    {
+        if(nil == _popMenuView2.superview)
+            [[RCTool frontWindow] addSubview:_popMenuView2];
+        else
+            [_popMenuView2 removeFromSuperview];
+    }
 }
 
 - (void)updateTitleMenu
@@ -146,11 +157,17 @@
     NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=jdlist&jq_id=%@",BASE_URL,jq_id];
     
     RCHttpRequest* temp = [[[RCHttpRequest alloc] init] autorelease];
-    [temp request:urlString delegate:self resultSelector:@selector(finishedListRequest:) token:nil];
+    BOOL b = [temp request:urlString delegate:self resultSelector:@selector(finishedListRequest:) token:nil];
+    if(b)
+    {
+        [RCTool showIndicator:@"请稍候..."];
+    }
 }
 
 - (void)finishedListRequest:(NSString*)jsonString
 {
+    [RCTool hideIndicator];
+    
     [self.refreshControl endRefreshing];
     
     if(0 == [jsonString length])
@@ -180,7 +197,7 @@
 {
     _titleView = [[RCMainTitleView alloc] initWithFrame:CGRectMake(0, 0, 260, 40)];
     _titleView.delegate = self;
-    [_titleView updateContent:@"首页"];
+    [_titleView updateContent:@"爱城市"];
     self.navigationItem.titleView = _titleView;
 }
 
@@ -204,7 +221,7 @@
 {
     if(nil == _popMenuView)
     {
-        _popMenuView = [[RCPopMenuView alloc] initWithFrame:CGRectMake(110, 50, 100, 200)];
+        _popMenuView = [[RCPopMenuView alloc] initWithFrame:CGRectMake(100, 50, 100, 200)];
         _popMenuView.delegate = self;
     }
     
@@ -230,6 +247,38 @@
 {
     if(_popMenuView && _popMenuView.superview)
         [_popMenuView removeFromSuperview];
+    
+    if(_popMenuView2 && _popMenuView2.superview)
+        [_popMenuView2 removeFromSuperview];
+}
+
+- (void)initPopMenu2
+{
+    if(nil == _popMenuView2)
+    {
+        _popMenuView2 = [[RCPopMenuView2 alloc] initWithFrame:CGRectMake(210, 60, 100, 200)];
+        _popMenuView2.delegate = self;
+    }
+    
+    [_popMenuView2 updateContent];
+}
+
+- (void)clickedPopMenu2Item:(id)token
+{
+    int index = (int)token;
+    if(0 == index)
+    {
+        RCSearchViewController* temp = [[RCSearchViewController alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:temp animated:YES];
+        [temp release];
+    }
+    else if(1 == index)
+    {
+        RCFavoriteViewController* temp = [[RCFavoriteViewController alloc] initWithNibName:nil bundle:nil];
+        //[temp updateContent];
+        [self.navigationController pushViewController:temp animated:YES];
+        [temp release];
+    }
 }
 
 #pragma mark - AdScrollView
@@ -440,7 +489,8 @@
         RCPublicCell* temp = (RCPublicCell*)cell;
         if(temp)
         {
-            [temp updateContent:item cellHeight:[self getCellHeight:indexPath] delegate:self token:nil];
+            NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:indexPath.row] forKey:@"index"];
+            [temp updateContent:item cellHeight:[self getCellHeight:indexPath] delegate:self token:dict];
         }
     }
     

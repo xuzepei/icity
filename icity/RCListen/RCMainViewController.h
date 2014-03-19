@@ -10,10 +10,12 @@
 #import "RCAdScrollView.h"
 #import "RCMainTitleView.h"
 #import "RCPopMenuView.h"
+#import "RCPopMenuView2.h"
 #import "RCMainMapViewController.h"
 
 @interface RCMainViewController : UITableViewController<RCAdScrollViewDelegate,UIAlertViewDelegate,
-RCMainTitleViewDelegate,RCPopMenuViewDelegate>
+RCMainTitleViewDelegate,RCPopMenuViewDelegate
+>
 {
 }
 
@@ -26,6 +28,7 @@ RCMainTitleViewDelegate,RCPopMenuViewDelegate>
 @property(nonatomic,retain)NSDictionary* current_jq;
 @property(nonatomic,retain)RCMainTitleView* titleView;
 @property(nonatomic,retain)RCPopMenuView* popMenuView;
+@property(nonatomic,retain)RCPopMenuView2* popMenuView2;
 @property(nonatomic,retain)NSMutableArray* titleMenuArray;
 
 - (void)initAdScrollView;
