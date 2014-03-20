@@ -18,6 +18,7 @@
 @property(nonatomic,retain)NSMutableArray* imageViewArray;
 @property(assign)NSTimeInterval time;
 @property(nonatomic,retain)NSString* jqid;
+@property(assign)BOOL isUploading;
 
 
 - (IBAction)clickedAddButton:(id)sender;

@@ -78,6 +78,20 @@
     return YES;
 }
 
+- (void)initAddButton
+{
+    if(nil == self.addButton)
+    {
+        self.addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.addButton setImage:[UIImage imageNamed:@"add_pic"] forState:UIControlStateNormal];
+        [self.addButton addTarget:self action:@selector(clickedAddButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    self.addButton.frame = CGRectMake(IMAGE_INTERVAL,OFFSET_HEIGHT, IMAGE_WIDTH, IMAGE_WIDTH);
+
+    [self.view addSubview:self.addButton];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -85,11 +99,7 @@
     
     self.view.backgroundColor = BG_COLOR;
     
-    self.addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.addButton setImage:[UIImage imageNamed:@"add_pic"] forState:UIControlStateNormal];
-    self.addButton.frame = CGRectMake(IMAGE_INTERVAL,OFFSET_HEIGHT, IMAGE_WIDTH, IMAGE_WIDTH);
-    [self.addButton addTarget:self action:@selector(clickedAddButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.addButton];
+    [self initAddButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -246,6 +256,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         return;
     }
     
+    if(_textview)
+        [_textview resignFirstResponder];
+    
     if([_imageUrlArray count])
     {
         NSString* imagePath = [_imageUrlArray objectAtIndex:0];
@@ -261,15 +274,28 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         [request addPostValue:[RCTool getDeviceID] forKey:@"token"];
         [request addPostValue:[NSNumber numberWithDouble:self.time] forKey:@"time"];
         [request addPostValue:self.textview.text forKey:@"desc"];
-        [request addPostValue:self.textview.text forKey:@"jqid"];
+        [request addPostValue:self.jqid forKey:@"jqid"];
         
-        [request setData:imageData withFileName:[RCTool md5:imagePath] andContentType:@"image/png" forKey:@"userpic"];
+        NSString* imageFileName = @"temp.jpg";
+        NSRange range = [imagePath rangeOfString:@"/" options:NSBackwardsSearch];
+        if(range.location != NSNotFound)
+        {
+            imageFileName = [imagePath substringFromIndex:range.location + range.length];
+        }
+        
+        [request setData:imageData withFileName:imageFileName andContentType:@"image/jpg" forKey:@"userpic"];
         
         [request setDelegate:self];
         [request setDidFinishSelector:@selector(uploadRequestFinished:)];
         [request setDidFailSelector:@selector(uploadRequestFailed:)];
         
         [request startAsynchronous];
+        
+        if(NO == self.isUploading)
+        {
+            self.isUploading = YES;
+            [RCTool showIndicator:@"正在上传..."];
+        }
     }
 }
 
@@ -277,29 +303,54 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSString *responseString = [request responseString];
     if([responseString length])
-    NSLog("Upload response %@", responseString);
-    
-    if([_imageUrlArray count])
     {
-        [_imageUrlArray removeObjectAtIndex:0];
-        
-        [self clickedUploadButtonItem:nil];
-    }
-    else
-    {
-        [self clear];
+        NSDictionary* result = [RCTool parseToDictionary: responseString];
+        if(result && [result isKindOfClass:[NSDictionary class]])
+        {
+            if([RCTool hasNoError:result])
+            {
+                if([_imageUrlArray count])
+                {
+                    [_imageUrlArray removeObjectAtIndex:0];
+                    
+                    if([_imageUrlArray count])
+                     [self clickedUploadButtonItem:nil];
+                    else
+                    {
+                        [self clear];
+                        if(_textview)
+                            _textview.text = @"";
+                        [RCTool showAlert:@"提示" message:@"图片上传完成！"];
+                    }
+                }
+                else
+                {
+                    [self clear];
+                    [RCTool showAlert:@"提示" message:@"图片上传完成！"];
+                }
+            }
+            else
+            {
+                [self clear];
+                [RCTool showAlert:@"提示" message:@"图片上传失败！"];
+            }
+        }
     }
 }
 
 - (void)uploadRequestFailed:(ASIHTTPRequest *)request{
     
-    NSLog(@" Error - Statistics file upload failed: \"%@\"",[[request error] localizedDescription]);
+//    NSLog(@" Error - Statistics file upload failed: \"%@\"",[[request error] localizedDescription]);
     
     [self clear];
+    [RCTool showAlert:@"提示" message:@"图片上传失败！"];
 }
 
 - (void)clear
 {
+    self.isUploading = NO;
+    [RCTool hideIndicator];
+    
     [self.imageArray removeAllObjects];
     [self.imageUrlArray removeAllObjects];
     
@@ -310,7 +361,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     [self.imageViewArray removeAllObjects];
     
-    [self rearrange];
+    [self initAddButton];
 }
 
 @end

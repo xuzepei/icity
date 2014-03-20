@@ -86,18 +86,16 @@
 - (void)clickedUploadButtonItem:(id)sender
 {
     NSLog(@"clickedUploadButtonItem");
-    NSString* jq_id = @"";
+    NSString* jd_id = @"";
     if(self.item)
-        jq_id = [self.item objectForKey:@"jd_jq_id"];
+        jd_id = [self.item objectForKey:@"jd_id"];
     
-    if(0 == [jq_id length])
+    if(0 == [jd_id length])
         return;
     
     
     RCUploadPhotoViewController* temp = [[RCUploadPhotoViewController alloc] initWithNibName:nil bundle:nil];
-    if(self.item)
-        jq_id = [self.item objectForKey:@"jd_jq_id"];
-    temp.jqid = jq_id;
+    temp.jqid = jd_id; //用景点id
     [self.navigationController pushViewController:temp animated:YES];
     [temp release];
 }
