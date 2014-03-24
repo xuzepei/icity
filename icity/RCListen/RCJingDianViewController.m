@@ -37,9 +37,9 @@
         
         if(nil == _videoIndicator)
         {
-            _videoIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+            _videoIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
             _videoIndicator.hidesWhenStopped = YES;
-            _videoIndicator.center = CGPointMake(160, 180);
+            _videoIndicator.center = CGPointMake(116, 180);
         }
         
         if(nil == _maskView)
@@ -75,6 +75,9 @@
     self.maskView = nil;
     self.playButton = nil;
     
+    self.shareView = nil;
+    self.cancelShareButton = nil;
+    
     [super dealloc];
 }
 
@@ -103,8 +106,10 @@
     
     self.title = nil;
     
-    if(self.videoIndicator)
-        [self.videoIndicator removeFromSuperview];
+    
+    [self clickedCancelShareButton:nil];
+//    if(self.videoIndicator)
+//        [self.videoIndicator removeFromSuperview];
     
     if(self.isPlaying)
     {
@@ -129,6 +134,20 @@
     [self initToolbar];
     
     [self initButtons];
+    
+    if(self.shareView)
+    {
+        self.shareView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.9];
+        
+        [self.view addSubview:self.shareView];
+    }
+    
+    if(self.cancelShareButton)
+    {
+        self.cancelShareButton.layer.borderColor = [UIColor colorWithRed:0.79 green:0.79 blue:0.79 alpha:1.00].CGColor;
+        self.cancelShareButton.layer.borderWidth = 1;
+        self.cancelShareButton.layer.cornerRadius = 5.0;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -183,6 +202,17 @@
                     NSString* scflag = [self.content objectForKey:@"scflag"];
                     if([scflag isEqualToString:@"1"])
                         self.isFaved = YES;
+                    
+                    if([self play])
+                    {
+                        if(_maskView)
+                        [_maskView.videoIndicator startAnimating];
+//                        [[RCTool frontWindow] addSubview:self.videoIndicator];
+                        
+                        self.isPlaying = YES;
+                        
+                        [self.playButton setImage:[UIImage imageNamed:@"btn_pause"] forState:UIControlStateNormal];
+                    }
                 }
                 
                 [self updateFavBarItem];
@@ -252,6 +282,9 @@
         return NO;
     }
     
+    urlString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    urlString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
     NSLog(@"video url:%@",urlString);
     
     NSURL* url = [NSURL URLWithString:urlString];
@@ -272,17 +305,19 @@
     MPMovieLoadState state = [_videoPlayer loadState];
     if(MPMovieLoadStateUnknown == state || MPMovieLoadStateStalled == state)
     {
+        [_maskView.videoIndicator startAnimating];
         [self.scrollView addSubview:_maskView];
         [self.scrollView addSubview:_playButton];
         
-        [self.videoIndicator startAnimating];
-        [[RCTool frontWindow] addSubview:self.videoIndicator];
+//        [self.videoIndicator startAnimating];
+//        [[RCTool frontWindow] addSubview:self.videoIndicator];
     }
     else{
         
+        [_maskView.videoIndicator stopAnimating];
         [_maskView removeFromSuperview];
         
-        [self.videoIndicator stopAnimating];
+//        [self.videoIndicator stopAnimating];
     }
 }
 
@@ -298,7 +333,9 @@
         }
     }
     
-    [self.videoIndicator stopAnimating];
+    if(_maskView)
+    [_maskView.videoIndicator stopAnimating];
+    //[self.videoIndicator stopAnimating];
 }
 
 - (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer
@@ -540,15 +577,24 @@
 
 - (void)clickedShareButton:(id)sender
 {
-    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作"
-                                                              delegate:self
-                                                     cancelButtonTitle:@"取消"
-                                                destructiveButtonTitle:nil
-                                                     otherButtonTitles:@"新浪微博分享",@"腾讯微博分享",nil];
-    actionSheet.tag = SHARE_TAG;
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-    [actionSheet showFromToolbar:self.toolbar];
-    [actionSheet release];
+//    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作"
+//                                                              delegate:self
+//                                                     cancelButtonTitle:@"取消"
+//                                                destructiveButtonTitle:nil
+//                                                     otherButtonTitles:@"新浪微博分享",@"腾讯微博分享",nil];
+//    actionSheet.tag = SHARE_TAG;
+//    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+//    [actionSheet showFromToolbar:self.toolbar];
+//    [actionSheet release];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        if(self.shareView)
+        {
+            CGRect rect = self.shareView.frame;
+            rect.origin.y = [RCTool getScreenSize].height - 216;
+            self.shareView.frame = rect;
+        }
+    }];
 }
 
 - (void)clickedFavButton:(id)sender
@@ -666,6 +712,30 @@
             }
         }];
     }
+}
+
+- (IBAction)clickedSinaButton:(id)sender
+{
+    [self clickedCancelShareButton:nil];
+    [self shareText:[RCTool getShareText] type:SHT_SINA];
+}
+
+- (IBAction)clickedQQButton:(id)sender
+{
+    [self clickedCancelShareButton:nil];
+        [self shareText:[RCTool getShareText] type:SHT_QQ];
+}
+
+- (IBAction)clickedCancelShareButton:(id)sender
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        if(self.shareView)
+        {
+            CGRect rect = self.shareView.frame;
+            rect.origin.y = [RCTool getScreenSize].height;
+            self.shareView.frame = rect;
+        }
+    }];
 }
 
 @end

@@ -116,6 +116,6 @@ typedef enum{
 #define TEST_MODE @"01"
 #define PRO_MODE @"00"
 
-#define VIDEO_LIVE_URL @"http://ios.m3u8.iwreader.com:1935/SRT_Live/WRADIO.stream/playlist.m3u8"
+#define VIDEO_LIVE_URL @"http://182.140.244.13:8000/JQ/04007/playlist.m3u8"
 
 #define BAIDU_MAP_KEY @"jiGOmsk5zpWZU2EemWHj14o4"

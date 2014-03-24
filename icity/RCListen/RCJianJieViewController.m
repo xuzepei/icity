@@ -50,10 +50,44 @@
     rect.origin.y = NAVIGATION_BAR_HEIGHT;
     self.imageView.frame = rect;
     
-    self.textView.text = [self.item objectForKey:@"jd_desc"];
-    rect = self.textView.frame;
-    rect.size.height = [RCTool getScreenSize].height - NAVIGATION_BAR_HEIGHT - 160;
-    self.textView.frame = rect;
+    
+    if(nil == self.textView)
+    {
+        _textView = [[UITextView alloc] initWithFrame:CGRectMake(5, 228, 310, [RCTool getScreenSize].height - 228)];
+    }
+    
+    [self.view addSubview:self.textView];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.firstLineHeadIndent = 12.f;
+    paragraphStyle.alignment = NSTextAlignmentJustified;
+    
+    NSString* content = [self.item objectForKey:@"jd_desc"];
+    if(0 == [content length])
+        content = @"";
+    else{
+        if([content hasPrefix:@"  "])
+        {
+            NSRange range = [content rangeOfString:@"  "];
+            content = [content substringFromIndex:range.location + range.length];
+        }
+        else if([content hasPrefix:@"  "])
+        {
+            NSRange range = [content rangeOfString:@"  "];
+            if(range.location != NSNotFound)
+            {
+                content = [content substringFromIndex:range.location + range.length];
+            }
+        }
+  
+        content = [NSString stringWithFormat:@"       %@",content];
+    }
+    
+//    NSDictionary *attributes = @{NSParagraphStyleAttributeName:paragraphStyle};
+//    _textView.attributedText = [[NSAttributedString alloc]initWithString:content attributes:attributes];
+    
+    _textView.font = [UIFont systemFontOfSize:16];
+    _textView.text = content;
     
     NSString* imageUrl = [self.item objectForKey:@"jd_picurl"];
     UIImage* image = [RCTool getImageFromLocal:imageUrl];

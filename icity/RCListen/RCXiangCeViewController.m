@@ -323,11 +323,7 @@
 
 - (void)initGalleryController
 {
-    if(nil == _galleryController)
-    {
-        _galleryController = [[FGalleryViewController alloc] initWithPhotoSource:self];
-    }
-    
+    self.galleryController = [[[FGalleryViewController alloc] initWithPhotoSource:self] autorelease];
     
     [self.navigationController pushViewController:_galleryController animated:YES];
 }

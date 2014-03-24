@@ -10,5 +10,7 @@
 
 @interface RCPlayerMaskView : UIView
 
+@property(nonatomic,retain)UIActivityIndicatorView* videoIndicator;
+
 
 @end

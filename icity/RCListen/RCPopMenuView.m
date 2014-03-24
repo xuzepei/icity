@@ -63,7 +63,7 @@
         NSString* text = [item objectForKey:@"jq_name"];
         [text drawInRect:CGRectMake(3, offset_y + 5, self.bounds.size.width - 6, 20) withFont:[UIFont systemFontOfSize:14] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentCenter];
         
-        [[UIColor grayColor] set];
+        [[UIColor colorWithRed:0.79 green:0.79 blue:0.79 alpha:1.00] set];
         UIRectFill(CGRectMake(6, offset_y + 29, self.bounds.size.width -12, 1));
         
         offset_y += ITEM_HEIGHT;

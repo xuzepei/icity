@@ -104,6 +104,7 @@
 		0920238F172E38B5009EAB94 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0920238E172E38B5009EAB94 /* libz.dylib */; };
 		092A477218C4E5F9001C2B3C /* list_item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 092A477018C4E5F9001C2B3C /* list_item@2x.png */; };
 		092A477318C4E5F9001C2B3C /* map_item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 092A477118C4E5F9001C2B3C /* map_item@2x.png */; };
+		092B783618DE895800CBD7BB /* RCPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 092B783518DE895800CBD7BB /* RCPointAnnotation.m */; };
 		093D11F216F04E120077CC9A /* RCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 093D11F116F04E120077CC9A /* RCPickerView.m */; };
 		093D11F516F06FFA0077CC9A /* RCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 093D11F416F06FFA0077CC9A /* RCSearchCell.m */; };
 		0941EEBA16EB8DE200327D1A /* RCHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0941EEB916EB8DE200327D1A /* RCHttpRequest.m */; };
@@ -234,6 +235,10 @@
 		09FF093116EC25750083CE91 /* RCAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FF093016EC25750083CE91 /* RCAdView.m */; };
 		09FF093616EC2E6E0083CE91 /* RCImageHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FF093316EC2E6E0083CE91 /* RCImageHttpRequest.m */; };
 		09FF093716EC2E6E0083CE91 /* RCImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FF093516EC2E6E0083CE91 /* RCImageLoader.m */; };
+		09FF4B1718DFDF550017AA03 /* RCVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FF4B1618DFDF550017AA03 /* RCVideoIndicatorView.m */; };
+		09FF4B1A18DFFFFA0017AA03 /* RCShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FF4B1918DFFFFA0017AA03 /* RCShareView.m */; };
+		09FF4B1F18E001550017AA03 /* btn_qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FF4B1D18E001550017AA03 /* btn_qq.png */; };
+		09FF4B2018E001550017AA03 /* btn_sina.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FF4B1E18E001550017AA03 /* btn_sina.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -442,6 +447,8 @@
 		0920238E172E38B5009EAB94 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		092A477018C4E5F9001C2B3C /* list_item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_item@2x.png"; sourceTree = "<group>"; };
 		092A477118C4E5F9001C2B3C /* map_item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_item@2x.png"; sourceTree = "<group>"; };
+		092B783418DE895800CBD7BB /* RCPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPointAnnotation.h; sourceTree = "<group>"; };
+		092B783518DE895800CBD7BB /* RCPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPointAnnotation.m; sourceTree = "<group>"; };
 		093D11F016F04E120077CC9A /* RCPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPickerView.h; sourceTree = "<group>"; };
 		093D11F116F04E120077CC9A /* RCPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPickerView.m; sourceTree = "<group>"; };
 		093D11F316F06FFA0077CC9A /* RCSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCSearchCell.h; sourceTree = "<group>"; };
@@ -670,6 +677,12 @@
 		09FF093316EC2E6E0083CE91 /* RCImageHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCImageHttpRequest.m; sourceTree = "<group>"; };
 		09FF093416EC2E6E0083CE91 /* RCImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCImageLoader.h; sourceTree = "<group>"; };
 		09FF093516EC2E6E0083CE91 /* RCImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCImageLoader.m; sourceTree = "<group>"; };
+		09FF4B1518DFDF550017AA03 /* RCVideoIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCVideoIndicatorView.h; sourceTree = "<group>"; };
+		09FF4B1618DFDF550017AA03 /* RCVideoIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCVideoIndicatorView.m; sourceTree = "<group>"; };
+		09FF4B1818DFFFFA0017AA03 /* RCShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCShareView.h; sourceTree = "<group>"; };
+		09FF4B1918DFFFFA0017AA03 /* RCShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCShareView.m; sourceTree = "<group>"; };
+		09FF4B1D18E001550017AA03 /* btn_qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_qq.png; sourceTree = "<group>"; };
+		09FF4B1E18E001550017AA03 /* btn_sina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_sina.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1229,6 +1242,10 @@
 				09C9FFC118D982FD0027BACE /* RCUploadPhotoViewController.m */,
 				09700F6318D9BE8300F9E26D /* RCPlayerMaskView.h */,
 				09700F6418D9BE8300F9E26D /* RCPlayerMaskView.m */,
+				09FF4B1518DFDF550017AA03 /* RCVideoIndicatorView.h */,
+				09FF4B1618DFDF550017AA03 /* RCVideoIndicatorView.m */,
+				09FF4B1818DFFFFA0017AA03 /* RCShareView.h */,
+				09FF4B1918DFFFFA0017AA03 /* RCShareView.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1251,6 +1268,8 @@
 		095C59C816AF804200F7B949 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				09FF4B1D18E001550017AA03 /* btn_qq.png */,
+				09FF4B1E18E001550017AA03 /* btn_sina.png */,
 				09700F6618D9D0DB00F9E26D /* 0_0@2x.png */,
 				09700F6718D9D0DB00F9E26D /* 0_1@2x.png */,
 				09700F6818D9D0DB00F9E26D /* 1_0@2x.png */,
@@ -1307,6 +1326,8 @@
 				09D01B2118C622AD007637EB /* RCPointOverlayView.m */,
 				09C9FFB418D96B310027BACE /* RouteAnnotation.h */,
 				09C9FFB518D96B310027BACE /* RouteAnnotation.m */,
+				092B783418DE895800CBD7BB /* RCPointAnnotation.h */,
+				092B783518DE895800CBD7BB /* RCPointAnnotation.m */,
 			);
 			path = BaiDuMap;
 			sourceTree = "<group>";
@@ -1627,6 +1648,7 @@
 			files = (
 				09A24A1418CF1A87005931E4 /* RCYuLeViewController.xib in Resources */,
 				0941EED116EB95B800327D1A /* iCity-Info.plist in Resources */,
+				09FF4B1F18E001550017AA03 /* btn_qq.png in Resources */,
 				09B908E518C7195A00C84CC8 /* function_bg@2x.png in Resources */,
 				09A24A0518CF0A86005931E4 /* RCJianJieViewController.xib in Resources */,
 				0950B94216F17F020039D561 /* fangdai@2x.png in Resources */,
@@ -1648,6 +1670,7 @@
 				0920237B172E2D56009EAB94 /* README-GHUnit in Resources */,
 				09B508C318C5D80300CFF6F1 /* RCMainMapViewController.xib in Resources */,
 				09700F7718D9D0DB00F9E26D /* 3_1@2x.png in Resources */,
+				09FF4B2018E001550017AA03 /* btn_sina.png in Resources */,
 				09700F7218D9D0DB00F9E26D /* 1_0@2x.png in Resources */,
 				09B508BD18C5BE7900CFF6F1 /* arrow_top@2x.png in Resources */,
 				09D01B1E18C62151007637EB /* overlay_1@2x.png in Resources */,
@@ -1705,6 +1728,7 @@
 				09CF7F3716A3ECFF0050A603 /* TBXML.m in Sources */,
 				0941EEBA16EB8DE200327D1A /* RCHttpRequest.m in Sources */,
 				09FF092E16EC22920083CE91 /* RCAdScrollView.m in Sources */,
+				09FF4B1718DFDF550017AA03 /* RCVideoIndicatorView.m in Sources */,
 				09FF093116EC25750083CE91 /* RCAdView.m in Sources */,
 				09FF093616EC2E6E0083CE91 /* RCImageHttpRequest.m in Sources */,
 				09FF093716EC2E6E0083CE91 /* RCImageLoader.m in Sources */,
@@ -1752,6 +1776,7 @@
 				09202319172E1855009EAB94 /* ROAlbumsInfoRequestParam.m in Sources */,
 				0920231A172E1855009EAB94 /* ROGetFriendsInfoRequestParam.m in Sources */,
 				0920231B172E1855009EAB94 /* ROGetFriendsRequestParam.m in Sources */,
+				09FF4B1A18DFFFFA0017AA03 /* RCShareView.m in Sources */,
 				0920231C172E1855009EAB94 /* ROPasswordFlowRequestParam.m in Sources */,
 				0920231D172E1855009EAB94 /* RORequestParam.m in Sources */,
 				0920231E172E1855009EAB94 /* ROUserInfoRequestParam.m in Sources */,
@@ -1778,6 +1803,7 @@
 				0920236B172E2D56009EAB94 /* ASIAuthenticationDialog.m in Sources */,
 				0920236C172E2D56009EAB94 /* ASIDataCompressor.m in Sources */,
 				0920236D172E2D56009EAB94 /* ASIDataDecompressor.m in Sources */,
+				092B783618DE895800CBD7BB /* RCPointAnnotation.m in Sources */,
 				0920236E172E2D56009EAB94 /* ASIDownloadCache.m in Sources */,
 				09D01B2818C635E5007637EB /* RCShareTextViewController.m in Sources */,
 				09B908E818C7198700C84CC8 /* RCFunctionView.m in Sources */,

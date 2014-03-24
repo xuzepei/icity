@@ -263,6 +263,10 @@
     
     self.pageno = 0;
     
+    [self.itemArray removeAllObjects];
+    if(self.tableView)
+        [self.tableView reloadData];
+    
     [self updateContent:self.item];
     
 }

@@ -227,7 +227,7 @@
 	[_container addSubview:_thumbsView];
 	
 	[_innerContainer addSubview:_scroller];
-	[_innerContainer addSubview:_toolbar];
+	//[_innerContainer addSubview:_toolbar];
 	
 	[_toolbar addSubview:_captionContainer];
 	[_captionContainer addSubview:_caption];

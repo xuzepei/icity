@@ -17,7 +17,7 @@
 
 @property(nonatomic,retain)NSDictionary* item;
 @property(nonatomic,retain)IBOutlet UIImageView* imageView;
-@property(nonatomic,retain)IBOutlet UITextView* textView;
+@property(nonatomic,retain)UITextView* textView;
 @property(nonatomic,retain)UIImage* image;
 
 @property(nonatomic,retain)UIToolbar* toolbar;

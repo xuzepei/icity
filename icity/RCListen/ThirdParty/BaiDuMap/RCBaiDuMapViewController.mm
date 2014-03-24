@@ -9,6 +9,9 @@
 #import "RCBaiDuMapViewController.h"
 #import "RCPointOverlayView.h"
 #import "RouteAnnotation.h"
+#import "RCPointAnnotation.h"
+#import "RCJingDianViewController.h"
+#import "RCWebViewController.h"
 
 #define MYBUNDLE_NAME @ "mapapi.bundle"
 #define MYBUNDLE_PATH [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: MYBUNDLE_NAME]
@@ -168,7 +171,7 @@
         if(0 == [title length])
             title = [point objectForKey:@"name"];
         
-        [self addAnnotation:address title:title];
+        [self addAnnotation:address title:title token:point];
     }
     
 }
@@ -182,18 +185,19 @@
 
 #pragma mark - Annotation
 
-- (void)addAnnotation:(NSString*)address title:(NSString*)title
+- (void)addAnnotation:(NSString*)address title:(NSString*)title token:(id)token
 {
     NSArray* array = [address componentsSeparatedByString:@","];
     if(2 == [array count])
     {
         // 添加一个PointAnnotation
-        BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
+        RCPointAnnotation* annotation = [[RCPointAnnotation alloc]init];
         CLLocationCoordinate2D coor;
         coor.latitude = [[array objectAtIndex:1] floatValue];
         coor.longitude = [[array objectAtIndex:0] floatValue];
         annotation.coordinate = coor;
         annotation.title = title;
+        annotation.token = token;
         [self.mapView addAnnotation:annotation];
         [annotation release];
     }
@@ -210,12 +214,53 @@
     {
         BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotation.title];
         //newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
+        newAnnotationView.canShowCallout = NO;
         newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
         return [newAnnotationView autorelease];
     }
 
 
     return nil;
+}
+
+- (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view
+{
+    NSLog(@"didSelectAnnotationView");
+    
+    if([view.annotation isKindOfClass:[RCPointAnnotation class]])
+    {
+        RCPointAnnotation* annotation = ( RCPointAnnotation*)view.annotation;
+        NSDictionary* token = (NSDictionary*)annotation.token;
+        if(token && [token isKindOfClass:[NSDictionary class]])
+        {
+            NSLog(@"token:%@",token);
+            
+            NSString* jd_gps = [token objectForKey:@"jd_gps"];
+            if([jd_gps length])
+            {
+                RCJingDianViewController* controller = [[RCJingDianViewController alloc] initWithNibName:nil bundle:nil];
+                [controller updateContent:token];
+                [self.navigationController pushViewController:controller animated:YES];
+                [controller release];
+            }
+            else
+            {
+                NSString* gps = [token objectForKey:@"gps"];
+                if([gps length])
+                {
+                    NSString* urlString = [token objectForKey:@"url"];
+                    if([urlString isKindOfClass:[NSString class]] && [urlString length])
+                    {
+                        RCWebViewController* temp = [[RCWebViewController alloc] init:YES];
+                        temp.hidesBottomBarWhenPushed = YES;
+                        [temp updateContent:urlString title:[token objectForKey:@"name"]];
+                        [self.navigationController pushViewController:temp animated:YES];
+                        [temp release];
+                    }
+                }
+            }
+        }
+    }
 }
 
 #pragma mark - addOverlay

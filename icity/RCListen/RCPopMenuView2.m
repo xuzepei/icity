@@ -75,7 +75,7 @@
         
         if(i < [self.itemArray count] - 1)
         {
-            [[UIColor grayColor] set];
+            [[UIColor colorWithRed:0.79 green:0.79 blue:0.79 alpha:1.00] set];
             UIRectFill(CGRectMake(6, offset_y + 27, self.bounds.size.width -12, 1));
         }
         

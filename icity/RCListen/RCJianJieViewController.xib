@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RCJianJieViewController">
             <connections>
                 <outlet property="imageView" destination="OQk-AO-mlx" id="LbL-gf-uLN"/>
-                <outlet property="textView" destination="jdd-Th-7E5" id="qDQ-Na-6po"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -21,13 +20,6 @@
                     <rect key="frame" x="0.0" y="60" width="320" height="160"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="jdd-Th-7E5">
-                    <rect key="frame" x="5" y="228" width="310" height="249"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

@@ -34,6 +34,13 @@
 @property(assign)BOOL isPlaying;
 @property(assign)BOOL isLoading;
 
+@property(nonatomic,retain)IBOutlet UIView* shareView;
+@property(nonatomic,retain)IBOutlet UIButton* cancelShareButton;
+
 - (void)updateContent:(NSDictionary*)item;
+
+- (IBAction)clickedSinaButton:(id)sender;
+- (IBAction)clickedQQButton:(id)sender;
+- (IBAction)clickedCancelShareButton:(id)sender;
 
 @end

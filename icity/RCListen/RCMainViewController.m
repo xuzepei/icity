@@ -79,6 +79,8 @@
     [self updateTitleMenu];
     
     [self updateAd];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -197,7 +199,7 @@
 {
     _titleView = [[RCMainTitleView alloc] initWithFrame:CGRectMake(0, 0, 260, 40)];
     _titleView.delegate = self;
-    [_titleView updateContent:@"爱城市"];
+    [_titleView updateContent:@"成都"];
     self.navigationItem.titleView = _titleView;
 }
 
