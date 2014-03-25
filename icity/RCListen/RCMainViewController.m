@@ -227,7 +227,7 @@
 {
     if(nil == _popMenuView)
     {
-        _popMenuView = [[RCPopMenuView alloc] initWithFrame:CGRectMake(100, 50, 100, 200)];
+        _popMenuView = [[RCPopMenuView alloc] initWithFrame:CGRectMake(110, 50, 100, 200)];
         _popMenuView.delegate = self;
     }
     
