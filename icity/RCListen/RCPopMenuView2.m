@@ -63,8 +63,10 @@
         
         UIImage* image = nil;
         if(0 == i)
-            image = [UIImage imageNamed:@"more_btn_search"];
+            image = [UIImage imageNamed:@"map_item"];
         else if(1 == i)
+            image = [UIImage imageNamed:@"more_btn_search"];
+        else if(2 == i)
             image = [UIImage imageNamed:@"more_btn_fav"];
         
         [image drawInRect:CGRectMake(16, offset_y, 18, 18)];
@@ -86,10 +88,10 @@
 
 - (void)updateContent
 {
-    self.itemArray = [NSArray arrayWithObjects:@"搜索",@"收藏夹",nil];
+    self.itemArray = [NSArray arrayWithObjects:@"地图",@"搜索",@"收藏夹",nil];
     
     CGRect rect = self.frame;
-    rect.size.height = [self.itemArray count] * ITEM_HEIGHT + 30;
+    rect.size.height = [self.itemArray count] * ITEM_HEIGHT + 36;
     self.frame = rect;
     
     [self setNeedsDisplay];
@@ -105,7 +107,7 @@
     if(y > 0)
     {
         int index = floor(y/ITEM_HEIGHT);
-        //NSLog(@"index:%d",index);
+        NSLog(@"index:%d",index);
         
         if(self.delegate && [self.delegate respondsToSelector:@selector(clickedPopMenu2Item:)])
         {

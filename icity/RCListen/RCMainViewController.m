@@ -40,7 +40,7 @@
         //self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
         [self.refreshControl addTarget:self action:@selector(updateContent) forControlEvents:UIControlEventValueChanged];
         
-        UIImage *image = [UIImage imageNamed:@"map_item"];
+        UIImage *image = [UIImage imageNamed:@"back_button"];
         image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         UIBarButtonItem* leftItem = [[[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(clickedLeftButtonItem:)] autorelease];
         
@@ -98,13 +98,7 @@
 
 - (void)clickedLeftButtonItem:(id)sender
 {
-    if(self.current_jq)
-    {
-        RCMainMapViewController* temp = [[RCMainMapViewController alloc] initWithNibName:nil bundle:nil];
-        [temp updateContent:self.current_jq titleMenu:self.titleMenuArray];
-        [self.navigationController pushViewController:temp animated:YES];
-        [temp release];
-    }
+
 }
 
 - (void)clickedRightButtonItem:(id)sender
@@ -112,7 +106,12 @@
     if(_popMenuView2)
     {
         if(nil == _popMenuView2.superview)
+        {
             [[RCTool frontWindow] addSubview:_popMenuView2];
+            
+            if(_popMenuView && _popMenuView.superview)
+                [_popMenuView removeFromSuperview];
+        }
         else
             [_popMenuView2 removeFromSuperview];
     }
@@ -210,7 +209,12 @@
         if(_popMenuView)
         {
             if(nil == _popMenuView.superview)
+            {
                 [[RCTool frontWindow] addSubview:_popMenuView];
+                
+                if(_popMenuView2 && _popMenuView2.superview)
+                    [_popMenuView2 removeFromSuperview];
+            }
             else
                 [_popMenuView removeFromSuperview];
         }
@@ -270,11 +274,21 @@
     int index = (int)token;
     if(0 == index)
     {
+        if(self.current_jq)
+        {
+            RCMainMapViewController* temp = [[RCMainMapViewController alloc] initWithNibName:nil bundle:nil];
+            [temp updateContent:self.current_jq titleMenu:self.titleMenuArray];
+            [self.navigationController pushViewController:temp animated:YES];
+            [temp release];
+        }
+    }
+    else if(1 == index)
+    {
         RCSearchViewController* temp = [[RCSearchViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
     }
-    else if(1 == index)
+    else if(2 == index)
     {
         RCFavoriteViewController* temp = [[RCFavoriteViewController alloc] initWithNibName:nil bundle:nil];
         //[temp updateContent];

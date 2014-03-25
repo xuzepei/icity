@@ -143,6 +143,7 @@
 		098ACAF2170084C4005BDCC8 /* FGalleryPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 098ACAEE170084C4005BDCC8 /* FGalleryPhotoView.m */; };
 		098ACAF3170084C4005BDCC8 /* FGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 098ACAF0170084C4005BDCC8 /* FGalleryViewController.m */; };
 		098DA0D217CE47E5009B0728 /* RCTabBar2.m in Sources */ = {isa = PBXBuildFile; fileRef = 098DA0D117CE47E5009B0728 /* RCTabBar2.m */; };
+		098DA28318E022AA0044B972 /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 098DA28218E022AA0044B972 /* back_button@2x.png */; };
 		0999746717C3013500CC1C0C /* RCHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0999746617C3013500CC1C0C /* RCHttpRequestManager.m */; };
 		099B1AFF16EF75E700984120 /* RCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B1AFE16EF75E700984120 /* RCTabBar.m */; };
 		09A24A0418CF0A86005931E4 /* RCJianJieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A24A0218CF0A86005931E4 /* RCJianJieViewController.m */; };
@@ -538,6 +539,7 @@
 		098ACAF0170084C4005BDCC8 /* FGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGalleryViewController.m; sourceTree = "<group>"; };
 		098DA0D017CE47E5009B0728 /* RCTabBar2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTabBar2.h; sourceTree = "<group>"; };
 		098DA0D117CE47E5009B0728 /* RCTabBar2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTabBar2.m; sourceTree = "<group>"; };
+		098DA28218E022AA0044B972 /* back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button@2x.png"; sourceTree = "<group>"; };
 		0999746517C3013500CC1C0C /* RCHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHttpRequestManager.h; sourceTree = "<group>"; };
 		0999746617C3013500CC1C0C /* RCHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHttpRequestManager.m; sourceTree = "<group>"; };
 		099B1AFD16EF75E700984120 /* RCTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTabBar.h; sourceTree = "<group>"; };
@@ -1268,6 +1270,7 @@
 		095C59C816AF804200F7B949 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				098DA28218E022AA0044B972 /* back_button@2x.png */,
 				09FF4B1D18E001550017AA03 /* btn_qq.png */,
 				09FF4B1E18E001550017AA03 /* btn_sina.png */,
 				09700F6618D9D0DB00F9E26D /* 0_0@2x.png */,
@@ -1669,6 +1672,7 @@
 				0915D38D170DABA500D86E9A /* done.caf in Resources */,
 				0920237B172E2D56009EAB94 /* README-GHUnit in Resources */,
 				09B508C318C5D80300CFF6F1 /* RCMainMapViewController.xib in Resources */,
+				098DA28318E022AA0044B972 /* back_button@2x.png in Resources */,
 				09700F7718D9D0DB00F9E26D /* 3_1@2x.png in Resources */,
 				09FF4B2018E001550017AA03 /* btn_sina.png in Resources */,
 				09700F7218D9D0DB00F9E26D /* 1_0@2x.png in Resources */,
