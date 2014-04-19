@@ -60,10 +60,27 @@
     }
     
     NSString* temp0 = [self.item objectForKey:@"tq_d1_min"];
+    temp0 = [temp0 stringByReplacingOccurrencesOfString:@"℃" withString:@""];
+    temp0 = [temp0 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp0 = [temp0 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
     NSString* temp1 = [self.item objectForKey:@"tq_d1_max"];
+    temp1 = [temp1 stringByReplacingOccurrencesOfString:@"℃" withString:@""];
+    temp1 = [temp1 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 = [temp1 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
     if([temp0 length] && [temp1 length])
     {
-        NSString* temp = [NSString stringWithFormat:@"%@ ~ %@",temp0,temp1];
+        NSString* temp = @"";
+        if([temp0 floatValue] <= [temp1 floatValue])
+        {
+            temp = [NSString stringWithFormat:@"%@℃ ~ %@℃",temp0,temp1];
+        }
+        else
+        {
+            temp = [NSString stringWithFormat:@"%@℃ ~ %@℃",temp1,temp0];
+        }
+        
         [temp drawAtPoint:CGPointMake(offset_x, (self.bounds.size.height - 16)/2.0) withFont:[UIFont systemFontOfSize:16]];
     }
     
@@ -76,11 +93,30 @@
     
     temp0 = [self.item objectForKey:@"tq_d2_min"];
     temp1 = [self.item objectForKey:@"tq_d2_max"];
+    
+    temp0 = [temp0 stringByReplacingOccurrencesOfString:@"℃" withString:@""];
+    temp0 = [temp0 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp0 = [temp0 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    temp1 = [temp1 stringByReplacingOccurrencesOfString:@"℃" withString:@""];
+    temp1 = [temp1 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 = [temp1 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
     if([temp0 length] && [temp1 length])
     {
         [@"明天" drawAtPoint:CGPointMake(offset_x + 16,self.bounds.size.height - 30) withFont:[UIFont systemFontOfSize:10]];
         
-        NSString* temp = [NSString stringWithFormat:@"%@ ~ %@",temp0,temp1];
+        
+        NSString* temp = @"";
+        if([temp0 floatValue] <= [temp1 floatValue])
+        {
+            temp = [NSString stringWithFormat:@"%@℃ ~ %@℃",temp0,temp1];
+        }
+        else
+        {
+            temp = [NSString stringWithFormat:@"%@℃ ~ %@℃",temp1,temp0];
+        }
+
         [temp drawAtPoint:CGPointMake(offset_x,self.bounds.size.height - 16) withFont:[UIFont systemFontOfSize:10]];
     }
     
@@ -93,11 +129,30 @@
     
     temp0 = [self.item objectForKey:@"tq_d3_min"];
     temp1 = [self.item objectForKey:@"tq_d3_max"];
+    
+    temp0 = [temp0 stringByReplacingOccurrencesOfString:@"℃" withString:@""];
+    temp0 = [temp0 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp0 = [temp0 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    temp1 = [temp1 stringByReplacingOccurrencesOfString:@"℃" withString:@""];
+    temp1 = [temp1 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    temp1 = [temp1 stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
     if([temp0 length] && [temp1 length])
     {
         [@"后天" drawAtPoint:CGPointMake(offset_x + 16,self.bounds.size.height - 30) withFont:[UIFont systemFontOfSize:10]];
         
-        NSString* temp = [NSString stringWithFormat:@"%@ ~ %@",temp0,temp1];
+        
+        NSString* temp = @"";
+        if([temp0 floatValue] <= [temp1 floatValue])
+        {
+            temp = [NSString stringWithFormat:@"%@℃ ~ %@℃",temp0,temp1];
+        }
+        else
+        {
+            temp = [NSString stringWithFormat:@"%@℃ ~ %@℃",temp1,temp0];
+        }
+        
         [temp drawAtPoint:CGPointMake(offset_x,self.bounds.size.height - 16) withFont:[UIFont systemFontOfSize:10]];
     }
 }

@@ -285,11 +285,22 @@
     urlString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@""];
     urlString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@""];
     
+    //urlString = @"http://shop.4gfy.com/static/banner/icity.mp4";
+    BOOL isMP4 = NO;
+    NSRange range = [urlString rangeOfString:@".mp4" options:NSBackwardsSearch|NSCaseInsensitiveSearch];
+    if(range.location != NSNotFound)
+        isMP4 = YES;
+    
     NSLog(@"video url:%@",urlString);
     
     NSURL* url = [NSURL URLWithString:urlString];
     if(_videoPlayer)
     {
+        if(isMP4)
+            _videoPlayer.repeatMode = MPMovieRepeatModeOne;
+        else
+            _videoPlayer.repeatMode = MPMovieRepeatModeNone;
+        
         [_videoPlayer setContentURL:url];
         [_videoPlayer prepareToPlay];
         [_videoPlayer play];
