@@ -36,43 +36,6 @@
 		0915D38A170DAA8800D86E9A /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0915D389170DAA8800D86E9A /* libiconv.dylib */; };
 		0915D38D170DABA500D86E9A /* done.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0915D38C170DABA500D86E9A /* done.caf */; };
 		0915D390170DAFEC00D86E9A /* RCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0915D38F170DAFEC00D86E9A /* RCWebViewController.m */; };
-		09202309172E1855009EAB94 /* CUShareCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022AC172E1855009EAB94 /* CUShareCenter.m */; };
-		0920230A172E1855009EAB94 /* CUShareClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022AE172E1855009EAB94 /* CUShareClient.m */; };
-		0920230B172E1855009EAB94 /* CUShareOAuthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022B0172E1855009EAB94 /* CUShareOAuthView.m */; };
-		0920230C172E1855009EAB94 /* CURenrenShareClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022B3172E1855009EAB94 /* CURenrenShareClient.m */; };
-		0920230D172E1855009EAB94 /* CUSinaShareClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022B6172E1855009EAB94 /* CUSinaShareClient.m */; };
-		0920230E172E1855009EAB94 /* CUTencentShareClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022B9172E1855009EAB94 /* CUTencentShareClient.m */; };
-		0920230F172E1855009EAB94 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022BE172E1855009EAB94 /* GTMBase64.m */; };
-		09202310172E1855009EAB94 /* GCDMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022C2172E1855009EAB94 /* GCDMulticastDelegate.m */; };
-		09202311172E1855009EAB94 /* Renren.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022C5172E1855009EAB94 /* Renren.m */; };
-		09202312172E1855009EAB94 /* ROBaseDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022C9172E1855009EAB94 /* ROBaseDialogViewController.m */; };
-		09202313172E1855009EAB94 /* ROCheckDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022CB172E1855009EAB94 /* ROCheckDialogViewController.m */; };
-		09202314172E1855009EAB94 /* ROWebDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022CD172E1855009EAB94 /* ROWebDialogViewController.m */; };
-		09202315172E1855009EAB94 /* ROError.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022D0172E1855009EAB94 /* ROError.m */; };
-		09202316172E1855009EAB94 /* ROBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022D3172E1855009EAB94 /* ROBaseNavigationViewController.m */; };
-		09202317172E1855009EAB94 /* ROCheckNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022D5172E1855009EAB94 /* ROCheckNavigationViewController.m */; };
-		09202318172E1855009EAB94 /* ROWebNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022D7172E1855009EAB94 /* ROWebNavigationViewController.m */; };
-		09202319172E1855009EAB94 /* ROAlbumsInfoRequestParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022DB172E1855009EAB94 /* ROAlbumsInfoRequestParam.m */; };
-		0920231A172E1855009EAB94 /* ROGetFriendsInfoRequestParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022DD172E1855009EAB94 /* ROGetFriendsInfoRequestParam.m */; };
-		0920231B172E1855009EAB94 /* ROGetFriendsRequestParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022DF172E1855009EAB94 /* ROGetFriendsRequestParam.m */; };
-		0920231C172E1855009EAB94 /* ROPasswordFlowRequestParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022E1172E1855009EAB94 /* ROPasswordFlowRequestParam.m */; };
-		0920231D172E1855009EAB94 /* RORequestParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022E3172E1855009EAB94 /* RORequestParam.m */; };
-		0920231E172E1855009EAB94 /* ROUserInfoRequestParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022E5172E1855009EAB94 /* ROUserInfoRequestParam.m */; };
-		0920231F172E1855009EAB94 /* ROAlbumResponseltem.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022E8172E1855009EAB94 /* ROAlbumResponseltem.m */; };
-		09202320172E1855009EAB94 /* ROFriendResponseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022EA172E1855009EAB94 /* ROFriendResponseItem.m */; };
-		09202321172E1855009EAB94 /* ROResponseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022EC172E1855009EAB94 /* ROResponseItem.m */; };
-		09202322172E1855009EAB94 /* ROUserResponseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022EE172E1855009EAB94 /* ROUserResponseItem.m */; };
-		09202323172E1855009EAB94 /* RORequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022F0172E1855009EAB94 /* RORequest.m */; };
-		09202324172E1855009EAB94 /* ROResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022F2172E1855009EAB94 /* ROResponse.m */; };
-		09202325172E1855009EAB94 /* ROUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022F6172E1855009EAB94 /* ROUtility.m */; };
-		09202326172E1855009EAB94 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022F9172E1855009EAB94 /* SFHFKeychainUtils.m */; };
-		09202327172E1855009EAB94 /* WBAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022FC172E1855009EAB94 /* WBAuthorize.m */; };
-		09202328172E1855009EAB94 /* WBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 092022FE172E1855009EAB94 /* WBEngine.m */; };
-		09202329172E1855009EAB94 /* WBLogInAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09202300172E1855009EAB94 /* WBLogInAlertView.m */; };
-		0920232A172E1855009EAB94 /* WBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 09202302172E1855009EAB94 /* WBRequest.m */; };
-		0920232B172E1855009EAB94 /* WBSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09202305172E1855009EAB94 /* WBSendView.m */; };
-		0920232C172E1855009EAB94 /* WBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 09202307172E1855009EAB94 /* WBUtil.m */; };
-		0920232F172E1A55009EAB94 /* CUTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0920232E172E1A55009EAB94 /* CUTitleView.m */; };
 		0920236B172E2D56009EAB94 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 09202332172E2D56009EAB94 /* ASIAuthenticationDialog.m */; };
 		0920236C172E2D56009EAB94 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 09202335172E2D56009EAB94 /* ASIDataCompressor.m */; };
 		0920236D172E2D56009EAB94 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 09202337172E2D56009EAB94 /* ASIDataDecompressor.m */; };
@@ -223,8 +186,6 @@
 		09D01B1E18C62151007637EB /* overlay_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D01B1C18C62151007637EB /* overlay_1@2x.png */; };
 		09D01B1F18C62151007637EB /* overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D01B1D18C62151007637EB /* overlay@2x.png */; };
 		09D01B2218C622AD007637EB /* RCPointOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D01B2118C622AD007637EB /* RCPointOverlayView.m */; };
-		09D01B2718C635E5007637EB /* RCShareTextToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D01B2418C635E5007637EB /* RCShareTextToolbar.m */; };
-		09D01B2818C635E5007637EB /* RCShareTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D01B2618C635E5007637EB /* RCShareTextViewController.m */; };
 		09D5241018D09BCF00DB2F43 /* RCButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5240F18D09BCF00DB2F43 /* RCButtonView.m */; };
 		09E6B21C18D8BE1000DD8135 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E6B21A18D8BE1000DD8135 /* Accounts.framework */; };
 		09E6B21D18D8BE1000DD8135 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E6B21B18D8BE1000DD8135 /* Social.framework */; };
@@ -308,85 +269,6 @@
 		0915D38C170DABA500D86E9A /* done.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = done.caf; sourceTree = "<group>"; };
 		0915D38E170DAFEC00D86E9A /* RCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCWebViewController.h; sourceTree = "<group>"; };
 		0915D38F170DAFEC00D86E9A /* RCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCWebViewController.m; sourceTree = "<group>"; };
-		092022AA172E1855009EAB94 /* CUConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUConfig.h; sourceTree = "<group>"; };
-		092022AB172E1855009EAB94 /* CUShareCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUShareCenter.h; sourceTree = "<group>"; };
-		092022AC172E1855009EAB94 /* CUShareCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUShareCenter.m; sourceTree = "<group>"; };
-		092022AD172E1855009EAB94 /* CUShareClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUShareClient.h; sourceTree = "<group>"; };
-		092022AE172E1855009EAB94 /* CUShareClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUShareClient.m; sourceTree = "<group>"; };
-		092022AF172E1855009EAB94 /* CUShareOAuthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUShareOAuthView.h; sourceTree = "<group>"; };
-		092022B0172E1855009EAB94 /* CUShareOAuthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUShareOAuthView.m; sourceTree = "<group>"; };
-		092022B2172E1855009EAB94 /* CURenrenShareClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CURenrenShareClient.h; sourceTree = "<group>"; };
-		092022B3172E1855009EAB94 /* CURenrenShareClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CURenrenShareClient.m; sourceTree = "<group>"; };
-		092022B5172E1855009EAB94 /* CUSinaShareClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSinaShareClient.h; sourceTree = "<group>"; };
-		092022B6172E1855009EAB94 /* CUSinaShareClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSinaShareClient.m; sourceTree = "<group>"; };
-		092022B8172E1855009EAB94 /* CUTencentShareClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUTencentShareClient.h; sourceTree = "<group>"; };
-		092022B9172E1855009EAB94 /* CUTencentShareClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUTencentShareClient.m; sourceTree = "<group>"; };
-		092022BD172E1855009EAB94 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
-		092022BE172E1855009EAB94 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
-		092022BF172E1855009EAB94 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		092022C1172E1855009EAB94 /* GCDMulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDMulticastDelegate.h; sourceTree = "<group>"; };
-		092022C2172E1855009EAB94 /* GCDMulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDMulticastDelegate.m; sourceTree = "<group>"; };
-		092022C4172E1855009EAB94 /* Renren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renren.h; sourceTree = "<group>"; };
-		092022C5172E1855009EAB94 /* Renren.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Renren.m; sourceTree = "<group>"; };
-		092022C6172E1855009EAB94 /* ROConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROConnect.h; sourceTree = "<group>"; };
-		092022C8172E1855009EAB94 /* ROBaseDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROBaseDialogViewController.h; sourceTree = "<group>"; };
-		092022C9172E1855009EAB94 /* ROBaseDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROBaseDialogViewController.m; sourceTree = "<group>"; };
-		092022CA172E1855009EAB94 /* ROCheckDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROCheckDialogViewController.h; sourceTree = "<group>"; };
-		092022CB172E1855009EAB94 /* ROCheckDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROCheckDialogViewController.m; sourceTree = "<group>"; };
-		092022CC172E1855009EAB94 /* ROWebDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROWebDialogViewController.h; sourceTree = "<group>"; };
-		092022CD172E1855009EAB94 /* ROWebDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROWebDialogViewController.m; sourceTree = "<group>"; };
-		092022CF172E1855009EAB94 /* ROError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROError.h; sourceTree = "<group>"; };
-		092022D0172E1855009EAB94 /* ROError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROError.m; sourceTree = "<group>"; };
-		092022D2172E1855009EAB94 /* ROBaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROBaseNavigationViewController.h; sourceTree = "<group>"; };
-		092022D3172E1855009EAB94 /* ROBaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROBaseNavigationViewController.m; sourceTree = "<group>"; };
-		092022D4172E1855009EAB94 /* ROCheckNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROCheckNavigationViewController.h; sourceTree = "<group>"; };
-		092022D5172E1855009EAB94 /* ROCheckNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROCheckNavigationViewController.m; sourceTree = "<group>"; };
-		092022D6172E1855009EAB94 /* ROWebNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROWebNavigationViewController.h; sourceTree = "<group>"; };
-		092022D7172E1855009EAB94 /* ROWebNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROWebNavigationViewController.m; sourceTree = "<group>"; };
-		092022DA172E1855009EAB94 /* ROAlbumsInfoRequestParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROAlbumsInfoRequestParam.h; sourceTree = "<group>"; };
-		092022DB172E1855009EAB94 /* ROAlbumsInfoRequestParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROAlbumsInfoRequestParam.m; sourceTree = "<group>"; };
-		092022DC172E1855009EAB94 /* ROGetFriendsInfoRequestParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROGetFriendsInfoRequestParam.h; sourceTree = "<group>"; };
-		092022DD172E1855009EAB94 /* ROGetFriendsInfoRequestParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROGetFriendsInfoRequestParam.m; sourceTree = "<group>"; };
-		092022DE172E1855009EAB94 /* ROGetFriendsRequestParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROGetFriendsRequestParam.h; sourceTree = "<group>"; };
-		092022DF172E1855009EAB94 /* ROGetFriendsRequestParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROGetFriendsRequestParam.m; sourceTree = "<group>"; };
-		092022E0172E1855009EAB94 /* ROPasswordFlowRequestParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROPasswordFlowRequestParam.h; sourceTree = "<group>"; };
-		092022E1172E1855009EAB94 /* ROPasswordFlowRequestParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROPasswordFlowRequestParam.m; sourceTree = "<group>"; };
-		092022E2172E1855009EAB94 /* RORequestParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RORequestParam.h; sourceTree = "<group>"; };
-		092022E3172E1855009EAB94 /* RORequestParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RORequestParam.m; sourceTree = "<group>"; };
-		092022E4172E1855009EAB94 /* ROUserInfoRequestParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROUserInfoRequestParam.h; sourceTree = "<group>"; };
-		092022E5172E1855009EAB94 /* ROUserInfoRequestParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROUserInfoRequestParam.m; sourceTree = "<group>"; };
-		092022E7172E1855009EAB94 /* ROAlbumResponseltem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROAlbumResponseltem.h; sourceTree = "<group>"; };
-		092022E8172E1855009EAB94 /* ROAlbumResponseltem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROAlbumResponseltem.m; sourceTree = "<group>"; };
-		092022E9172E1855009EAB94 /* ROFriendResponseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROFriendResponseItem.h; sourceTree = "<group>"; };
-		092022EA172E1855009EAB94 /* ROFriendResponseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROFriendResponseItem.m; sourceTree = "<group>"; };
-		092022EB172E1855009EAB94 /* ROResponseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROResponseItem.h; sourceTree = "<group>"; };
-		092022EC172E1855009EAB94 /* ROResponseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROResponseItem.m; sourceTree = "<group>"; };
-		092022ED172E1855009EAB94 /* ROUserResponseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROUserResponseItem.h; sourceTree = "<group>"; };
-		092022EE172E1855009EAB94 /* ROUserResponseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROUserResponseItem.m; sourceTree = "<group>"; };
-		092022EF172E1855009EAB94 /* RORequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RORequest.h; sourceTree = "<group>"; };
-		092022F0172E1855009EAB94 /* RORequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RORequest.m; sourceTree = "<group>"; };
-		092022F1172E1855009EAB94 /* ROResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROResponse.h; sourceTree = "<group>"; };
-		092022F2172E1855009EAB94 /* ROResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROResponse.m; sourceTree = "<group>"; };
-		092022F4172E1855009EAB94 /* ROMacroDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROMacroDef.h; sourceTree = "<group>"; };
-		092022F5172E1855009EAB94 /* ROUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROUtility.h; sourceTree = "<group>"; };
-		092022F6172E1855009EAB94 /* ROUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROUtility.m; sourceTree = "<group>"; };
-		092022F8172E1855009EAB94 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
-		092022F9172E1855009EAB94 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
-		092022FB172E1855009EAB94 /* WBAuthorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAuthorize.h; sourceTree = "<group>"; };
-		092022FC172E1855009EAB94 /* WBAuthorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAuthorize.m; sourceTree = "<group>"; };
-		092022FD172E1855009EAB94 /* WBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEngine.h; sourceTree = "<group>"; };
-		092022FE172E1855009EAB94 /* WBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEngine.m; sourceTree = "<group>"; };
-		092022FF172E1855009EAB94 /* WBLogInAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLogInAlertView.h; sourceTree = "<group>"; };
-		09202300172E1855009EAB94 /* WBLogInAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBLogInAlertView.m; sourceTree = "<group>"; };
-		09202301172E1855009EAB94 /* WBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBRequest.h; sourceTree = "<group>"; };
-		09202302172E1855009EAB94 /* WBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBRequest.m; sourceTree = "<group>"; };
-		09202303172E1855009EAB94 /* WBSDKGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSDKGlobal.h; sourceTree = "<group>"; };
-		09202304172E1855009EAB94 /* WBSendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSendView.h; sourceTree = "<group>"; };
-		09202305172E1855009EAB94 /* WBSendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSendView.m; sourceTree = "<group>"; };
-		09202306172E1855009EAB94 /* WBUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBUtil.h; sourceTree = "<group>"; };
-		09202307172E1855009EAB94 /* WBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBUtil.m; sourceTree = "<group>"; };
-		0920232D172E1A55009EAB94 /* CUTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUTitleView.h; sourceTree = "<group>"; };
-		0920232E172E1A55009EAB94 /* CUTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUTitleView.m; sourceTree = "<group>"; };
 		09202331172E2D56009EAB94 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		09202332172E2D56009EAB94 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		09202333172E2D56009EAB94 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -656,10 +538,6 @@
 		09D01B1D18C62151007637EB /* overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay@2x.png"; sourceTree = "<group>"; };
 		09D01B2018C622AD007637EB /* RCPointOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCPointOverlayView.h; path = ../../RCPointOverlayView.h; sourceTree = "<group>"; };
 		09D01B2118C622AD007637EB /* RCPointOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCPointOverlayView.m; path = ../../RCPointOverlayView.m; sourceTree = "<group>"; };
-		09D01B2318C635E5007637EB /* RCShareTextToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCShareTextToolbar.h; sourceTree = "<group>"; };
-		09D01B2418C635E5007637EB /* RCShareTextToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCShareTextToolbar.m; sourceTree = "<group>"; };
-		09D01B2518C635E5007637EB /* RCShareTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCShareTextViewController.h; sourceTree = "<group>"; };
-		09D01B2618C635E5007637EB /* RCShareTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCShareTextViewController.m; sourceTree = "<group>"; };
 		09D5240E18D09BCF00DB2F43 /* RCButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCButtonView.h; sourceTree = "<group>"; };
 		09D5240F18D09BCF00DB2F43 /* RCButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCButtonView.m; sourceTree = "<group>"; };
 		09E6B21A18D8BE1000DD8135 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -815,244 +693,6 @@
 				0915D38C170DABA500D86E9A /* done.caf */,
 			);
 			path = sounds;
-			sourceTree = "<group>";
-		};
-		092022A8172E1855009EAB94 /* ShareCenter */ = {
-			isa = PBXGroup;
-			children = (
-				092022A9172E1855009EAB94 /* CUBase */,
-				092022B1172E1855009EAB94 /* CURenren */,
-				092022B4172E1855009EAB94 /* CUSina */,
-				092022B7172E1855009EAB94 /* CUTencent */,
-				092022BA172E1855009EAB94 /* CUTimeline */,
-				092022BB172E1855009EAB94 /* Vender */,
-			);
-			path = ShareCenter;
-			sourceTree = "<group>";
-		};
-		092022A9172E1855009EAB94 /* CUBase */ = {
-			isa = PBXGroup;
-			children = (
-				092022AA172E1855009EAB94 /* CUConfig.h */,
-				092022AB172E1855009EAB94 /* CUShareCenter.h */,
-				092022AC172E1855009EAB94 /* CUShareCenter.m */,
-				092022AD172E1855009EAB94 /* CUShareClient.h */,
-				092022AE172E1855009EAB94 /* CUShareClient.m */,
-				092022AF172E1855009EAB94 /* CUShareOAuthView.h */,
-				092022B0172E1855009EAB94 /* CUShareOAuthView.m */,
-				0920232D172E1A55009EAB94 /* CUTitleView.h */,
-				0920232E172E1A55009EAB94 /* CUTitleView.m */,
-			);
-			path = CUBase;
-			sourceTree = "<group>";
-		};
-		092022B1172E1855009EAB94 /* CURenren */ = {
-			isa = PBXGroup;
-			children = (
-				092022B2172E1855009EAB94 /* CURenrenShareClient.h */,
-				092022B3172E1855009EAB94 /* CURenrenShareClient.m */,
-			);
-			path = CURenren;
-			sourceTree = "<group>";
-		};
-		092022B4172E1855009EAB94 /* CUSina */ = {
-			isa = PBXGroup;
-			children = (
-				092022B5172E1855009EAB94 /* CUSinaShareClient.h */,
-				092022B6172E1855009EAB94 /* CUSinaShareClient.m */,
-			);
-			path = CUSina;
-			sourceTree = "<group>";
-		};
-		092022B7172E1855009EAB94 /* CUTencent */ = {
-			isa = PBXGroup;
-			children = (
-				092022B8172E1855009EAB94 /* CUTencentShareClient.h */,
-				092022B9172E1855009EAB94 /* CUTencentShareClient.m */,
-			);
-			path = CUTencent;
-			sourceTree = "<group>";
-		};
-		092022BA172E1855009EAB94 /* CUTimeline */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CUTimeline;
-			sourceTree = "<group>";
-		};
-		092022BB172E1855009EAB94 /* Vender */ = {
-			isa = PBXGroup;
-			children = (
-				092022BC172E1855009EAB94 /* CTMBase64 */,
-				092022C0172E1855009EAB94 /* GCDMulticastDelegate */,
-				092022C3172E1855009EAB94 /* Renren */,
-				092022F7172E1855009EAB94 /* SFHFKeychainUtils */,
-				092022FA172E1855009EAB94 /* sina */,
-				09202308172E1855009EAB94 /* tencent */,
-			);
-			path = Vender;
-			sourceTree = "<group>";
-		};
-		092022BC172E1855009EAB94 /* CTMBase64 */ = {
-			isa = PBXGroup;
-			children = (
-				092022BD172E1855009EAB94 /* GTMBase64.h */,
-				092022BE172E1855009EAB94 /* GTMBase64.m */,
-				092022BF172E1855009EAB94 /* GTMDefines.h */,
-			);
-			path = CTMBase64;
-			sourceTree = "<group>";
-		};
-		092022C0172E1855009EAB94 /* GCDMulticastDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				092022C1172E1855009EAB94 /* GCDMulticastDelegate.h */,
-				092022C2172E1855009EAB94 /* GCDMulticastDelegate.m */,
-			);
-			path = GCDMulticastDelegate;
-			sourceTree = "<group>";
-		};
-		092022C3172E1855009EAB94 /* Renren */ = {
-			isa = PBXGroup;
-			children = (
-				092022C4172E1855009EAB94 /* Renren.h */,
-				092022C5172E1855009EAB94 /* Renren.m */,
-				092022C6172E1855009EAB94 /* ROConnect.h */,
-				092022C7172E1855009EAB94 /* RODialogViewController */,
-				092022CE172E1855009EAB94 /* ROError */,
-				092022D1172E1855009EAB94 /* RONavigationViewController */,
-				092022D8172E1855009EAB94 /* RORequest */,
-				092022F3172E1855009EAB94 /* ROTools */,
-			);
-			path = Renren;
-			sourceTree = "<group>";
-		};
-		092022C7172E1855009EAB94 /* RODialogViewController */ = {
-			isa = PBXGroup;
-			children = (
-				092022C8172E1855009EAB94 /* ROBaseDialogViewController.h */,
-				092022C9172E1855009EAB94 /* ROBaseDialogViewController.m */,
-				092022CA172E1855009EAB94 /* ROCheckDialogViewController.h */,
-				092022CB172E1855009EAB94 /* ROCheckDialogViewController.m */,
-				092022CC172E1855009EAB94 /* ROWebDialogViewController.h */,
-				092022CD172E1855009EAB94 /* ROWebDialogViewController.m */,
-			);
-			path = RODialogViewController;
-			sourceTree = "<group>";
-		};
-		092022CE172E1855009EAB94 /* ROError */ = {
-			isa = PBXGroup;
-			children = (
-				092022CF172E1855009EAB94 /* ROError.h */,
-				092022D0172E1855009EAB94 /* ROError.m */,
-			);
-			path = ROError;
-			sourceTree = "<group>";
-		};
-		092022D1172E1855009EAB94 /* RONavigationViewController */ = {
-			isa = PBXGroup;
-			children = (
-				092022D2172E1855009EAB94 /* ROBaseNavigationViewController.h */,
-				092022D3172E1855009EAB94 /* ROBaseNavigationViewController.m */,
-				092022D4172E1855009EAB94 /* ROCheckNavigationViewController.h */,
-				092022D5172E1855009EAB94 /* ROCheckNavigationViewController.m */,
-				092022D6172E1855009EAB94 /* ROWebNavigationViewController.h */,
-				092022D7172E1855009EAB94 /* ROWebNavigationViewController.m */,
-			);
-			path = RONavigationViewController;
-			sourceTree = "<group>";
-		};
-		092022D8172E1855009EAB94 /* RORequest */ = {
-			isa = PBXGroup;
-			children = (
-				092022D9172E1855009EAB94 /* RequestParam */,
-				092022E6172E1855009EAB94 /* ResponseItem */,
-				092022EF172E1855009EAB94 /* RORequest.h */,
-				092022F0172E1855009EAB94 /* RORequest.m */,
-				092022F1172E1855009EAB94 /* ROResponse.h */,
-				092022F2172E1855009EAB94 /* ROResponse.m */,
-			);
-			path = RORequest;
-			sourceTree = "<group>";
-		};
-		092022D9172E1855009EAB94 /* RequestParam */ = {
-			isa = PBXGroup;
-			children = (
-				092022DA172E1855009EAB94 /* ROAlbumsInfoRequestParam.h */,
-				092022DB172E1855009EAB94 /* ROAlbumsInfoRequestParam.m */,
-				092022DC172E1855009EAB94 /* ROGetFriendsInfoRequestParam.h */,
-				092022DD172E1855009EAB94 /* ROGetFriendsInfoRequestParam.m */,
-				092022DE172E1855009EAB94 /* ROGetFriendsRequestParam.h */,
-				092022DF172E1855009EAB94 /* ROGetFriendsRequestParam.m */,
-				092022E0172E1855009EAB94 /* ROPasswordFlowRequestParam.h */,
-				092022E1172E1855009EAB94 /* ROPasswordFlowRequestParam.m */,
-				092022E2172E1855009EAB94 /* RORequestParam.h */,
-				092022E3172E1855009EAB94 /* RORequestParam.m */,
-				092022E4172E1855009EAB94 /* ROUserInfoRequestParam.h */,
-				092022E5172E1855009EAB94 /* ROUserInfoRequestParam.m */,
-			);
-			path = RequestParam;
-			sourceTree = "<group>";
-		};
-		092022E6172E1855009EAB94 /* ResponseItem */ = {
-			isa = PBXGroup;
-			children = (
-				092022E7172E1855009EAB94 /* ROAlbumResponseltem.h */,
-				092022E8172E1855009EAB94 /* ROAlbumResponseltem.m */,
-				092022E9172E1855009EAB94 /* ROFriendResponseItem.h */,
-				092022EA172E1855009EAB94 /* ROFriendResponseItem.m */,
-				092022EB172E1855009EAB94 /* ROResponseItem.h */,
-				092022EC172E1855009EAB94 /* ROResponseItem.m */,
-				092022ED172E1855009EAB94 /* ROUserResponseItem.h */,
-				092022EE172E1855009EAB94 /* ROUserResponseItem.m */,
-			);
-			path = ResponseItem;
-			sourceTree = "<group>";
-		};
-		092022F3172E1855009EAB94 /* ROTools */ = {
-			isa = PBXGroup;
-			children = (
-				092022F4172E1855009EAB94 /* ROMacroDef.h */,
-				092022F5172E1855009EAB94 /* ROUtility.h */,
-				092022F6172E1855009EAB94 /* ROUtility.m */,
-			);
-			path = ROTools;
-			sourceTree = "<group>";
-		};
-		092022F7172E1855009EAB94 /* SFHFKeychainUtils */ = {
-			isa = PBXGroup;
-			children = (
-				092022F8172E1855009EAB94 /* SFHFKeychainUtils.h */,
-				092022F9172E1855009EAB94 /* SFHFKeychainUtils.m */,
-			);
-			path = SFHFKeychainUtils;
-			sourceTree = "<group>";
-		};
-		092022FA172E1855009EAB94 /* sina */ = {
-			isa = PBXGroup;
-			children = (
-				092022FB172E1855009EAB94 /* WBAuthorize.h */,
-				092022FC172E1855009EAB94 /* WBAuthorize.m */,
-				092022FD172E1855009EAB94 /* WBEngine.h */,
-				092022FE172E1855009EAB94 /* WBEngine.m */,
-				092022FF172E1855009EAB94 /* WBLogInAlertView.h */,
-				09202300172E1855009EAB94 /* WBLogInAlertView.m */,
-				09202301172E1855009EAB94 /* WBRequest.h */,
-				09202302172E1855009EAB94 /* WBRequest.m */,
-				09202303172E1855009EAB94 /* WBSDKGlobal.h */,
-				09202304172E1855009EAB94 /* WBSendView.h */,
-				09202305172E1855009EAB94 /* WBSendView.m */,
-				09202306172E1855009EAB94 /* WBUtil.h */,
-				09202307172E1855009EAB94 /* WBUtil.m */,
-			);
-			path = sina;
-			sourceTree = "<group>";
-		};
-		09202308172E1855009EAB94 /* tencent */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = tencent;
 			sourceTree = "<group>";
 		};
 		09202330172E2D56009EAB94 /* ASIHTTPRequest */ = {
@@ -1404,10 +1044,6 @@
 		09ADE12317E002A8003D0B2B /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				09D01B2318C635E5007637EB /* RCShareTextToolbar.h */,
-				09D01B2418C635E5007637EB /* RCShareTextToolbar.m */,
-				09D01B2518C635E5007637EB /* RCShareTextViewController.h */,
-				09D01B2618C635E5007637EB /* RCShareTextViewController.m */,
 				09ADE15517E02921003D0B2B /* WRFullImageDisplayScrollView.h */,
 				09ADE15617E02921003D0B2B /* WRFullImageDisplayScrollView.m */,
 				09ADE15017E028E5003D0B2B /* WRMessageFullImageDisplayController.h */,
@@ -1566,7 +1202,6 @@
 				09202388172E2E18009EAB94 /* NSString+URLEncoding.m */,
 				09202383172E2DEB009EAB94 /* JSONKit */,
 				09202330172E2D56009EAB94 /* ASIHTTPRequest */,
-				092022A8172E1855009EAB94 /* ShareCenter */,
 				0915D362170DAA0600D86E9A /* ZBarSDK */,
 				090E3C2C170C755700217C33 /* iToast.h */,
 				090E3C2D170C755700217C33 /* iToast.m */,
@@ -1756,60 +1391,21 @@
 				090E3C2B170C639200217C33 /* SBJsonWriter.m in Sources */,
 				090E3C2E170C755700217C33 /* iToast.m in Sources */,
 				0915D390170DAFEC00D86E9A /* RCWebViewController.m in Sources */,
-				09202309172E1855009EAB94 /* CUShareCenter.m in Sources */,
-				0920230A172E1855009EAB94 /* CUShareClient.m in Sources */,
-				0920230B172E1855009EAB94 /* CUShareOAuthView.m in Sources */,
-				0920230C172E1855009EAB94 /* CURenrenShareClient.m in Sources */,
 				09C9FFB318D943D70027BACE /* RCFavoriteViewController.m in Sources */,
-				0920230D172E1855009EAB94 /* CUSinaShareClient.m in Sources */,
 				09C9FFB618D96B310027BACE /* RouteAnnotation.m in Sources */,
 				09B508BB18C5AEAA00CFF6F1 /* RCPopMenuView.m in Sources */,
-				0920230E172E1855009EAB94 /* CUTencentShareClient.m in Sources */,
-				0920230F172E1855009EAB94 /* GTMBase64.m in Sources */,
-				09202310172E1855009EAB94 /* GCDMulticastDelegate.m in Sources */,
-				09202311172E1855009EAB94 /* Renren.m in Sources */,
-				09202312172E1855009EAB94 /* ROBaseDialogViewController.m in Sources */,
-				09202313172E1855009EAB94 /* ROCheckDialogViewController.m in Sources */,
 				09C48F2618D7E03E00774BCB /* TMQuiltViewController.m in Sources */,
-				09202314172E1855009EAB94 /* ROWebDialogViewController.m in Sources */,
-				09202315172E1855009EAB94 /* ROError.m in Sources */,
-				09202316172E1855009EAB94 /* ROBaseNavigationViewController.m in Sources */,
-				09202317172E1855009EAB94 /* ROCheckNavigationViewController.m in Sources */,
-				09202318172E1855009EAB94 /* ROWebNavigationViewController.m in Sources */,
 				09D5241018D09BCF00DB2F43 /* RCButtonView.m in Sources */,
-				09202319172E1855009EAB94 /* ROAlbumsInfoRequestParam.m in Sources */,
-				0920231A172E1855009EAB94 /* ROGetFriendsInfoRequestParam.m in Sources */,
-				0920231B172E1855009EAB94 /* ROGetFriendsRequestParam.m in Sources */,
 				09FF4B1A18DFFFFA0017AA03 /* RCShareView.m in Sources */,
-				0920231C172E1855009EAB94 /* ROPasswordFlowRequestParam.m in Sources */,
-				0920231D172E1855009EAB94 /* RORequestParam.m in Sources */,
-				0920231E172E1855009EAB94 /* ROUserInfoRequestParam.m in Sources */,
-				0920231F172E1855009EAB94 /* ROAlbumResponseltem.m in Sources */,
-				09202320172E1855009EAB94 /* ROFriendResponseItem.m in Sources */,
-				09D01B2718C635E5007637EB /* RCShareTextToolbar.m in Sources */,
-				09202321172E1855009EAB94 /* ROResponseItem.m in Sources */,
-				09202322172E1855009EAB94 /* ROUserResponseItem.m in Sources */,
-				09202323172E1855009EAB94 /* RORequest.m in Sources */,
-				09202324172E1855009EAB94 /* ROResponse.m in Sources */,
-				09202325172E1855009EAB94 /* ROUtility.m in Sources */,
-				09202326172E1855009EAB94 /* SFHFKeychainUtils.m in Sources */,
-				09202327172E1855009EAB94 /* WBAuthorize.m in Sources */,
-				09202328172E1855009EAB94 /* WBEngine.m in Sources */,
-				09202329172E1855009EAB94 /* WBLogInAlertView.m in Sources */,
 				09700F6518D9BE8300F9E26D /* RCPlayerMaskView.m in Sources */,
-				0920232A172E1855009EAB94 /* WBRequest.m in Sources */,
-				0920232B172E1855009EAB94 /* WBSendView.m in Sources */,
 				09A24A0418CF0A86005931E4 /* RCJianJieViewController.m in Sources */,
 				09A24A1818CF1A93005931E4 /* RCXiangCeViewController.m in Sources */,
 				09F871C818C4D14900FE4E4F /* RCMainListCellContentView.m in Sources */,
-				0920232C172E1855009EAB94 /* WBUtil.m in Sources */,
-				0920232F172E1A55009EAB94 /* CUTitleView.m in Sources */,
 				0920236B172E2D56009EAB94 /* ASIAuthenticationDialog.m in Sources */,
 				0920236C172E2D56009EAB94 /* ASIDataCompressor.m in Sources */,
 				0920236D172E2D56009EAB94 /* ASIDataDecompressor.m in Sources */,
 				092B783618DE895800CBD7BB /* RCPointAnnotation.m in Sources */,
 				0920236E172E2D56009EAB94 /* ASIDownloadCache.m in Sources */,
-				09D01B2818C635E5007637EB /* RCShareTextViewController.m in Sources */,
 				09B908E818C7198700C84CC8 /* RCFunctionView.m in Sources */,
 				0920236F172E2D56009EAB94 /* ASIFormDataRequest.m in Sources */,
 				09202370172E2D56009EAB94 /* ASIHTTPRequest.m in Sources */,

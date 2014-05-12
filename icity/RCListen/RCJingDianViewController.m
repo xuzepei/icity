@@ -15,7 +15,6 @@
 #import "RCXiangCeViewController.h"
 #import "RCYuLeViewController.h"
 #import "RCXiangCeViewController.h"
-#import "CUShareCenter.h"
 #import "iToast.h"
 
 #define VIDEO_HEIGHT 180.0f
