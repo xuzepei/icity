@@ -262,10 +262,7 @@
     _videoPlayer.view.frame = CGRectMake(0, 0, [RCTool getScreenSize].width, VIDEO_HEIGHT);
     
     [self.scrollView addSubview:_videoPlayer.view];
-    
-//    [_videoPlayer prepareToPlay];
-//    [_videoPlayer play];
-    
+
     [self.scrollView addSubview:_maskView];
 }
 
@@ -337,83 +334,69 @@
     if (error) {
         NSLog(@"Video Player did finish with error: %@", error);
         
-        if(-1009 == error.code)
+        //if(-1009 == error.code || -11800 == error.code || -1004 == error.code)
         {
-            [RCTool showAlert:@"提示" message:@"视频播放失败，请检查网络连接！"];
+            [RCTool showAlert:@"提示" message:@"视频播放失败，请检查网络连接, 稍后再尝试！"];
         }
     }
     
     if(_maskView)
-    [_maskView.videoIndicator stopAnimating];
-    //[self.videoIndicator stopAnimating];
+    {
+        //[_maskView.videoIndicator stopAnimating];
+        //[self.videoIndicator stopAnimating];
+    }
 }
 
 - (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer
 {
     NSLog(@"handleDoubleTap");
     
-//    if(NO == self.playAudio &&  MPMoviePlaybackStateStopped != self.videoPlayer.playbackState)
-//    {
-//        if(nil == _videoMask.superview)
-//        {
-//            [self restoreScreen];
-//        }
-//    }
+    if(MPMoviePlaybackStateStopped != self.videoPlayer.playbackState)
+    {
+        if(self.isFullScreen)
+        {
+            [self restoreScreen];
+        }
+        else
+        {
+            [self displayFullScreen];
+        }
+    }
 }
 
 - (void)displayFullScreen
 {
-//    if(_videoMask.superview)
-//    {
-//        if(_videoPlayer)
-//        {
-//            if(_videoMask)
-//                [_videoMask removeFromSuperview];
-//            
-//            if(_expandingButtonBar)
-//                _expandingButtonBar.hidden = YES;
-//            
-//            if(_inputBar)
-//                _inputBar.hidden = YES;
-//            
-//            _videoPlayer.view.frame = CGRectMake(0, 0, [WRTool getScreenSize].height, [WRTool getScreenSize].width);
-//            [_videoPlayer.view setCenter:CGPointMake([WRTool getScreenSize].width/2.0, [WRTool getScreenSize].height/2.0)];
-//            
-//            //[[UIApplication sharedApplication] setStatusBarHidden:YES];
-//            
-//            [self hideFloatView:YES];
-//            
-//            [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:NO];
-//            [[_videoPlayer view] setTransform:CGAffineTransformMakeRotation(M_PI/2)];
-//            
-//        }
-//    }
+    self.isFullScreen = YES;
     
+    if(_videoPlayer && _maskView.superview == nil)
+    {
+        _videoPlayer.view.frame = CGRectMake(0, 0, [RCTool getScreenSize].height, [RCTool getScreenSize].width);
+        [_videoPlayer.view setCenter:CGPointMake([RCTool getScreenSize].width/2.0, [RCTool getScreenSize].height/2.0)];
+        
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+        
+        [[_videoPlayer view] setTransform:CGAffineTransformMakeRotation(M_PI/2)];
+        
+        [[RCTool frontWindow] addSubview:_videoPlayer.view];
+    }
+
 }
 
 - (void)restoreScreen
 {
-//    if(_videoPlayer)
-//    {
-//        //[[UIApplication sharedApplication] setStatusBarHidden:NO];
-//        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
-//        [[_videoPlayer view] setTransform:CGAffineTransformMakeRotation(0)];
-//        _videoPlayer.view.frame = CGRectMake(0, 0, [WRTool getScreenSize].width, VIDEO_PLAYER_HEIGHT);
-//        [self.view addSubview:_videoPlayer.view];
-//        
-//        if(_videoMask)
-//        {
-//            [self.view addSubview: _videoMask];
-//        }
-//        
-//        [self initFloatView];
-//        
-//        if(_expandingButtonBar && [WRTool openAll2])
-//            _expandingButtonBar.hidden = NO;
-//        
-//        if(_inputBar)
-//            _inputBar.hidden = NO;
-//    }
+    self.isFullScreen = NO;
+    
+    if(_videoPlayer)
+    {
+
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
+        [[_videoPlayer view] setTransform:CGAffineTransformMakeRotation(0)];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        _videoPlayer.view.frame = CGRectMake(0, 0, [RCTool getScreenSize].width, VIDEO_HEIGHT);
+        
+        [self.scrollView addSubview:_videoPlayer.view];
+        [self.scrollView addSubview:self.playButton];
+    }
 }
 
 - (void)initButtons

@@ -37,6 +37,8 @@
 @property(nonatomic,retain)IBOutlet UIView* shareView;
 @property(nonatomic,retain)IBOutlet UIButton* cancelShareButton;
 
+@property(nonatomic,assign)BOOL isFullScreen;
+
 - (void)updateContent:(NSDictionary*)item;
 
 - (IBAction)clickedSinaButton:(id)sender;

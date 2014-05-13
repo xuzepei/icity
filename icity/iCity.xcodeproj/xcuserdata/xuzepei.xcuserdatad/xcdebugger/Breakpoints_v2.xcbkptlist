@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RCListen/RCJingDianViewController.m"
-            timestampString = "419333417.697292"
+            timestampString = "421658035.904755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "672"
-            endingLineNumber = "672"
+            startingLineNumber = "655"
+            endingLineNumber = "655"
             landmarkName = "-shareText:type:"
             landmarkType = "5">
          </BreakpointContent>
