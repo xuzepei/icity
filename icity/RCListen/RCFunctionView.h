@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RCJDView.h"
+#import "RCDHView.h"
+#import "RCJiuDianView.h"
 
 @protocol RCFunctionViewDelegate <NSObject>
 
@@ -17,5 +20,8 @@
 @interface RCFunctionView : UIView
 
 @property(nonatomic,assign)id delegate;
+@property(nonatomic,retain)RCJDView* jdView;
+@property(nonatomic,retain)RCDHView* dhView;
+@property(nonatomic,retain)RCJiuDianView* jiuDianView;
 
 @end

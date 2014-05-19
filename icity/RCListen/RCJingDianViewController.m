@@ -19,7 +19,8 @@
 
 #define VIDEO_HEIGHT 180.0f
 #define WEATHER_HEIGHT 52.0f
-#define FUNCTION_HEIGHT 540/2.0f
+#define FUNCTION_HEIGHT 437.0f
+#define SCROLLVIEW_CONTENT_VIEW_HEIGHT 670.0f
 
 #define SHARE_TAG 112
 
@@ -121,16 +122,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor blackColor];
+    
     [self initVideoPlayer];
     
     [self initWeatherView];
     
     [self initFunctionView];
     
-    [self.scrollView setContentSize:CGSizeMake([RCTool getScreenSize].width, 588)];
+    [self.scrollView setContentSize:CGSizeMake([RCTool getScreenSize].width, SCROLLVIEW_CONTENT_VIEW_HEIGHT)];
     self.scrollView.showsVerticalScrollIndicator = NO;
     
-    [self initToolbar];
+    //[self initToolbar];
     
     [self initButtons];
     
@@ -478,33 +481,41 @@
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
     }
-    else if(1 == index)
+    else if(3 == index)
     {
         RCJiuDianViewController* temp = [[RCJiuDianViewController alloc] initWithNibName:nil bundle:nil];
         [temp updateContent:self.content];
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
     }
-    else if(2 == index)
+    else if(4 == index)
     {
         RCMeiShiViewController* temp = [[RCMeiShiViewController alloc] initWithNibName:nil bundle:nil];
         [temp updateContent:self.content];
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
     }
-    else if(3 == index)
+    else if(2 == index)
     {
         RCYuLeViewController* temp = [[RCYuLeViewController alloc] initWithNibName:nil bundle:nil];
         [temp updateContent:self.content];
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
     }
-    else if(4 == index)
+    else if(5 == index)
     {
         RCXiangCeViewController* temp = [[RCXiangCeViewController alloc] initWithNibName:nil bundle:nil];
         [temp updateContent:self.content];
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
+    }
+    else if(6 == index)
+    {
+        [self clickedFavButton:nil];
+    }
+    else if(7 == index)
+    {
+        [self clickedShareButton:nil];
     }
 }
 
