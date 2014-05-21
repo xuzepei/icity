@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BMKUserLocation.h"
 
 @interface RCTool : NSObject {
 
@@ -137,5 +138,7 @@
 + (NSString*)saveSendImageToLocal:(UIImage *)image;
 + (NSData*)getSendImageDataFromLocal:(NSString*)imagePath;
 + (UIImage*)getSendImageFromLocal:(NSString*)imagePath;
+
++ (CLLocationCoordinate2D)getUserLocation;
 
 @end

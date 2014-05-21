@@ -9,6 +9,9 @@
 #import "RCAppDelegate.h"
 #import "RCTool.h"
 #import "RCHttpRequest.h"
+#import "BNCoreServices.h"
+#import "BMKMapView.h"
+#import "BNaviSoundManager.h"
 
 #define UPDATE_TAG 122
 
@@ -35,19 +38,29 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    //初始化导航SDK引擎
+    [BNCoreServices_Instance initServices:BAIDU_MAP_KEY];
+    
+    //开启引擎
+    [BNCoreServices_Instance startServicesAsyn:nil fail:nil SoundService:[BNaviSoundManager getInstance]];
+    
     _mapManager = [[BMKMapManager alloc] init];
     // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
     BOOL ret = [_mapManager start:BAIDU_MAP_KEY  generalDelegate:nil];
     if (!ret) {
         NSLog(@"manager start failed!");
     }
+    else{
+    }
     
-    UIApplication* app = [UIApplication sharedApplication];
-	app.applicationIconBadgeNumber = 0;
-	[app registerForRemoteNotificationTypes:
-	 (UIRemoteNotificationType)(UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound)];
+//    UIApplication* app = [UIApplication sharedApplication];
+//	app.applicationIconBadgeNumber = 0;
+//	[app registerForRemoteNotificationTypes:
+//	 (UIRemoteNotificationType)(UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound)];
+//    
+//    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+
     
     //导航条颜色
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:226/255.0 green:226/255.0 blue:226/255.0 alpha:1.0]];
@@ -58,7 +71,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
     //homepage
-    _mainViewController = [[RCMainViewController alloc] initWithStyle:UITableViewStylePlain];
+    _mainViewController = [[RCMainViewController alloc] initWithNibName:nil bundle:nil];
 	
 	_mainNavigationController = [[UINavigationController alloc]
                                  initWithRootViewController:_mainViewController];
@@ -400,6 +413,5 @@
 		}
 	}
 }
-
 
 @end

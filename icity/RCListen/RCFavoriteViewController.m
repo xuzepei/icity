@@ -42,7 +42,7 @@
     
     [self initTableView];
     
-    [self updateContent];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -50,6 +50,14 @@
     [super viewWillAppear:animated];
     
     self.title = @"收藏夹";
+    
+    if(_itemArray && _tableView)
+    {
+        [_itemArray removeAllObjects];
+        [self.tableView reloadData];
+    }
+    
+    [self updateContent];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

@@ -103,7 +103,7 @@
     
     CGPoint touchPoint = [[touches anyObject] locationInView:self];
     
-    CGFloat y = touchPoint.y - 10;
+    CGFloat y = touchPoint.y - 20;
     if(y > 0)
     {
         int index = floor(y/ITEM_HEIGHT);

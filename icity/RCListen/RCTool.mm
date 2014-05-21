@@ -15,6 +15,7 @@
 #import "SBJSON.h"
 #include <ifaddrs.h>
 #include <arpa/inet.h>
+#import "BMKMapView.h"
 
 static int g_reachabilityType = -1;
 
@@ -1419,6 +1420,13 @@ void systemSoundCompletionProc(SystemSoundID ssID,void *clientData)
         return nil;
     
     return [UIImage imageWithContentsOfFile:imagePath];
+}
+
++ (CLLocationCoordinate2D)getUserLocation
+{
+    BMKMapView* mapView =  [[BMKMapView alloc] init];
+    [mapView setShowsUserLocation:YES];
+    return mapView.userLocation.location.coordinate;
 }
 
 @end

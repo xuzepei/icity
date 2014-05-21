@@ -10,8 +10,9 @@
 #import "RCMainViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "BMapKit.h"
+#import "BMKUserLocation.h"
 
-@interface RCAppDelegate : UIResponder <UIApplicationDelegate,UIAlertViewDelegate>
+@interface RCAppDelegate : UIResponder <UIApplicationDelegate,UIAlertViewDelegate,BMKUserLocationDelegate>
 {
     UIBackgroundTaskIdentifier _bgTask;
 }
@@ -27,6 +28,8 @@
 @property (nonatomic,retain)UINavigationController* mainNavigationController;
 
 @property(nonatomic,retain)BMKMapManager* mapManager;
+
+@property(assign)CLLocationCoordinate2D userLocation;
 
 
 - (void)saveContext;

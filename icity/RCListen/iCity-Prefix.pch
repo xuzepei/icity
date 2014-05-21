@@ -13,6 +13,7 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import "RCTool.h"
+    #import "BNCoreServices.h"
 #endif
 
 
@@ -119,3 +120,5 @@ typedef enum{
 #define VIDEO_LIVE_URL @"http://182.140.244.13:8000/JQ/04007/playlist.m3u8"
 
 #define BAIDU_MAP_KEY @"jiGOmsk5zpWZU2EemWHj14o4"
+
+#define AD_ID @"7f2f2475e73140c5859fcbe1d7dd4601"

@@ -14,15 +14,17 @@
 #import <Accounts/Accounts.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
-
+#import "BMKNavigation.h"
 #import "RCPlayerMaskView.h"
-@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate>
+#import "BMKMapView.h"
+
+@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate,BMKMapViewDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
 @property(nonatomic,retain)NSDictionary* content;
 @property(nonatomic,retain)MPMoviePlayerController* videoPlayer;
 @property(nonatomic,retain)UIActivityIndicatorView* videoIndicator;
-@property(nonatomic,retain)IBOutlet UIScrollView* scrollView;
+@property(nonatomic,retain)UIScrollView* scrollView;
 @property(nonatomic,retain)RCWeatherView* weatherView;
 @property(nonatomic,retain)RCFunctionView* functionView;
 @property(nonatomic,retain)UIToolbar* toolbar;
@@ -33,6 +35,7 @@
 @property(nonatomic,retain)UIButton* playButton;
 @property(assign)BOOL isPlaying;
 @property(assign)BOOL isLoading;
+@property(assign)CLLocationCoordinate2D userLocation;
 
 @property(nonatomic,retain)IBOutlet UIView* shareView;
 @property(nonatomic,retain)IBOutlet UIButton* cancelShareButton;

@@ -11,5 +11,7 @@
 @interface RCJDView : UIView
 
 @property(nonatomic,assign)int type;
+@property(nonatomic,retain)NSString* imageUrl;
+@property(nonatomic,retain)UIImage* image;
 
 @end

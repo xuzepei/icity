@@ -16,6 +16,8 @@
 #import "RCYuLeViewController.h"
 #import "RCXiangCeViewController.h"
 #import "iToast.h"
+#import "BNTools.h"
+
 
 #define VIDEO_HEIGHT 180.0f
 #define WEATHER_HEIGHT 52.0f
@@ -94,8 +96,8 @@
     
     self.title = [self.item objectForKey:@"jd_name"];
     
-//    if(self.playButton)
-//       [[RCTool frontWindow] addSubview:self.playButton];
+    //    if(self.playButton)
+    //       [[RCTool frontWindow] addSubview:self.playButton];
     
     [self updateContent:self.item];
 }
@@ -108,8 +110,8 @@
     
     
     [self clickedCancelShareButton:nil];
-//    if(self.videoIndicator)
-//        [self.videoIndicator removeFromSuperview];
+    //    if(self.videoIndicator)
+    //        [self.videoIndicator removeFromSuperview];
     
     if(self.isPlaying)
     {
@@ -124,14 +126,13 @@
     
     self.view.backgroundColor = [UIColor blackColor];
     
+    [self initScrollView];
+    
     [self initVideoPlayer];
     
     [self initWeatherView];
     
     [self initFunctionView];
-    
-    [self.scrollView setContentSize:CGSizeMake([RCTool getScreenSize].width, SCROLLVIEW_CONTENT_VIEW_HEIGHT)];
-    self.scrollView.showsVerticalScrollIndicator = NO;
     
     //[self initToolbar];
     
@@ -150,6 +151,10 @@
         self.cancelShareButton.layer.borderWidth = 1;
         self.cancelShareButton.layer.cornerRadius = 5.0;
     }
+    
+    BMKMapView* mapView =  [[[BMKMapView alloc] init] autorelease];
+    mapView.delegate  = self;
+    [mapView setShowsUserLocation:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -208,8 +213,8 @@
                     if([self play])
                     {
                         if(_maskView)
-                        [_maskView.videoIndicator startAnimating];
-//                        [[RCTool frontWindow] addSubview:self.videoIndicator];
+                            [_maskView.videoIndicator startAnimating];
+                        //                        [[RCTool frontWindow] addSubview:self.videoIndicator];
                         
                         self.isPlaying = YES;
                         
@@ -224,6 +229,21 @@
         if(self.weatherView)
             [self.weatherView updateContent:self.content];
     }
+}
+
+#pragma mark - Scroll View
+
+- (void)initScrollView
+{
+    if(nil == _scrollView)
+    {
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [RCTool getScreenSize].width, [RCTool getScreenSize].height)];
+    }
+    
+    [self.view addSubview:self.scrollView];
+    
+    [self.scrollView setContentSize:CGSizeMake([RCTool getScreenSize].width, SCROLLVIEW_CONTENT_VIEW_HEIGHT)];
+    self.scrollView.showsVerticalScrollIndicator = NO;
 }
 
 
@@ -265,7 +285,7 @@
     _videoPlayer.view.frame = CGRectMake(0, 0, [RCTool getScreenSize].width, VIDEO_HEIGHT);
     
     [self.scrollView addSubview:_videoPlayer.view];
-
+    
     [self.scrollView addSubview:_maskView];
 }
 
@@ -319,15 +339,15 @@
         [self.scrollView addSubview:_maskView];
         [self.scrollView addSubview:_playButton];
         
-//        [self.videoIndicator startAnimating];
-//        [[RCTool frontWindow] addSubview:self.videoIndicator];
+        //        [self.videoIndicator startAnimating];
+        //        [[RCTool frontWindow] addSubview:self.videoIndicator];
     }
     else{
         
         [_maskView.videoIndicator stopAnimating];
         [_maskView removeFromSuperview];
         
-//        [self.videoIndicator stopAnimating];
+        //        [self.videoIndicator stopAnimating];
     }
 }
 
@@ -382,7 +402,7 @@
         
         [[RCTool frontWindow] addSubview:_videoPlayer.view];
     }
-
+    
 }
 
 - (void)restoreScreen
@@ -391,7 +411,7 @@
     
     if(_videoPlayer)
     {
-
+        
         [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
         [[_videoPlayer view] setTransform:CGAffineTransformMakeRotation(0)];
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
@@ -481,6 +501,10 @@
         [self.navigationController pushViewController:temp animated:YES];
         [temp release];
     }
+    else if(1 == index)
+    {
+        [self daohang:nil];
+    }
     else if(3 == index)
     {
         RCJiuDianViewController* temp = [[RCJiuDianViewController alloc] initWithNibName:nil bundle:nil];
@@ -554,7 +578,7 @@
 
 - (void)updateFavBarItem
 {
-
+    
     UIBarButtonItem* fixedSpaceItem0 = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                                                                       target:nil
                                                                                       action:nil] autorelease];
@@ -562,7 +586,7 @@
     
     if(nil == _shareItem)
     {
-    _shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_share"] style:UIBarButtonItemStylePlain target:self action:@selector(clickedShareButton:)];
+        _shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_share"] style:UIBarButtonItemStylePlain target:self action:@selector(clickedShareButton:)];
     }
     
     UIBarButtonItem* fixedSpaceItem1 = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
@@ -581,15 +605,15 @@
 
 - (void)clickedShareButton:(id)sender
 {
-//    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作"
-//                                                              delegate:self
-//                                                     cancelButtonTitle:@"取消"
-//                                                destructiveButtonTitle:nil
-//                                                     otherButtonTitles:@"新浪微博分享",@"腾讯微博分享",nil];
-//    actionSheet.tag = SHARE_TAG;
-//    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-//    [actionSheet showFromToolbar:self.toolbar];
-//    [actionSheet release];
+    //    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作"
+    //                                                              delegate:self
+    //                                                     cancelButtonTitle:@"取消"
+    //                                                destructiveButtonTitle:nil
+    //                                                     otherButtonTitles:@"新浪微博分享",@"腾讯微博分享",nil];
+    //    actionSheet.tag = SHARE_TAG;
+    //    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    //    [actionSheet showFromToolbar:self.toolbar];
+    //    [actionSheet release];
     
     [UIView animateWithDuration:0.3 animations:^{
         if(self.shareView)
@@ -678,7 +702,7 @@
             }
         }
         if(image)
-        [slComposerSheet addImage:image];
+            [slComposerSheet addImage:image];
         [self presentViewController:slComposerSheet animated:YES completion:nil];
         
         [slComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
@@ -727,7 +751,7 @@
 - (IBAction)clickedQQButton:(id)sender
 {
     [self clickedCancelShareButton:nil];
-        [self shareText:[RCTool getShareText] type:SHT_QQ];
+    [self shareText:[RCTool getShareText] type:SHT_QQ];
 }
 
 - (IBAction)clickedCancelShareButton:(id)sender
@@ -741,5 +765,142 @@
         }
     }];
 }
+
+- (IBAction)daohang:(id)sender
+{
+    //节点数组
+    NSMutableArray *nodesArray = [[[NSMutableArray alloc]    initWithCapacity:2] autorelease];
+    
+    //起点
+    BNRoutePlanNode *startNode = [[[BNRoutePlanNode alloc] init] autorelease];
+
+    BMKMapPoint mapPoint = {self.userLocation.longitude,self.userLocation.latitude};
+    
+    //（2）定义输出参数
+    BNPosition* naviPos =  [[[BNPosition alloc]init] autorelease];
+    
+    
+    //(3)进行转换
+    BOOL ret = [BNTools ConvertBaiduMapPoint:&mapPoint ToBaiduNaviPoint:naviPos];
+    
+    //（4）使用转换后得到的导航坐标
+    if(ret)
+    {
+        NSLog( @"地图坐标转换成导航坐标成功，navipos:(%f,%f)",naviPos.x,naviPos.y);
+    }
+    else
+    {
+        NSLog(@" 转换失败");
+    }
+
+    startNode.pos = naviPos;
+    [nodesArray addObject:startNode];
+    
+    //终点
+    NSString* jd_gps = [self.item objectForKey:@"jd_gps"];
+    if(0 == [jd_gps length])
+        return;
+
+    NSArray* array = [jd_gps componentsSeparatedByString:@","];
+    if(2 == [array count])
+    {
+        BNRoutePlanNode *endNode = [[[BNRoutePlanNode alloc] init] autorelease];
+        
+        BMKMapPoint mapPoint = {[[array objectAtIndex:0] floatValue],[[array objectAtIndex:1] floatValue]};
+        
+        //（2）定义输出参数
+        BNPosition* naviPos =  [[[BNPosition alloc]init] autorelease];
+        
+        //(3)进行转换
+        BOOL ret = [BNTools ConvertBaiduMapPoint:&mapPoint ToBaiduNaviPoint:naviPos];
+        
+        //（4）使用转换后得到的导航坐标
+        if(ret)
+        {
+            NSLog( @"地图坐标转换成导航坐标成功，navipos:(%f,%f)",naviPos.x,naviPos.y);
+        }
+        else
+        {
+            NSLog(@" 转换失败");
+        }
+        
+        endNode.pos = naviPos;
+        [nodesArray addObject:endNode];
+        
+    }
+    
+    //发起路径规划
+    if(2 == [nodesArray count])
+    {
+        [BNCoreServices_RoutePlan startNaviRoutePlan:BNRoutePlanMode_Recommend naviNodes:nodesArray time:nil delegete:self userInfo:nil];
+    }
+    
+//    //初始化调启导航时的参数管理类
+//    NaviPara* para = [[[NaviPara alloc]init] autorelease];
+//    //指定导航类型
+//    para.naviType = NAVI_TYPE_WEB;
+//    
+//    //初始化起点节点
+//    BMKPlanNode* start = [[[BMKPlanNode alloc]init] autorelease];
+//    //指定起点经纬度
+//    start.pt = [RCTool getUserLocation];
+//    //指定起点名称
+//    start.name = @"起点";
+//    //指定起点
+//    para.startPoint = start;
+//    
+//    //初始化终点节点
+//    BMKPlanNode* end = [[[BMKPlanNode alloc]init] autorelease];
+//    //指定终点经纬度
+//    NSString* jd_gps = [self.item objectForKey:@"jd_gps"];
+//    if(0 == [jd_gps length])
+//        return;
+//    
+//    NSArray* array = [jd_gps componentsSeparatedByString:@","];
+//    if(2 == [array count])
+//    {
+//        CLLocationCoordinate2D coor;
+//        coor.latitude = [[array objectAtIndex:1] floatValue];
+//        coor.longitude = [[array objectAtIndex:0] floatValue];
+//        end.pt = coor;
+//        //指定终点名称
+//        end.name = @"终点";
+//        //指定终点
+//        para.endPoint = end;
+//        
+//        //指定返回自定义scheme
+//        //para.appScheme = @"baidumapsdk://mapsdk.baidu.com";
+//        
+//        //调启百度地图客户端导航
+//        [BMKNavigation openBaiduMapNavigation:para];
+//    }
+
+}
+
+- (void)mapView:(BMKMapView *)mapView didUpdateUserLocation:(BMKUserLocation *)userLocation
+{
+    
+    NSLog(@"didUpdateUserLocation");
+    
+    self.userLocation = mapView.userLocation.coordinate;
+
+}
+
+- (void)mapView:(BMKMapView *)mapView didFailToLocateUserWithError:(NSError *)error
+{
+    NSLog(@"didFailToLocateUserWithError");
+}
+
+
+
+//算路成功回调
+-(void)routePlanDidFinished:(NSDictionary *)userInfo
+{
+    NSLog(@"算路成功");
+    
+    //路径规划成功，开始导航
+    [BNCoreServices_UI showNaviUI: BN_NaviTypeReal delegete:self isNeedLandscape:YES];
+}
+
 
 @end

@@ -12,9 +12,10 @@
 #import "RCPopMenuView.h"
 #import "RCPopMenuView2.h"
 #import "RCMainMapViewController.h"
+#import "AdwoAdSDK.h"
 
-@interface RCMainViewController : UITableViewController<RCAdScrollViewDelegate,UIAlertViewDelegate,
-RCMainTitleViewDelegate,RCPopMenuViewDelegate
+@interface RCMainViewController : UIViewController<RCAdScrollViewDelegate,UIAlertViewDelegate,
+RCMainTitleViewDelegate,RCPopMenuViewDelegate,UITableViewDataSource,UITableViewDelegate,AWAdViewDelegate
 >
 {
 }
@@ -22,6 +23,7 @@ RCMainTitleViewDelegate,RCPopMenuViewDelegate
 @property(nonatomic,retain)RCAdScrollView* adScrollView;
 @property(assign)int textIndex;
 @property(assign)CGFloat adHeight;
+@property(nonatomic,retain)UITableView* tableView;
 @property(nonatomic,retain)NSDictionary* item;
 @property(nonatomic,retain)NSMutableArray* itemArray;
 @property(nonatomic,retain)NSMutableArray* adArray;
@@ -30,6 +32,7 @@ RCMainTitleViewDelegate,RCPopMenuViewDelegate
 @property(nonatomic,retain)RCPopMenuView* popMenuView;
 @property(nonatomic,retain)RCPopMenuView2* popMenuView2;
 @property(nonatomic,retain)NSMutableArray* titleMenuArray;
+@property(nonatomic,retain)UIView* adView;
 
 - (void)initAdScrollView;
 

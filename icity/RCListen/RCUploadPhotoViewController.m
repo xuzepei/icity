@@ -297,6 +297,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [RCTool showIndicator:@"正在上传..."];
         }
     }
+    else
+    {
+        [RCTool showAlert:@"提示" message:@"请添加要上传的图片!"];
+    }
 }
 
 - (void)uploadRequestFinished:(ASIHTTPRequest *)request

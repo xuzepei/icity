@@ -22,9 +22,9 @@
 
 @implementation RCMainViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
         _adArray = [[NSMutableArray alloc] init];
@@ -35,10 +35,10 @@
         
         [self initPopMenu2];
 
-        self.refreshControl = [[[UIRefreshControl alloc] init] autorelease];
-        //self.refreshControl.tintColor = [UIColor orangeColor];
-        //self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
-        [self.refreshControl addTarget:self action:@selector(updateContent) forControlEvents:UIControlEventValueChanged];
+//        self.refreshControl = [[[UIRefreshControl alloc] init] autorelease];
+//        //self.refreshControl.tintColor = [UIColor orangeColor];
+//        //self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
+//        [self.refreshControl addTarget:self action:@selector(updateContent) forControlEvents:UIControlEventValueChanged];
         
         UIImage *image = [UIImage imageNamed:@"back_button"];
         image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -67,6 +67,12 @@
     self.popMenuView = nil;
     self.popMenuView2 = nil;
     
+    if(self.adView != nil)
+    {
+        AdwoAdRemoveAndDestroyBanner(self.adView);
+        self.adView = nil;
+    }
+    
     [super dealloc];
 }
 
@@ -74,13 +80,16 @@
 {
     [super viewDidLoad];
     
+    [self initTableView];
+    
     [self initAdScrollView];
     
     [self updateTitleMenu];
     
     [self updateAd];
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self initAd];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -169,7 +178,7 @@
 {
     [RCTool hideIndicator];
     
-    [self.refreshControl endRefreshing];
+    //[self.refreshControl endRefreshing];
     
     if(0 == [jsonString length])
         return;
@@ -386,25 +395,25 @@
 
 #pragma mark - Table View
 
-//- (void)initTableView
-//{
-//    if(nil == _tableView)
-//    {
-//        //init table view
-//        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height)
-//                                                  style:UITableViewStylePlain];
-//        _tableView.backgroundColor = [UIColor clearColor];
-//        _tableView.delegate = self;
-//        _tableView.opaque = NO;
-//        _tableView.backgroundView = nil;
-//        _tableView.dataSource = self;
-//        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//        _tableView.showsVerticalScrollIndicator = NO;
-//    }
-//
-//	[self.view addSubview:_tableView];
-//
-//}
+- (void)initTableView
+{
+    if(nil == _tableView)
+    {
+        //init table view
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height - 50)
+                                                  style:UITableViewStylePlain];
+        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.delegate = self;
+        _tableView.opaque = NO;
+        _tableView.backgroundView = nil;
+        _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _tableView.showsVerticalScrollIndicator = NO;
+    }
+
+	[self.view addSubview:_tableView];
+
+}
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -413,7 +422,7 @@
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
+    return nil;//[[[UIView alloc] initWithFrame:CGRectZero] autorelease];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -529,6 +538,44 @@
         [self.navigationController pushViewController:controller animated:YES];
         [controller release];
     }
+}
+
+
+#pragma mark - AD
+
+- (void)initAd
+{
+    self.adView = nil;
+    
+    //创建广告对象
+    _adView = AdwoAdCreateBanner(AD_ID, YES, self);
+    if(nil == _adView)
+    {
+        NSLog(@"Adwo ad view failed to create!");
+        return;
+    }
+    
+    // 设置AWAdView的位置（这里对frame设置大小将不起作用）
+    self.adView.frame = CGRectMake(0.0f,[RCTool getScreenSize].height - 50, 0.0f, 0.0f);
+    
+    // 将adView添加到本视图中（注意，在调用loadAd前必须先将adView添加到一个父视图中）
+    
+    [self.view addSubview:self.adView];
+    
+    if(AdwoAdLoadBannerAd(self.adView, ADWO_ADSDK_BANNER_SIZE_NORMAL_BANNER))
+    {
+        NSLog(@"Ad view has been loaded!");
+    }
+    else
+    {
+        NSLog(@"Ad view failed to load");
+    }
+}
+
+// 此接口必须被实现，并且不能返回空！
+- (UIViewController*)adwoGetBaseViewController
+{
+    return self;
 }
 
 
