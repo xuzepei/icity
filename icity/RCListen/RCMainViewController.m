@@ -66,6 +66,7 @@
     self.titleView = nil;
     self.popMenuView = nil;
     self.popMenuView2 = nil;
+    self.refreshHeaderView = nil;
     
     if(self.adView != nil)
     {
@@ -89,6 +90,8 @@
     [self updateAd];
     
     [self initAd];
+    
+    [self initRefreshHeaderView];
     
 }
 
@@ -578,5 +581,53 @@
     return self;
 }
 
+#pragma mark - Refresh Header View
+
+- (void)initRefreshHeaderView
+{
+	if (nil == _refreshHeaderView) {
+		_refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:
+							  CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height,
+										 [RCTool getScreenSize].width, self.tableView.bounds.size.height)];
+
+		self.refreshHeaderView.delegate = self;
+        [self.tableView addSubview:self.refreshHeaderView];
+	}
+    
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+	
+	if (_refreshHeaderView)
+		[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView
+				  willDecelerate:(BOOL)decelerate{
+	
+	if (_refreshHeaderView)
+		[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
+{
+	[self updateContent];
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
+{
+	return self.isDragLoading;
+}
+
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view
+{
+	return @"";
+}
 
 @end

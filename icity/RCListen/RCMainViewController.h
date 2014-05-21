@@ -13,6 +13,7 @@
 #import "RCPopMenuView2.h"
 #import "RCMainMapViewController.h"
 #import "AdwoAdSDK.h"
+#import "EGORefreshTableHeaderView.h"
 
 @interface RCMainViewController : UIViewController<RCAdScrollViewDelegate,UIAlertViewDelegate,
 RCMainTitleViewDelegate,RCPopMenuViewDelegate,UITableViewDataSource,UITableViewDelegate,AWAdViewDelegate
@@ -33,6 +34,8 @@ RCMainTitleViewDelegate,RCPopMenuViewDelegate,UITableViewDataSource,UITableViewD
 @property(nonatomic,retain)RCPopMenuView2* popMenuView2;
 @property(nonatomic,retain)NSMutableArray* titleMenuArray;
 @property(nonatomic,retain)UIView* adView;
+@property(nonatomic,retain)EGORefreshTableHeaderView* refreshHeaderView;
+@property(nonatomic,assign)BOOL isDragLoading;
 
 - (void)initAdScrollView;
 

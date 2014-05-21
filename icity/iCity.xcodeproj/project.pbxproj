@@ -119,6 +119,7 @@
 		098CC3F7192CCE31008EDD73 /* BNaviSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 098CC3F0192CCE31008EDD73 /* BNaviSoundManager.m */; };
 		098CC3F8192CCE31008EDD73 /* BNTTSSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 098CC3F2192CCE31008EDD73 /* BNTTSSDK.bundle */; };
 		098CC3F9192CCE31008EDD73 /* libBNaviTTSManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 098CC3F3192CCE31008EDD73 /* libBNaviTTSManager.a */; };
+		098CC3FC192CE981008EDD73 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 098CC3FB192CE981008EDD73 /* EGORefreshTableHeaderView.m */; };
 		098DA0D217CE47E5009B0728 /* RCTabBar2.m in Sources */ = {isa = PBXBuildFile; fileRef = 098DA0D117CE47E5009B0728 /* RCTabBar2.m */; };
 		098DA28318E022AA0044B972 /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 098DA28218E022AA0044B972 /* back_button@2x.png */; };
 		0999746717C3013500CC1C0C /* RCHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0999746617C3013500CC1C0C /* RCHttpRequestManager.m */; };
@@ -490,6 +491,8 @@
 		098CC3F1192CCE31008EDD73 /* BNaviTTSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNaviTTSManager.h; sourceTree = "<group>"; };
 		098CC3F2192CCE31008EDD73 /* BNTTSSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BNTTSSDK.bundle; sourceTree = "<group>"; };
 		098CC3F3192CCE31008EDD73 /* libBNaviTTSManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBNaviTTSManager.a; sourceTree = "<group>"; };
+		098CC3FA192CE981008EDD73 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		098CC3FB192CE981008EDD73 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		098DA0D017CE47E5009B0728 /* RCTabBar2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTabBar2.h; sourceTree = "<group>"; };
 		098DA0D117CE47E5009B0728 /* RCTabBar2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTabBar2.m; sourceTree = "<group>"; };
 		098DA28218E022AA0044B972 /* back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button@2x.png"; sourceTree = "<group>"; };
@@ -1422,6 +1425,8 @@
 		09CF7F3016A3EC9C0050A603 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				098CC3FA192CE981008EDD73 /* EGORefreshTableHeaderView.h */,
+				098CC3FB192CE981008EDD73 /* EGORefreshTableHeaderView.m */,
 				098CC3E1192CCE31008EDD73 /* baiduNaviSDK */,
 				09AB07FF192CA49D00488EE3 /* adwoSDKLib */,
 				09C48F1C18D7E03E00774BCB /* TMQuiltView */,
@@ -1680,6 +1685,7 @@
 				09202376172E2D56009EAB94 /* ASICloudFilesContainerRequest.m in Sources */,
 				09202377172E2D56009EAB94 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				09202378172E2D56009EAB94 /* ASICloudFilesObject.m in Sources */,
+				098CC3FC192CE981008EDD73 /* EGORefreshTableHeaderView.m in Sources */,
 				098CC3F7192CCE31008EDD73 /* BNaviSoundManager.m in Sources */,
 				09846F9918D72DF700A2E91B /* RCMeiShiCellContentView.m in Sources */,
 				09202379172E2D56009EAB94 /* ASICloudFilesObjectRequest.m in Sources */,
