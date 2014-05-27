@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RCListen/RCJiuDianViewController.m"
-            timestampString = "417332908.160138"
+            timestampString = "422847064.226015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
+            startingLineNumber = "409"
+            endingLineNumber = "409"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RCListen/RCJingDianViewController.m"
-            timestampString = "422373444.102643"
+            timestampString = "422792434.490057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "690"
-            endingLineNumber = "690"
+            startingLineNumber = "687"
+            endingLineNumber = "687"
             landmarkName = "-shareText:type:"
             landmarkType = "5">
          </BreakpointContent>
@@ -96,22 +96,6 @@
             startingLineNumber = "86"
             endingLineNumber = "86"
             landmarkName = "-requestUserInfo"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RCListen/RCTool.mm"
-            timestampString = "422372489.101415"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1429"
-            endingLineNumber = "1429"
-            landmarkName = "+getUserLocation"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

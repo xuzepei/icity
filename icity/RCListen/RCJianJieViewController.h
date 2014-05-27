@@ -13,10 +13,10 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import "iToast.h"
 
-@interface RCJianJieViewController : UIViewController<UIActionSheetDelegate>
+@interface RCJianJieViewController : UIViewController<UIActionSheetDelegate,UIWebViewDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
-@property(nonatomic,retain)IBOutlet UIImageView* imageView;
+@property(nonatomic,retain)UIImageView* imageView;
 @property(nonatomic,retain)UITextView* textView;
 @property(nonatomic,retain)UIImage* image;
 
@@ -24,6 +24,8 @@
 @property(nonatomic,retain)UIBarButtonItem* shareItem;
 @property(nonatomic,retain)UIBarButtonItem* favItem;
 @property(assign)BOOL isFaved;
+
+@property(nonatomic,retain)UIWebView* webView;
 
 - (void)updateContent:(NSDictionary*)item token:(NSDictionary*)token;
 

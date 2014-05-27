@@ -23,9 +23,9 @@
 
 @implementation RCMainViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
         _adArray = [[NSMutableArray alloc] init];
@@ -36,10 +36,10 @@
         
         [self initPopMenu2];
 
-        self.refreshControl = [[[UIRefreshControl alloc] init] autorelease];
-        //self.refreshControl.tintColor = [UIColor orangeColor];
-        //self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
-        [self.refreshControl addTarget:self action:@selector(updateContent) forControlEvents:UIControlEventValueChanged];
+//        self.refreshControl = [[[UIRefreshControl alloc] init] autorelease];
+//        //self.refreshControl.tintColor = [UIColor orangeColor];
+//        //self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
+//        [self.refreshControl addTarget:self action:@selector(updateContent) forControlEvents:UIControlEventValueChanged];
         
         UIImage *image = [UIImage imageNamed:@"back_button"];
         image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -67,7 +67,7 @@
     self.titleView = nil;
     self.popMenuView = nil;
     self.popMenuView2 = nil;
-    
+    self.refreshHeaderView = nil;
     
     if(self.adView != nil)
     {
@@ -82,6 +82,8 @@
 {
     [super viewDidLoad];
     
+    [self initTableView];
+    
     [self initAdScrollView];
     
     [self updateTitleMenu];
@@ -90,7 +92,8 @@
     
     [self initAd];
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self initRefreshHeaderView];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -179,7 +182,7 @@
 {
     [RCTool hideIndicator];
     
-    [self.refreshControl endRefreshing];
+    //[self.refreshControl endRefreshing];
     
     if(0 == [jsonString length])
         return;
@@ -396,25 +399,25 @@
 
 #pragma mark - Table View
 
-//- (void)initTableView
-//{
-//    if(nil == _tableView)
-//    {
-//        //init table view
-//        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height)
-//                                                  style:UITableViewStylePlain];
-//        _tableView.backgroundColor = [UIColor clearColor];
-//        _tableView.delegate = self;
-//        _tableView.opaque = NO;
-//        _tableView.backgroundView = nil;
-//        _tableView.dataSource = self;
-//        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//        _tableView.showsVerticalScrollIndicator = NO;
-//    }
-//
-//	[self.view addSubview:_tableView];
-//
-//}
+- (void)initTableView
+{
+    if(nil == _tableView)
+    {
+        //init table view
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height)
+                                                  style:UITableViewStylePlain];
+        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.delegate = self;
+        _tableView.opaque = NO;
+        _tableView.backgroundView = nil;
+        _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _tableView.showsVerticalScrollIndicator = NO;
+    }
+
+	[self.view addSubview:_tableView];
+
+}
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -423,7 +426,7 @@
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
+    return nil;//[[[UIView alloc] initWithFrame:CGRectZero] autorelease];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -595,6 +598,55 @@
 - (UIViewController*)adwoGetBaseViewController
 {
     return self;
+}
+
+#pragma mark - Refresh Header View
+
+- (void)initRefreshHeaderView
+{
+	if (nil == _refreshHeaderView) {
+		_refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:
+							  CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height,
+										 [RCTool getScreenSize].width, self.tableView.bounds.size.height)];
+
+		self.refreshHeaderView.delegate = self;
+        [self.tableView addSubview:self.refreshHeaderView];
+	}
+    
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+	
+	if (_refreshHeaderView)
+		[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView
+				  willDecelerate:(BOOL)decelerate{
+	
+	if (_refreshHeaderView)
+		[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view
+{
+	[self updateContent];
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view
+{
+	return self.isDragLoading;
+}
+
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view
+{
+	return nil;
 }
 
 @end

@@ -70,7 +70,6 @@ void systemSoundCompletionProc(SystemSoundID ssID,void *clientData)
 	return nil;
 }
 
-
 #pragma mark -
 #pragma mark network
 
@@ -1424,9 +1423,8 @@ void systemSoundCompletionProc(SystemSoundID ssID,void *clientData)
 
 + (CLLocationCoordinate2D)getUserLocation
 {
-    BMKMapView* mapView =  [[BMKMapView alloc] init];
-    [mapView setShowsUserLocation:YES];
-    return mapView.userLocation.location.coordinate;
+    RCAppDelegate* appDelegate = (RCAppDelegate*)[UIApplication sharedApplication].delegate;
+    return appDelegate.userLocation;
 }
 
 @end

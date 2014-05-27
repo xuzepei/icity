@@ -33,6 +33,8 @@
     self.imageView = nil;
     self.textView = nil;
     self.image = nil;
+    self.webView.delegate = nil;
+    self.webView = nil;
     
     [super dealloc];
 }
@@ -46,10 +48,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    CGRect rect = self.imageView.frame;
-    rect.origin.y = NAVIGATION_BAR_HEIGHT;
-    self.imageView.frame = rect;
     
+    [self initWebView];
+    [self initToolbar];
+    return;
+    
+    if(nil == _imageView)
+    {
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT, [RCTool getScreenSize].width,160)];
+        [self.view addSubview:_imageView];
+    }
+
     
     if(nil == self.textView)
     {
@@ -362,6 +371,32 @@
             }
         }];
     }
+}
+
+#pragma mark - Web View
+
+- (void)initWebView
+{
+    if(nil == _webView)
+    {
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,NAVIGATION_BAR_HEIGHT,[RCTool getScreenSize].width,[RCTool getScreenSize].height - NAVIGATION_BAR_HEIGHT)];
+        _webView.delegate = self;
+        _webView.scalesPageToFit = YES;
+        _webView.opaque = NO;
+        _webView.backgroundColor = [UIColor whiteColor];
+        
+        //隐藏UIWebView shadow
+        [RCTool hidenWebViewShadow:_webView];
+        
+    }
+    
+    [self.view addSubview: _webView];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType
+{
+	return NO;
 }
 
 @end

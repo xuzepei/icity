@@ -11,8 +11,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import "BMapKit.h"
 #import "BMKUserLocation.h"
+#import "BMKMapView.h"
 
-@interface RCAppDelegate : UIResponder <UIApplicationDelegate,UIAlertViewDelegate,BMKUserLocationDelegate>
+@interface RCAppDelegate : UIResponder <UIApplicationDelegate,UIAlertViewDelegate,BMKUserLocationDelegate,BMKMapViewDelegate>
 {
     UIBackgroundTaskIdentifier _bgTask;
 }

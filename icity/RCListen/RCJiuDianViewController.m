@@ -169,6 +169,7 @@
     [array addObject:@"1000米"];
     [array addObject:@"2000米"];
     [array addObject:@"5000米"];
+    [array addObject:@"10000米"];
     [dict setObject:array forKey:@"values"];
     [dict setObject:[NSNumber numberWithInt:HEADER_BUTTON0_TAG] forKey:@"tag"];
     self.fanweiSelection = dict;

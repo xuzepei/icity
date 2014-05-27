@@ -79,6 +79,7 @@
     
     self.shareView = nil;
     self.cancelShareButton = nil;
+
     
     [super dealloc];
 }
@@ -151,10 +152,6 @@
         self.cancelShareButton.layer.borderWidth = 1;
         self.cancelShareButton.layer.cornerRadius = 5.0;
     }
-    
-    BMKMapView* mapView =  [[[BMKMapView alloc] init] autorelease];
-    mapView.delegate  = self;
-    [mapView setShowsUserLocation:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -210,16 +207,16 @@
                     if([scflag isEqualToString:@"1"])
                         self.isFaved = YES;
                     
-                    if([self play])
-                    {
-                        if(_maskView)
-                            [_maskView.videoIndicator startAnimating];
-                        //                        [[RCTool frontWindow] addSubview:self.videoIndicator];
-                        
-                        self.isPlaying = YES;
-                        
-                        [self.playButton setImage:[UIImage imageNamed:@"btn_pause"] forState:UIControlStateNormal];
-                    }
+//                    if([self play])
+//                    {
+//                        if(_maskView)
+//                            [_maskView.videoIndicator startAnimating];
+//                        //                        [[RCTool frontWindow] addSubview:self.videoIndicator];
+//                        
+//                        self.isPlaying = YES;
+//                        
+//                        [self.playButton setImage:[UIImage imageNamed:@"btn_pause"] forState:UIControlStateNormal];
+//                    }
                 }
                 
                 [self updateFavBarItem];
@@ -286,7 +283,7 @@
     
     [self.scrollView addSubview:_videoPlayer.view];
     
-    [self.scrollView addSubview:_maskView];
+    //[self.scrollView addSubview:_maskView];
 }
 
 - (BOOL)play
@@ -774,7 +771,7 @@
     //起点
     BNRoutePlanNode *startNode = [[[BNRoutePlanNode alloc] init] autorelease];
 
-    BMKMapPoint mapPoint = {self.userLocation.longitude,self.userLocation.latitude};
+    BMKMapPoint mapPoint = {[RCTool getUserLocation].longitude,[RCTool getUserLocation].latitude};
     
     //（2）定义输出参数
     BNPosition* naviPos =  [[[BNPosition alloc]init] autorelease];
@@ -877,22 +874,6 @@
 
 }
 
-- (void)mapView:(BMKMapView *)mapView didUpdateUserLocation:(BMKUserLocation *)userLocation
-{
-    
-    NSLog(@"didUpdateUserLocation");
-    
-    self.userLocation = mapView.userLocation.coordinate;
-
-}
-
-- (void)mapView:(BMKMapView *)mapView didFailToLocateUserWithError:(NSError *)error
-{
-    NSLog(@"didFailToLocateUserWithError");
-}
-
-
-
 //算路成功回调
 -(void)routePlanDidFinished:(NSDictionary *)userInfo
 {
@@ -901,6 +882,7 @@
     //路径规划成功，开始导航
     [BNCoreServices_UI showNaviUI: BN_NaviTypeReal delegete:self isNeedLandscape:YES];
 }
+
 
 
 @end

@@ -71,7 +71,8 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
     //homepage
-    _mainViewController = [[RCMainViewController alloc] initWithNibName:nil bundle:nil];
+    //_mainViewController = [[RCMainViewController alloc] initWithNibName:nil bundle:nil];
+    _mainViewController = [[RCMainViewController alloc] initWithStyle:UITableViewStylePlain];
 	
 	_mainNavigationController = [[UINavigationController alloc]
                                  initWithRootViewController:_mainViewController];
@@ -81,12 +82,11 @@
     [self.window makeKeyAndVisible];
     
     
-//       //首页广告
-//       NSString* urlString = [NSString stringWithFormat:@"%@/ad.php?apiid=%@&pwd=%@&type=open",BASE_URL,APIID,PWD];
-//    
-//       RCHttpRequest* temp = [[[RCHttpRequest alloc] init] autorelease];
-//       [temp request:urlString delegate:self resultSelector:@selector(finishedAdRequest:) token:nil];
-//    
+    //获取当前位置
+    BMKMapView* mapView = [[[BMKMapView alloc] init] autorelease];
+    mapView.delegate  = self;
+    [mapView setShowsUserLocation:YES];
+//
 //       //获取区域和类型
 ////       urlString = [NSString stringWithFormat:@"%@/xinfang_search.php?apiid=%@&pwd=%@",BASE_URL,APIID,PWD];
 ////    
@@ -412,6 +412,22 @@
 			[alert release];
 		}
 	}
+}
+
+#pragma mark - 获取当前位置
+
+- (void)mapView:(BMKMapView *)mapView didUpdateUserLocation:(BMKUserLocation *)userLocation
+{
+    
+    NSLog(@"didUpdateUserLocation");
+    
+    self.userLocation = mapView.userLocation.coordinate;
+    
+}
+
+- (void)mapView:(BMKMapView *)mapView didFailToLocateUserWithError:(NSError *)error
+{
+    NSLog(@"didFailToLocateUserWithError");
 }
 
 @end

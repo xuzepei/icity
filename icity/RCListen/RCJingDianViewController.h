@@ -16,9 +16,9 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import "BMKNavigation.h"
 #import "RCPlayerMaskView.h"
-#import "BMKMapView.h"
 
-@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate,BMKMapViewDelegate>
+
+@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
 @property(nonatomic,retain)NSDictionary* content;
@@ -35,7 +35,7 @@
 @property(nonatomic,retain)UIButton* playButton;
 @property(assign)BOOL isPlaying;
 @property(assign)BOOL isLoading;
-@property(assign)CLLocationCoordinate2D userLocation;
+
 
 @property(nonatomic,retain)IBOutlet UIView* shareView;
 @property(nonatomic,retain)IBOutlet UIButton* cancelShareButton;
