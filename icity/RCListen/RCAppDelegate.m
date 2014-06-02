@@ -86,6 +86,7 @@
     BMKMapView* mapView = [[[BMKMapView alloc] init] autorelease];
     mapView.delegate  = self;
     [mapView setShowsUserLocation:YES];
+    
 //
 //       //获取区域和类型
 ////       urlString = [NSString stringWithFormat:@"%@/xinfang_search.php?apiid=%@&pwd=%@",BASE_URL,APIID,PWD];
@@ -419,9 +420,10 @@
 - (void)mapView:(BMKMapView *)mapView didUpdateUserLocation:(BMKUserLocation *)userLocation
 {
     
-    NSLog(@"didUpdateUserLocation");
+    //NSLog(@"didUpdateUserLocation");
     
     self.userLocation = mapView.userLocation.coordinate;
+    [mapView setShowsUserLocation:NO];
     
 }
 

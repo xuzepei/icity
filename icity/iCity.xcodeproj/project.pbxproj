@@ -122,6 +122,10 @@
 		098CC3FC192CE981008EDD73 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 098CC3FB192CE981008EDD73 /* EGORefreshTableHeaderView.m */; };
 		098DA0D217CE47E5009B0728 /* RCTabBar2.m in Sources */ = {isa = PBXBuildFile; fileRef = 098DA0D117CE47E5009B0728 /* RCTabBar2.m */; };
 		098DA28318E022AA0044B972 /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 098DA28218E022AA0044B972 /* back_button@2x.png */; };
+		0993416B19346893006FB35A /* RCAdCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0993416A19346893006FB35A /* RCAdCellContentView.m */; };
+		0993416E19347FCD006FB35A /* fenxiang_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0993416C19347FCD006FB35A /* fenxiang_button@2x.png */; };
+		0993416F19347FCD006FB35A /* restore_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0993416D19347FCD006FB35A /* restore_button.png */; };
+		0993417119347FFE006FB35A /* zan_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0993417019347FFE006FB35A /* zan_button@2x.png */; };
 		0999746717C3013500CC1C0C /* RCHttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0999746617C3013500CC1C0C /* RCHttpRequestManager.m */; };
 		099B1AFF16EF75E700984120 /* RCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 099B1AFE16EF75E700984120 /* RCTabBar.m */; };
 		099F5F03193346DD0063623C /* RCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 099F5F02193346DD0063623C /* RCMainViewController.m */; };
@@ -185,7 +189,6 @@
 		09B908C318C6F10700C84CC8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B908C218C6F10700C84CC8 /* MediaPlayer.framework */; };
 		09B908E018C6FE6100C84CC8 /* weather_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B908DF18C6FE6100C84CC8 /* weather_bg@2x.png */; };
 		09B908E318C6FE8100C84CC8 /* RCWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B908E218C6FE8100C84CC8 /* RCWeatherView.m */; };
-		09B908E518C7195A00C84CC8 /* function_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B908E418C7195A00C84CC8 /* function_bg@2x.png */; };
 		09B908E818C7198700C84CC8 /* RCFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B908E718C7198700C84CC8 /* RCFunctionView.m */; };
 		09B908EA18C723A400C84CC8 /* gps_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B908E918C723A400C84CC8 /* gps_button@2x.png */; };
 		09B908ED18C7276400C84CC8 /* zoom_in@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B908EB18C7276400C84CC8 /* zoom_in@2x.png */; };
@@ -495,6 +498,11 @@
 		098DA0D017CE47E5009B0728 /* RCTabBar2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTabBar2.h; sourceTree = "<group>"; };
 		098DA0D117CE47E5009B0728 /* RCTabBar2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTabBar2.m; sourceTree = "<group>"; };
 		098DA28218E022AA0044B972 /* back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_button@2x.png"; sourceTree = "<group>"; };
+		0993416919346893006FB35A /* RCAdCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAdCellContentView.h; sourceTree = "<group>"; };
+		0993416A19346893006FB35A /* RCAdCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAdCellContentView.m; sourceTree = "<group>"; };
+		0993416C19347FCD006FB35A /* fenxiang_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fenxiang_button@2x.png"; sourceTree = "<group>"; };
+		0993416D19347FCD006FB35A /* restore_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restore_button.png; sourceTree = "<group>"; };
+		0993417019347FFE006FB35A /* zan_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zan_button@2x.png"; sourceTree = "<group>"; };
 		0999746517C3013500CC1C0C /* RCHttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCHttpRequestManager.h; sourceTree = "<group>"; };
 		0999746617C3013500CC1C0C /* RCHttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCHttpRequestManager.m; sourceTree = "<group>"; };
 		099B1AFD16EF75E700984120 /* RCTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTabBar.h; sourceTree = "<group>"; };
@@ -576,7 +584,6 @@
 		09B908DF18C6FE6100C84CC8 /* weather_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_bg@2x.png"; sourceTree = "<group>"; };
 		09B908E118C6FE8100C84CC8 /* RCWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCWeatherView.h; sourceTree = "<group>"; };
 		09B908E218C6FE8100C84CC8 /* RCWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCWeatherView.m; sourceTree = "<group>"; };
-		09B908E418C7195A00C84CC8 /* function_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "function_bg@2x.png"; sourceTree = "<group>"; };
 		09B908E618C7198700C84CC8 /* RCFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCFunctionView.h; sourceTree = "<group>"; };
 		09B908E718C7198700C84CC8 /* RCFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCFunctionView.m; sourceTree = "<group>"; };
 		09B908E918C723A400C84CC8 /* gps_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gps_button@2x.png"; sourceTree = "<group>"; };
@@ -1011,6 +1018,8 @@
 				09246C621929A17C0017665F /* RCDHView.m */,
 				09246C641929A1BD0017665F /* RCJiuDianView.h */,
 				09246C651929A1BD0017665F /* RCJiuDianView.m */,
+				0993416919346893006FB35A /* RCAdCellContentView.h */,
+				0993416A19346893006FB35A /* RCAdCellContentView.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1033,6 +1042,9 @@
 		095C59C816AF804200F7B949 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0993417019347FFE006FB35A /* zan_button@2x.png */,
+				0993416C19347FCD006FB35A /* fenxiang_button@2x.png */,
+				0993416D19347FCD006FB35A /* restore_button.png */,
 				09ADF58A192B3580000B0C6B /* fengjing_default@2x.png */,
 				09ADF58B192B3580000B0C6B /* meishi_default@2x.png */,
 				09ADF58C192B3580000B0C6B /* xiangce_default@2x.png */,
@@ -1070,7 +1082,6 @@
 				09B908EB18C7276400C84CC8 /* zoom_in@2x.png */,
 				09B908EC18C7276400C84CC8 /* zoom_out@2x.png */,
 				09B908E918C723A400C84CC8 /* gps_button@2x.png */,
-				09B908E418C7195A00C84CC8 /* function_bg@2x.png */,
 				09B908DF18C6FE6100C84CC8 /* weather_bg@2x.png */,
 				09D01B1C18C62151007637EB /* overlay_1@2x.png */,
 				09D01B1D18C62151007637EB /* overlay@2x.png */,
@@ -1524,16 +1535,17 @@
 				098CC3F4192CCE31008EDD73 /* baiduNaviSDK.bundle in Resources */,
 				09FF4B1F18E001550017AA03 /* btn_qq.png in Resources */,
 				09AB0820192CA49D00488EE3 /* adwo_audioRecord.png in Resources */,
-				09B908E518C7195A00C84CC8 /* function_bg@2x.png in Resources */,
 				09AB0821192CA49D00488EE3 /* adwo_audioShare.png in Resources */,
 				0950B94216F17F020039D561 /* fangdai@2x.png in Resources */,
 				09FE845D16F740F1008C5846 /* fangchandaogou@2x.png in Resources */,
+				0993416E19347FCD006FB35A /* fenxiang_button@2x.png in Resources */,
 				09ADF58F192B3580000B0C6B /* xiangce_default@2x.png in Resources */,
 				09700F7318D9D0DB00F9E26D /* 1_1@2x.png in Resources */,
 				09AB0822192CA49D00488EE3 /* adwo_audioStop.png in Resources */,
 				09B897DB18C4DF8100D7A20D /* arrow_down@2x.png in Resources */,
 				09700F7618D9D0DB00F9E26D /* 3_0@2x.png in Resources */,
 				0915D381170DAA0600D86E9A /* zbar-back.png in Resources */,
+				0993416F19347FCD006FB35A /* restore_button.png in Resources */,
 				09700F7418D9D0DB00F9E26D /* 2_0@2x.png in Resources */,
 				09AB0829192CA49D00488EE3 /* adwo_share2sina.png in Resources */,
 				0948767C18D6FD6F00CB71BB /* btn_here@2x.png in Resources */,
@@ -1604,6 +1616,7 @@
 				090D366A1810E3B3006EC3D5 /* RCIndexAdCell1.xib in Resources */,
 				09B908EE18C7276400C84CC8 /* zoom_out@2x.png in Resources */,
 				09C9FFAB18D934000027BACE /* more_btn_search@2x.png in Resources */,
+				0993417119347FFE006FB35A /* zan_button@2x.png in Resources */,
 				0979E3B81814BD9E00DDB418 /* RCBaiDuMapViewController.xib in Resources */,
 				09700F7818D9D0DB00F9E26D /* 4_0@2x.png in Resources */,
 				09AB0828192CA49D00488EE3 /* adwo_recordSlider.png in Resources */,
@@ -1640,6 +1653,7 @@
 				093D11F216F04E120077CC9A /* RCPickerView.m in Sources */,
 				09246C601929A1670017665F /* RCJDView.m in Sources */,
 				093D11F516F06FFA0077CC9A /* RCSearchCell.m in Sources */,
+				0993416B19346893006FB35A /* RCAdCellContentView.m in Sources */,
 				09846F9C18D746FA00A2E91B /* RCYuLeCellContentView.m in Sources */,
 				09B508C218C5D80300CFF6F1 /* RCMainMapViewController.m in Sources */,
 				098ACAF1170084C4005BDCC8 /* FGalleryPhoto.m in Sources */,

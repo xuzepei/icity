@@ -14,6 +14,7 @@
 #define HEADER_VIEW_HEIGHT 40.0f
 #define HEADER_BUTTON0_TAG 100
 #define HEADER_BUTTON1_TAG 101
+#define AD_CELL_HEIGHT 50.0f
 
 #define BG_COLOR [UIColor colorWithRed:236/255.0 green:236/255.0 blue:234/255.0 alpha:1.0]
 
@@ -119,7 +120,7 @@
     NSString* jd_id = @"";
     if(self.item)
         jd_id = [self.item objectForKey:@"jd_id"];
-    NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=bdsearch&type=2&jd_id=%@&tag=%@&pageno=%d&radius=%@",BASE_URL,jd_id,tag,self.pageno,radius];
+    NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=bdsearch&type=2&jd_id=%@&tag=%@&pageno=%d&radius=%@&token=%@",BASE_URL,jd_id,tag,self.pageno,radius,[RCTool getDeviceID]];
     
     RCHttpRequest* temp = [[[RCHttpRequest alloc] init] autorelease];
     BOOL b = [temp request:urlString delegate:self resultSelector:@selector(finishedContentRequest:) token:nil];
@@ -315,7 +316,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 20;
+    if(section)
+        return 20;
+    
+    return 0;
 }
 
 - (CGFloat)getCellHeight:(NSIndexPath*)indexPath
@@ -325,7 +329,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (id)getCellDataAtIndexPath: (NSIndexPath*)indexPath
@@ -339,7 +343,7 @@
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(0 == section)
+    if(1 == section)
         return [_itemArray count];
     
     return 1;
@@ -348,6 +352,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(0 == indexPath.section)
+    {
+        return AD_CELL_HEIGHT;
+    }
+    else if(1 == indexPath.section)
     {
         return [self getCellHeight:indexPath];
     }
@@ -361,16 +369,37 @@
     
     static NSString *cellId0 = @"cellId0";
     static NSString *cellId1 = @"cellId1";
+    static NSString *cellId2 = @"cellId2";
     
     UITableViewCell *cell = nil;
     
     if(0 == indexPath.section)
     {
+        cell = [tableView dequeueReusableCellWithIdentifier:cellId2];
+        if(cell == nil)
+        {
+            cell = [[[RCPublicCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                        reuseIdentifier: cellId2 contentViewClass:NSClassFromString(@"RCAdCellContentView")] autorelease];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            cell.backgroundColor = BG_COLOR;
+        }
+        
+        NSDictionary* item = (NSDictionary*)[self getCellDataAtIndexPath: indexPath];
+        RCPublicCell* temp = (RCPublicCell*)cell;
+        if(temp)
+        {
+            [temp updateContent:item cellHeight:AD_CELL_HEIGHT delegate:self token:nil];
+        }
+    }
+    else if(1 == indexPath.section)
+    {
         cell = [tableView dequeueReusableCellWithIdentifier:cellId1];
         if(cell == nil)
         {
             cell = [[[RCPublicCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                        reuseIdentifier: cellId1 contentViewClass:NSClassFromString(@"RCYuLeCellContentView")] autorelease];
+                                        reuseIdentifier: cellId1 contentViewClass:NSClassFromString(@"RCJiuDianCellContentView")] autorelease];
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
@@ -407,7 +436,7 @@
 	
 	[tableView deselectRowAtIndexPath: indexPath animated: YES];
     
-    if(1 == indexPath.section)
+    if(2 == indexPath.section)
     {
         [self updateContent:self.item];
     }

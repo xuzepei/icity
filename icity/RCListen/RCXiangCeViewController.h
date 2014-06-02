@@ -21,6 +21,11 @@
 @property(nonatomic,retain)FGalleryViewController *galleryController;
 @property(nonatomic,retain)NSMutableArray* imageArray;
 
+@property(nonatomic,retain)NSDictionary* willReplaceItem;
+
+@property(nonatomic,retain)IBOutlet UIView* shareView;
+@property(nonatomic,retain)IBOutlet UIButton* cancelShareButton;
+
 - (void)updateContent:(NSDictionary*)item;
 
 @end

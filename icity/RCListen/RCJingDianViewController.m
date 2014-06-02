@@ -39,9 +39,9 @@
         
         if(nil == _videoIndicator)
         {
-            _videoIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+            _videoIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
             _videoIndicator.hidesWhenStopped = YES;
-            _videoIndicator.center = CGPointMake(116, 180);
+            _videoIndicator.center = CGPointMake([RCTool getScreenSize].height/2, [RCTool getScreenSize].width/2);
         }
         
         if(nil == _maskView)
@@ -273,10 +273,10 @@
          name:MPMoviePlayerPlaybackDidFinishNotification
          object:_videoPlayer];
         
-        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
-        [doubleTap setNumberOfTapsRequired:2];
-        [_videoPlayer.view addGestureRecognizer:doubleTap];
-        [doubleTap release];
+//        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
+//        [doubleTap setNumberOfTapsRequired:2];
+//        [_videoPlayer.view addGestureRecognizer:doubleTap];
+//        [doubleTap release];
     }
     
     _videoPlayer.view.frame = CGRectMake(0, 0, [RCTool getScreenSize].width, VIDEO_HEIGHT);
@@ -320,6 +320,7 @@
         [_videoPlayer setContentURL:url];
         [_videoPlayer prepareToPlay];
         [_videoPlayer play];
+        [self handleDoubleTap:nil];
         
         return YES;
     }
@@ -332,11 +333,11 @@
     MPMovieLoadState state = [_videoPlayer loadState];
     if(MPMovieLoadStateUnknown == state || MPMovieLoadStateStalled == state)
     {
-        [_maskView.videoIndicator startAnimating];
-        [self.scrollView addSubview:_maskView];
+        //[_maskView.videoIndicator startAnimating];
+        //[self.scrollView addSubview:_maskView];
         [self.scrollView addSubview:_playButton];
         
-        //        [self.videoIndicator startAnimating];
+        [self.videoIndicator startAnimating];
         //        [[RCTool frontWindow] addSubview:self.videoIndicator];
     }
     else{
@@ -344,7 +345,7 @@
         [_maskView.videoIndicator stopAnimating];
         [_maskView removeFromSuperview];
         
-        //        [self.videoIndicator stopAnimating];
+        [self.videoIndicator stopAnimating];
     }
 }
 
@@ -371,7 +372,7 @@
 {
     NSLog(@"handleDoubleTap");
     
-    if(MPMoviePlaybackStateStopped != self.videoPlayer.playbackState)
+    //if(MPMoviePlaybackStateStopped != self.videoPlayer.playbackState)
     {
         if(self.isFullScreen)
         {
@@ -397,6 +398,14 @@
         
         [[_videoPlayer view] setTransform:CGAffineTransformMakeRotation(M_PI/2)];
         
+        UIButton* restoreButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        restoreButton.frame = CGRectMake(0,0, 60, 60);
+        restoreButton.tag = 222;
+        [restoreButton setImage:[UIImage imageNamed:@"btn_play"] forState:UIControlStateNormal];
+        [restoreButton addTarget:self action:@selector(restoreScreen) forControlEvents:UIControlEventTouchUpInside];
+        [_videoPlayer.view addSubview:restoreButton];
+        [_videoPlayer.view addSubview:_videoIndicator];
+        
         [[RCTool frontWindow] addSubview:_videoPlayer.view];
     }
     
@@ -408,11 +417,16 @@
     
     if(_videoPlayer)
     {
-        
         [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
         [[_videoPlayer view] setTransform:CGAffineTransformMakeRotation(0)];
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
         _videoPlayer.view.frame = CGRectMake(0, 0, [RCTool getScreenSize].width, VIDEO_HEIGHT);
+        
+        UIView* restoreButton = [_videoPlayer.view viewWithTag:222];
+        if(restoreButton)
+            [restoreButton removeFromSuperview];
+        
+        [self clickedPlayButton:nil];
         
         [self.scrollView addSubview:_videoPlayer.view];
         [self.scrollView addSubview:self.playButton];
@@ -449,6 +463,8 @@
     {
         if([self play])
         {
+            [self.videoIndicator startAnimating];
+            
             self.isPlaying = YES;
             
             [self.playButton setImage:[UIImage imageNamed:@"btn_pause"] forState:UIControlStateNormal];

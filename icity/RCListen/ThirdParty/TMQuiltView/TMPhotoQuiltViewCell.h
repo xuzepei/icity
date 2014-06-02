@@ -20,9 +20,21 @@
 #import <UIKit/UIKit.h>
 #import "TMQuiltViewCell.h"
 
+@protocol TMPhotoQuiltViewCellDelegate <NSObject>
+
+- (void)clickedLikeButton:(BOOL)isLiked token:(NSDictionary*)token;
+- (void)clickedShareButton:(id)sender;
+
+@end
+
 @interface TMPhotoQuiltViewCell : TMQuiltViewCell
 
 @property (nonatomic, retain) UIImageView *photoView;
 @property (nonatomic, retain) UILabel *titleLabel;
+@property (nonatomic, retain) UIButton *shareButton;
+@property (nonatomic, retain) UIButton *zanButton;
+@property (nonatomic, retain) UILabel *zanLabel;
+@property (nonatomic, retain) NSDictionary* item;
+@property (nonatomic, assign) id delegate;
 
 @end

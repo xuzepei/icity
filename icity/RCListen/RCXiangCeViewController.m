@@ -13,6 +13,7 @@
 #import "RCUploadPhotoViewController.h"
 
 #define BG_COLOR [UIColor colorWithRed:236/255.0 green:236/255.0 blue:234/255.0 alpha:1.0]
+#define CELL_OFFSET_HEIGHT 42.0f
 
 @interface RCXiangCeViewController ()
 
@@ -48,6 +49,10 @@
     self.waterfallView = nil;
     self.imageArray = nil;
     self.galleryController = nil;
+    self.willReplaceItem = nil;
+    
+    self.shareView = nil;
+    self.cancelShareButton = nil;
     
     [super dealloc];
 }
@@ -61,6 +66,20 @@
     
     if(_waterfallView)
         [_waterfallView reloadData];
+    
+    if(self.shareView)
+    {
+        self.shareView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.9];
+        
+        [self.view addSubview:self.shareView];
+    }
+    
+    if(self.cancelShareButton)
+    {
+        self.cancelShareButton.layer.borderColor = [UIColor colorWithRed:0.79 green:0.79 blue:0.79 alpha:1.00].CGColor;
+        self.cancelShareButton.layer.borderWidth = 1;
+        self.cancelShareButton.layer.cornerRadius = 5.0;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -122,7 +141,7 @@
         return;
     
     self.pid = pid;
-    NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=getpiclist&jq_id=%@&pid=%@",BASE_URL,jq_id,self.pid];
+    NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=getpiclist&jq_id=%@&pid=%@&token=%@",BASE_URL,jq_id,self.pid,[RCTool getDeviceID]];
     
     NSLog(@"urlString:%@",urlString);
     RCHttpRequest* temp = [[[RCHttpRequest alloc] init] autorelease];
@@ -273,6 +292,28 @@
     cell.photoView.image = [self imageAtIndexPath:indexPath];
     cell.titleLabel.text = [self textAtIndexPath:indexPath];
     
+    //获取点赞次数
+    if(indexPath.row < [_itemArray count])
+    {
+        NSDictionary* item = [_itemArray objectAtIndex:indexPath.row];
+        if(item)
+        {
+            NSString* likecount = @"0";
+            id temp = [item objectForKey:@"p_likes_cnt"];
+            if([temp isKindOfClass:[NSString class]])
+            {
+                if([temp length])
+                    likecount = temp;
+            }
+            else
+                likecount = [NSString stringWithFormat:@"%d",[temp intValue]];
+            
+            cell.item = item;
+            cell.delegate = self;
+            cell.zanLabel.text = likecount;
+        }
+    }
+    
     return cell;
 }
 
@@ -283,7 +324,7 @@
 
 - (CGFloat)quiltView:(TMQuiltView *)quiltView heightForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self heightAtIndexPath:indexPath] / [self quiltViewNumberOfColumns:quiltView];
+    return [self heightAtIndexPath:indexPath] / [self quiltViewNumberOfColumns:quiltView] + CELL_OFFSET_HEIGHT;
 }
 
 - (void)quiltView:(TMQuiltView *)quiltView didSelectCellAtIndexPath:(NSIndexPath *)indexPath
@@ -317,6 +358,87 @@
         if(_waterfallView)
 		[_waterfallView reloadData];
 	}
+}
+
+- (void)clickedLikeButton:(BOOL)isLiked token:(NSDictionary *)token
+{
+    NSString* a = @"";
+    if(isLiked)
+    {
+        a = @"addlikeflag";
+    }
+    else
+    {
+        a = @"dellikeflag";
+    }
+    
+    NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=%@&pid=%@&token=%@",BASE_URL,a,[token objectForKey:@"p_id"],[RCTool getDeviceID]];
+    
+    RCHttpRequest* temp = [[[RCHttpRequest alloc] init] autorelease];
+    BOOL b = [temp request:urlString delegate:self resultSelector:@selector(finishedZanRequest:) token:nil];
+    if(b)
+    {
+        NSMutableDictionary* dict = [[[NSMutableDictionary alloc] init] autorelease];
+        [dict addEntriesFromDictionary:token];
+        [dict setObject:[NSNumber numberWithBool:isLiked] forKey:@"isLiked"];
+        int count = [[dict objectForKey:@"p_likes_cnt"] intValue];
+        if(isLiked)
+            count++;
+        else
+            count--;
+
+        count = MAX(count,0);
+        [dict setObject:[NSNumber numberWithInt:count] forKey:@"p_likes_cnt"];
+        self.willReplaceItem = dict;
+
+        
+        [RCTool showIndicator:@"加载中..."];
+    }
+}
+
+- (void)finishedZanRequest:(NSString*)jsonString
+{
+    [RCTool hideIndicator];
+    
+    if(0 == [jsonString length])
+        return;
+    
+    NSDictionary* result = [RCTool parseToDictionary: jsonString];
+    if(result && [result isKindOfClass:[NSDictionary class]])
+    {
+        if([RCTool hasNoError:result])
+        {
+            NSLog(@"成功");
+            
+            NSString* temp_p_id = [self.willReplaceItem objectForKey:@"p_id"];
+            
+            int index = -1;
+            int i = 0;
+            for(NSDictionary* item in _itemArray)
+            {
+                NSString* p_id = [item objectForKey:@"p_id"];
+                if([p_id isEqualToString:temp_p_id])
+                {
+                    index = i;
+                    break;
+                }
+                
+                i++;
+            }
+            
+            if(index != -1 && self.willReplaceItem)
+            {
+                [_itemArray replaceObjectAtIndex:index withObject:self.willReplaceItem];
+                [_waterfallView reloadData];
+            }
+        }
+        else
+        {
+            self.willReplaceItem = nil;
+            [RCTool showAlert:@"提示" message:[result objectForKey:@"msg"]];
+            return;
+        }
+    }
 }
 
 #pragma mark - FGalleryViewControllerDelegate Methods
@@ -368,6 +490,43 @@
     }
     
     return @"";
+}
+
+#pragma mark - Share View
+
+- (void)clickedShareButton:(id)sender
+{
+    //    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作"
+    //                                                              delegate:self
+    //                                                     cancelButtonTitle:@"取消"
+    //                                                destructiveButtonTitle:nil
+    //                                                     otherButtonTitles:@"新浪微博分享",@"腾讯微博分享",nil];
+    //    actionSheet.tag = SHARE_TAG;
+    //    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    //    [actionSheet showFromToolbar:self.toolbar];
+    //    [actionSheet release];
+    
+    [self.view bringSubviewToFront:self.shareView];
+    [UIView animateWithDuration:0.3 animations:^{
+        if(self.shareView)
+        {
+            CGRect rect = self.shareView.frame;
+            rect.origin.y = [RCTool getScreenSize].height - 216;
+            self.shareView.frame = rect;
+        }
+    }];
+}
+
+- (IBAction)clickedCancelShareButton:(id)sender
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        if(self.shareView)
+        {
+            CGRect rect = self.shareView.frame;
+            rect.origin.y = [RCTool getScreenSize].height;
+            self.shareView.frame = rect;
+        }
+    }];
 }
 
 @end

@@ -35,6 +35,8 @@
     self = [super init];
     if (self) {
         _reuseIdentifier = [reuseIdentifier retain];
+        
+        self.layer.cornerRadius = 6;
     }
     return self;
 }

@@ -565,7 +565,12 @@ NSString *const kDefaultReusableIdentifier = @"kTMQuiltViewDefaultReusableIdenti
         NSIndexPath *indexPath = nil;
         while((indexPath = (NSIndexPath *)[displayedViewEnumerator nextObject])) {
             TMQuiltViewCell *photoCell = [self.indexPathToViewByColumn[i] objectForKey:indexPath];
-            if (CGRectContainsPoint(photoCell.frame, tapPoint)) {
+            
+            //modified by xzp,判断点击区域时去掉文字部分
+            CGRect rect = photoCell.frame;
+            rect.size.height -= 40.0;
+            
+            if (CGRectContainsPoint(rect, tapPoint)) {
                 photoCell.selected = YES;
                 if ([self.delegate respondsToSelector:@selector(quiltView:didSelectCellAtIndexPath:)]) {
                     [self.delegate quiltView:self didSelectCellAtIndexPath:indexPath];

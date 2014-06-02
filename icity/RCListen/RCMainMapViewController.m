@@ -180,7 +180,7 @@
     NSString* jq_id = @"";
     if(self.current_jq)
         jq_id = [self.current_jq objectForKey:@"jq_id"];
-    NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=jdlist&jq_id=%@",BASE_URL,jq_id];
+    NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=jdlist&jq_id=%@&token=%@",BASE_URL,jq_id,[RCTool getDeviceID]];
     
     RCHttpRequest* temp = [[[RCHttpRequest alloc] init] autorelease];
     [temp request:urlString delegate:self resultSelector:@selector(finishedListRequest:) token:nil];
