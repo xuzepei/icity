@@ -399,11 +399,13 @@
         [[_videoPlayer view] setTransform:CGAffineTransformMakeRotation(M_PI/2)];
         
         UIButton* restoreButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        restoreButton.frame = CGRectMake(0,0, 60, 60);
+        restoreButton.frame = CGRectMake(4,4, 82, 28);
         restoreButton.tag = 222;
-        [restoreButton setImage:[UIImage imageNamed:@"btn_play"] forState:UIControlStateNormal];
+        [restoreButton setImage:[UIImage imageNamed:@"restore_button"] forState:UIControlStateNormal];
         [restoreButton addTarget:self action:@selector(restoreScreen) forControlEvents:UIControlEventTouchUpInside];
         [_videoPlayer.view addSubview:restoreButton];
+        
+        _videoIndicator.center = CGPointMake([RCTool getScreenSize].height/2, [RCTool getScreenSize].width/2);
         [_videoPlayer.view addSubview:_videoIndicator];
         
         [[RCTool frontWindow] addSubview:_videoPlayer.view];
@@ -430,6 +432,8 @@
         
         [self.scrollView addSubview:_videoPlayer.view];
         [self.scrollView addSubview:self.playButton];
+        
+        _videoIndicator.center = CGPointMake([RCTool getScreenSize].width/2, VIDEO_HEIGHT/2);
     }
 }
 
@@ -438,7 +442,8 @@
     if(nil == _playButton)
     {
         self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.playButton.frame = CGRectMake(250, VIDEO_HEIGHT - 60, 60, 60);
+        self.playButton.frame = CGRectMake(250, VIDEO_HEIGHT - 60, 73.5, 73.5);
+        self.playButton.center = CGPointMake([RCTool getScreenSize].width/2.0, VIDEO_HEIGHT/2.0);
         [self.playButton setImage:[UIImage imageNamed:@"btn_play"] forState:UIControlStateNormal];
         [self.playButton addTarget:self action:@selector(clickedPlayButton:) forControlEvents:UIControlEventTouchUpInside];
     }
