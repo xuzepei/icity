@@ -31,6 +31,7 @@
         
         
         RCJDView* view0 = [[[RCJDView alloc] initWithFrame:RECT0] autorelease];
+        view0.tag = 100+0;
         view0.type = 0;
         [self addSubview:view0];
         
@@ -49,10 +50,12 @@
         
         RCJDView* view4 = [[[RCJDView alloc] initWithFrame:RECT4] autorelease];
         view4.type = 4;
+        view4.tag = 100+4;
         [self addSubview:view4];
         
         RCJDView* view5 = [[[RCJDView alloc] initWithFrame:RECT5] autorelease];
         view5.type = 5;
+        view5.tag = 100+5;
         [self addSubview:view5];
         
         RCDHView* view6 = [[[RCDHView alloc] initWithFrame:RECT6] autorelease];
@@ -72,8 +75,35 @@
     self.jdView = nil;
     self.jiuDianView = nil;
     self.dhView = nil;
+    self.item = nil;
     
     [super dealloc];
+}
+
+- (void)updateContent:(NSDictionary *)item
+{
+    self.item = item;
+    
+    RCJDView* view0 = (RCJDView*)[self viewWithTag:100 + 0];
+    if(self.item)
+    {
+        view0.imageUrl = [self.item objectForKey:@"jd_picurl_jdjj"];
+        [view0 setNeedsDisplay];
+    }
+    
+    RCJDView* view4 = (RCJDView*)[self viewWithTag:100 + 4];
+    if(self.item)
+    {
+        view4.imageUrl = [self.item objectForKey:@"jd_picurl_mstj"];
+        [view4 setNeedsDisplay];
+    }
+    
+    RCJDView* view5 = (RCJDView*)[self viewWithTag:100 + 5];
+    if(self.item)
+    {
+        view5.imageUrl = [self.item objectForKey:@"jd_picurl_xc"];
+        [view5 setNeedsDisplay];
+    }
 }
 
 

@@ -207,6 +207,11 @@
                     if([scflag isEqualToString:@"1"])
                         self.isFaved = YES;
                     
+                    if(self.functionView)
+                    {
+                        [self.functionView updateContent:self.content];
+                    }
+                    
 //                    if([self play])
 //                    {
 //                        if(_maskView)
@@ -434,6 +439,7 @@
         [self.scrollView addSubview:self.playButton];
         
         _videoIndicator.center = CGPointMake([RCTool getScreenSize].width/2, VIDEO_HEIGHT/2);
+        [_videoIndicator removeFromSuperview];
     }
 }
 

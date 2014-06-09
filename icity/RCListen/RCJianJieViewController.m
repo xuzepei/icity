@@ -23,6 +23,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _indicator.center = CGPointMake([RCTool getScreenSize].width/2.0, [RCTool getScreenSize].height/2.0);
+        [self.view addSubview:_indicator];
     }
     return self;
 }
@@ -35,6 +39,8 @@
     self.image = nil;
     self.webView.delegate = nil;
     self.webView = nil;
+    self.indicator = nil;
+    self.token = nil;
     
     [super dealloc];
 }
@@ -115,21 +121,27 @@
 - (void)updateContent:(NSDictionary*)item token:(NSDictionary*)token
 {
     self.item = item;
-    
+    self.token = token;
     self.title = [self.item objectForKey:@"jd_name"];
     
-    self.textView.text = [self.item objectForKey:@"jd_desc"];
+    [self loadWebPage];
     
-    NSString* imageUrl = [self.item objectForKey:@"jd_picurl"];
-    UIImage* image = [RCTool getImageFromLocal:imageUrl];
-    if(image)
-        self.imageView.image = image;
-    else
-    {
-        [[RCImageLoader sharedInstance] saveImage:imageUrl
-                                         delegate:self
-                                            token:nil];
-    }
+    //http://acs.akange.com:81/index.php?c=main&a=travel&jd_id=3&token=renykang
+    
+
+    
+//    self.textView.text = [self.item objectForKey:@"jd_desc"];
+//    
+//    NSString* imageUrl = [self.item objectForKey:@"jd_picurl"];
+//    UIImage* image = [RCTool getImageFromLocal:imageUrl];
+//    if(image)
+//        self.imageView.image = image;
+//    else
+//    {
+//        [[RCImageLoader sharedInstance] saveImage:imageUrl
+//                                         delegate:self
+//                                            token:nil];
+//    }
     
     NSString* jd_id = @"";
     if(token)
@@ -379,7 +391,7 @@
 {
     if(nil == _webView)
     {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,NAVIGATION_BAR_HEIGHT,[RCTool getScreenSize].width,[RCTool getScreenSize].height - NAVIGATION_BAR_HEIGHT)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,NAVIGATION_BAR_HEIGHT,[RCTool getScreenSize].width,[RCTool getScreenSize].height - NAVIGATION_BAR_HEIGHT - 44)];
         _webView.delegate = self;
         _webView.scalesPageToFit = YES;
         _webView.opaque = NO;
@@ -391,12 +403,50 @@
     }
     
     [self.view addSubview: _webView];
+    
+    [self loadWebPage];
+}
+
+- (void)loadWebPage
+{
+    NSString* jd_id = @"";
+    if(self.item)
+    {
+        jd_id = [self.item objectForKey:@"jd_id"];
+        NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=travel&jd_id=%@&token=%@",BASE_URL,jd_id,[RCTool getDeviceID]];
+        if(self.webView)
+        {
+            NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+            [self.webView loadRequest:request];
+        }
+    }
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
  navigationType:(UIWebViewNavigationType)navigationType
 {
-	return NO;
+    NSString* url = [request.URL absoluteString];
+    NSLog(@"url:%@",url);
+    
+	return YES;
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+	[_indicator startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+	[_indicator stopAnimating];
+    
+    NSString* title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.title = title;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+	[_indicator stopAnimating];
 }
 
 @end

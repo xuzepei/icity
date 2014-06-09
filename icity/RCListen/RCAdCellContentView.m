@@ -46,8 +46,10 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    [[UIColor redColor] set];
-    UIRectFill(self.bounds);
+    if(self.image)
+    {
+        [self.image drawInRect:self.bounds];
+    }
 }
 
 
@@ -57,7 +59,7 @@
     self.delegate = delegate;
     self.token = token;
     
-    self.imageUrl = [self.item objectForKey:@"jd_title_pic"];
+    self.imageUrl = [self.item objectForKey:@"pic"];
     UIImage* image = [RCTool getImageFromLocal:self.imageUrl];
     if(image)
         self.image = image;
@@ -77,6 +79,11 @@
     
     UITouch* touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
+    
+    if(self.delegate && [self.delegate respondsToSelector:@selector(clickedCell:)])
+    {
+        [self.delegate clickedCell:self.item];
+    }
 
 }
 

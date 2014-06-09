@@ -146,7 +146,6 @@
 		09AB07FC192CA3D700488EE3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09AB07FB192CA3D700488EE3 /* StoreKit.framework */; };
 		09AB07FE192CA3F600488EE3 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 09AB07FD192CA3F600488EE3 /* libz.1.2.5.dylib */; };
 		09AB0818192CA49D00488EE3 /* libAdwoAdSDK5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09AB0801192CA49D00488EE3 /* libAdwoAdSDK5.0.a */; };
-		09AB0819192CA49D00488EE3 /* libminizip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09AB0802192CA49D00488EE3 /* libminizip.a */; };
 		09AB081C192CA49D00488EE3 /* adwo_audio_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09AB0808192CA49D00488EE3 /* adwo_audio_icon.png */; };
 		09AB081D192CA49D00488EE3 /* adwo_audioBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 09AB0809192CA49D00488EE3 /* adwo_audioBar.png */; };
 		09AB081E192CA49D00488EE3 /* adwo_audioCancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 09AB080A192CA49D00488EE3 /* adwo_audioCancel.png */; };
@@ -531,7 +530,6 @@
 		09AB07FB192CA3D700488EE3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		09AB07FD192CA3F600488EE3 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		09AB0801192CA49D00488EE3 /* libAdwoAdSDK5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdwoAdSDK5.0.a; sourceTree = "<group>"; };
-		09AB0802192CA49D00488EE3 /* libminizip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libminizip.a; sourceTree = "<group>"; };
 		09AB0806192CA49D00488EE3 /* AdwoAdSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdwoAdSDK.h; sourceTree = "<group>"; };
 		09AB0808192CA49D00488EE3 /* adwo_audio_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adwo_audio_icon.png; sourceTree = "<group>"; };
 		09AB0809192CA49D00488EE3 /* adwo_audioBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adwo_audioBar.png; sourceTree = "<group>"; };
@@ -689,7 +687,6 @@
 				09AB082F192CB31300488EE3 /* ImageIO.framework in Frameworks */,
 				09AB07FE192CA3F600488EE3 /* libz.1.2.5.dylib in Frameworks */,
 				0913C3C816F9537C00D74A27 /* CoreLocation.framework in Frameworks */,
-				09AB0819192CA49D00488EE3 /* libminizip.a in Frameworks */,
 				09E6B21D18D8BE1000DD8135 /* Social.framework in Frameworks */,
 				09AB07FC192CA3D700488EE3 /* StoreKit.framework in Frameworks */,
 				09CF7F2F16A3EAB90050A603 /* QuartzCore.framework in Frameworks */,
@@ -1245,7 +1242,6 @@
 			isa = PBXGroup;
 			children = (
 				09AB0801192CA49D00488EE3 /* libAdwoAdSDK5.0.a */,
-				09AB0802192CA49D00488EE3 /* libminizip.a */,
 			);
 			path = "32-bit";
 			sourceTree = "<group>";

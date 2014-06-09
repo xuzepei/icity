@@ -25,6 +25,7 @@
 @property(nonatomic,retain)NSMutableArray* itemArray;
 @property(nonatomic,retain)NSDictionary* item;
 @property(assign)int pageno;
+@property(nonatomic,retain)NSDictionary* adInfo;
 
 - (void)updateContent:(NSDictionary*)item;
 

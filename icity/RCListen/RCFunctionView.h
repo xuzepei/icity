@@ -23,5 +23,8 @@
 @property(nonatomic,retain)RCJDView* jdView;
 @property(nonatomic,retain)RCDHView* dhView;
 @property(nonatomic,retain)RCJiuDianView* jiuDianView;
+@property(nonatomic,retain)NSDictionary* item;
+
+- (void)updateContent:(NSDictionary*)item;
 
 @end

@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RCListen/RCJingDianViewController.m"
-            timestampString = "423473782.700243"
+            timestampString = "423652664.582666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "707"
-            endingLineNumber = "707"
+            startingLineNumber = "713"
+            endingLineNumber = "713"
             landmarkName = "-shareText:type:"
             landmarkType = "5">
          </BreakpointContent>
@@ -80,38 +80,6 @@
             startingLineNumber = "86"
             endingLineNumber = "86"
             landmarkName = "-requestUserInfo"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RCListen/RCJianJieViewController.m"
-            timestampString = "423383111.06598"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-finishedContentRequest:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RCListen/RCJianJieViewController.m"
-            timestampString = "423383156.965212"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "-finishedContentRequest:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

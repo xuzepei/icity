@@ -33,7 +33,7 @@
         _itemArray = [[NSMutableArray alloc] init];
         
         self.leibieValue = @"全部";
-        self.fanweiValue = @"1000米";
+        self.fanweiValue = @"10000米";
         
         self.view.backgroundColor = BG_COLOR;
         
@@ -58,6 +58,7 @@
     self.tableView = nil;
     self.itemArray = nil;
     self.item = nil;
+    self.adInfo = nil;
     
     [super dealloc];
 }
@@ -148,6 +149,14 @@
                 [self.itemArray addObjectsFromArray:array];
                 
                 self.pageno++;
+            }
+            
+            NSDictionary* adInfo = [result objectForKey:@"adinfo"];
+            if(adInfo && [adInfo isKindOfClass:[NSDictionary class]])
+            {
+                NSString* pic = [adInfo objectForKey:@"pic"];
+                if([pic length])
+                    self.adInfo = adInfo;
             }
         }
     }
@@ -348,7 +357,10 @@
 {
     if(0 == indexPath.section)
     {
-        return AD_CELL_HEIGHT;
+        if(self.adInfo)
+            return AD_CELL_HEIGHT;
+        else
+            return 0;
     }
     else if(1 == indexPath.section)
     {
@@ -381,11 +393,11 @@
             cell.backgroundColor = BG_COLOR;
         }
         
-        NSDictionary* item = (NSDictionary*)[self getCellDataAtIndexPath: indexPath];
+//        NSDictionary* item = (NSDictionary*)[self getCellDataAtIndexPath: indexPath];
         RCPublicCell* temp = (RCPublicCell*)cell;
-        if(temp)
+        if(self.adInfo)
         {
-            [temp updateContent:item cellHeight:AD_CELL_HEIGHT delegate:self token:nil];
+            [temp updateContent:self.adInfo cellHeight:AD_CELL_HEIGHT delegate:self token:nil];
         }
     }
     else if(1 == indexPath.section)

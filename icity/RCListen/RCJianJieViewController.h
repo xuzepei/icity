@@ -16,6 +16,7 @@
 @interface RCJianJieViewController : UIViewController<UIActionSheetDelegate,UIWebViewDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
+@property(nonatomic,retain)NSDictionary* token;
 @property(nonatomic,retain)UIImageView* imageView;
 @property(nonatomic,retain)UITextView* textView;
 @property(nonatomic,retain)UIImage* image;
@@ -26,6 +27,7 @@
 @property(assign)BOOL isFaved;
 
 @property(nonatomic,retain)UIWebView* webView;
+@property(nonatomic,retain)UIActivityIndicatorView* indicator;
 
 - (void)updateContent:(NSDictionary*)item token:(NSDictionary*)token;
 
