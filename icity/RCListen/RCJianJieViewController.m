@@ -391,7 +391,7 @@
 {
     if(nil == _webView)
     {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,NAVIGATION_BAR_HEIGHT,[RCTool getScreenSize].width,[RCTool getScreenSize].height - NAVIGATION_BAR_HEIGHT - 44)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height - 44)];
         _webView.delegate = self;
         _webView.scalesPageToFit = YES;
         _webView.opaque = NO;
@@ -425,8 +425,8 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
  navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSString* url = [request.URL absoluteString];
-    NSLog(@"url:%@",url);
+    //NSString* url = [request.URL absoluteString];
+    //NSLog(@"url:%@",url);
     
 	return YES;
 }
