@@ -218,7 +218,12 @@
         _stepper.maximumValue = 20;
         _stepper.minimumValue = 5;
         _stepper.stepValue = 1;
-        _stepper.tintColor = [UIColor blackColor];
+        
+        if([RCTool systemVersion] < 7.0)
+            _stepper.tintColor = [UIColor clearColor];
+        else
+            _stepper.tintColor = [UIColor blackColor];
+        
         [_stepper setDecrementImage:[UIImage imageNamed:@"zoom_out"] forState:UIControlStateNormal];
         [_stepper setIncrementImage:[UIImage imageNamed:@"zoom_in"] forState:UIControlStateNormal];
         [_stepper addTarget:self action:@selector(stepperValueChanged:) forControlEvents:UIControlEventValueChanged];

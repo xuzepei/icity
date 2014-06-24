@@ -42,6 +42,9 @@
     self.indicator = nil;
     self.token = nil;
     
+    self.shareView = nil;
+    self.cancelShareButton = nil;
+    
     [super dealloc];
 }
 
@@ -57,59 +60,21 @@
     
     [self initWebView];
     [self initToolbar];
-    return;
     
-    if(nil == _imageView)
+    if(self.shareView)
     {
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT, [RCTool getScreenSize].width,160)];
-        [self.view addSubview:_imageView];
+        self.shareView.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.9];
+        
+        [self.view addSubview:self.shareView];
+    }
+    
+    if(self.cancelShareButton)
+    {
+        self.cancelShareButton.layer.borderColor = [UIColor colorWithRed:0.79 green:0.79 blue:0.79 alpha:1.00].CGColor;
+        self.cancelShareButton.layer.borderWidth = 1;
+        self.cancelShareButton.layer.cornerRadius = 5.0;
     }
 
-    
-    if(nil == self.textView)
-    {
-        _textView = [[UITextView alloc] initWithFrame:CGRectMake(5, 228, 310, [RCTool getScreenSize].height - 228)];
-    }
-    
-    [self.view addSubview:self.textView];
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
-    paragraphStyle.firstLineHeadIndent = 12.f;
-    paragraphStyle.alignment = NSTextAlignmentJustified;
-    
-    NSString* content = [self.item objectForKey:@"jd_desc"];
-    if(0 == [content length])
-        content = @"";
-    else{
-        if([content hasPrefix:@"  "])
-        {
-            NSRange range = [content rangeOfString:@"  "];
-            content = [content substringFromIndex:range.location + range.length];
-        }
-        else if([content hasPrefix:@"  "])
-        {
-            NSRange range = [content rangeOfString:@"  "];
-            if(range.location != NSNotFound)
-            {
-                content = [content substringFromIndex:range.location + range.length];
-            }
-        }
-  
-        content = [NSString stringWithFormat:@"       %@",content];
-    }
-    
-//    NSDictionary *attributes = @{NSParagraphStyleAttributeName:paragraphStyle};
-//    _textView.attributedText = [[NSAttributedString alloc]initWithString:content attributes:attributes];
-    
-    _textView.font = [UIFont systemFontOfSize:16];
-    _textView.text = content;
-    
-    NSString* imageUrl = [self.item objectForKey:@"jd_picurl"];
-    UIImage* image = [RCTool getImageFromLocal:imageUrl];
-    if(image)
-        self.imageView.image = image;
-    
-    [self initToolbar];
 }
 
 - (void)didReceiveMemoryWarning
@@ -201,7 +166,11 @@
 {
     if(nil == _toolbar)
     {
-        _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, [RCTool getScreenSize].height - 44, [RCTool getScreenSize].width, 44)];
+        CGFloat offset_y = [RCTool getScreenSize].height - 44;
+        if([RCTool systemVersion] < 7.0)
+            offset_y -= NAVIGATION_BAR_HEIGHT;
+        
+        _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, offset_y, [RCTool getScreenSize].width, 44)];
         _toolbar.alpha = 0.7;
         
         UIBarButtonItem* fixedSpaceItem0 = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
@@ -255,17 +224,44 @@
     [_toolbar setItems:[NSArray arrayWithObjects:fixedSpaceItem0,_shareItem,fixedSpaceItem1,self.favItem,nil] animated:YES];
 }
 
+#pragma mark - Share View
+
 - (void)clickedShareButton:(id)sender
 {
-    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作"
-                                                              delegate:self
-                                                     cancelButtonTitle:@"取消"
-                                                destructiveButtonTitle:nil
-                                                     otherButtonTitles:@"新浪微博分享",@"腾讯微博分享",nil];
-    actionSheet.tag = SHARE_TAG;
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-    [actionSheet showFromToolbar:self.toolbar];
-    [actionSheet release];
+//    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作"
+//                                                              delegate:self
+//                                                     cancelButtonTitle:@"取消"
+//                                                destructiveButtonTitle:nil
+//                                                     otherButtonTitles:@"新浪微博分享",@"腾讯微博分享",nil];
+//    actionSheet.tag = SHARE_TAG;
+//    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+//    [actionSheet showFromToolbar:self.toolbar];
+//    [actionSheet release];
+
+    [self.view bringSubviewToFront:self.shareView];
+    [UIView animateWithDuration:0.3 animations:^{
+        if(self.shareView)
+        {
+            CGRect rect = self.shareView.frame;
+            if([RCTool systemVersion] >= 7.0)
+                rect.origin.y = [RCTool getScreenSize].height - 216;
+            else
+                rect.origin.y = [RCTool getScreenSize].height - 216 - NAVIGATION_BAR_HEIGHT;
+            self.shareView.frame = rect;
+        }
+    }];
+}
+
+- (IBAction)clickedCancelShareButton:(id)sender
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        if(self.shareView)
+        {
+            CGRect rect = self.shareView.frame;
+            rect.origin.y = [RCTool getScreenSize].height;
+            self.shareView.frame = rect;
+        }
+    }];
 }
 
 - (void)clickedFavButton:(id)sender

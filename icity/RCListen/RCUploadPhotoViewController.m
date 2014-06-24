@@ -41,7 +41,11 @@
         
         if(nil == _textview)
         {
-            _textview = [[RCPlaceHolderTextView alloc] initWithFrame:CGRectMake(10, NAVIGATION_BAR_HEIGHT + 10, 300, 160)];
+            CGFloat offset_y = NAVIGATION_BAR_HEIGHT + 10;
+            if([RCTool systemVersion] < 7.0)
+                offset_y = 10.0f;
+            
+            _textview = [[RCPlaceHolderTextView alloc] initWithFrame:CGRectMake(10, offset_y, 300, 160)];
             _textview.placeholder = @"请输入140个字符以内的描述";
             _textview.delegate = self;
             _textview.returnKeyType = UIReturnKeyDone;
@@ -87,7 +91,11 @@
         [self.addButton addTarget:self action:@selector(clickedAddButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    self.addButton.frame = CGRectMake(IMAGE_INTERVAL,OFFSET_HEIGHT, IMAGE_WIDTH, IMAGE_WIDTH);
+    CGFloat offset_y = OFFSET_HEIGHT;
+    if([RCTool systemVersion] < 7.0)
+        offset_y -= NAVIGATION_BAR_HEIGHT;
+    
+    self.addButton.frame = CGRectMake(IMAGE_INTERVAL,offset_y, IMAGE_WIDTH, IMAGE_WIDTH);
 
     [self.view addSubview:self.addButton];
 }

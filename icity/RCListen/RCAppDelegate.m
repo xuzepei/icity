@@ -61,62 +61,33 @@
 //    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
 
-    
-    //导航条颜色
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:226/255.0 green:226/255.0 blue:226/255.0 alpha:1.0]];
-    
-    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
-
-    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
-    //homepage
-    //_mainViewController = [[RCMainViewController alloc] initWithNibName:nil bundle:nil];
     _mainViewController = [[RCMainViewController alloc] initWithStyle:UITableViewStylePlain];
 	
 	_mainNavigationController = [[UINavigationController alloc]
                                  initWithRootViewController:_mainViewController];
-    
     self.window.rootViewController = _mainNavigationController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    //导航条颜色
+    if([RCTool systemVersion] >= 7.0)
+    {
+        [[UINavigationBar appearance] setBarTintColor:NAVIGATION_BAR_COLOR];
+        
+        [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    }
+    else
+    {
+        _mainNavigationController.navigationBar.tintColor = NAVIGATION_BAR_COLOR;
+    }
     
     
     //获取当前位置
     BMKMapView* mapView = [[[BMKMapView alloc] init] autorelease];
     mapView.delegate  = self;
     [mapView setShowsUserLocation:YES];
-    
-//
-//       //获取区域和类型
-////       urlString = [NSString stringWithFormat:@"%@/xinfang_search.php?apiid=%@&pwd=%@",BASE_URL,APIID,PWD];
-////    
-////       temp = [[[RCHttpRequest alloc] init] autorelease];
-////       [temp request:urlString delegate:self resultSelector:@selector(finishedAreaRequest:) token:nil];
-//    
-//    //开关
-//    urlString = [NSString stringWithFormat:@"%@/ios_test.php?apiid=%@&pwd=%@&version=%@",BASE_URL,APIID,PWD,VERSION];
-//
-//       temp = [[[RCHttpRequest alloc] init] autorelease];
-//       [temp request:urlString delegate:self resultSelector:@selector(finishedOpenAllRequest:) token:nil];
-//    
-//    
-//       //获取分享信息
-//       urlString = [NSString stringWithFormat:@"%@/share.php?apiid=%@&pwd=%@",BASE_URL,APIID,PWD];
-//       temp = [[[RCHttpRequest alloc] init] autorelease];
-//       [temp request:urlString delegate:self resultSelector:@selector(finishedShareTextRequest:) token:nil];
-//    
-//    
-//       //检查最新版本
-//       urlString = [NSString stringWithFormat:@"%@/check_update.php?apiid=%@&pwd=%@&ios=1",BASE_URL,APIID,PWD];
-//       temp = [[[RCHttpRequest alloc] init] autorelease];
-//       [temp request:urlString delegate:self resultSelector:@selector(finishedCheckRequest:) token:nil];
-//    
-//       //获取说明文字
-//        urlString = [NSString stringWithFormat:@"%@/intro.php?apiid=%@&pwd=%@&ios=1",BASE_URL,APIID,PWD];
-//        temp = [[[RCHttpRequest alloc] init] autorelease];
-//        [temp request:urlString delegate:self resultSelector:@selector(finishedIntroRequest:) token:nil];
-    
     
     return YES;
 }

@@ -33,7 +33,7 @@
         self.view.backgroundColor = BG_COLOR;
         
         UIImage *image = [UIImage imageNamed:@"upload_btn"];
-        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         UIBarButtonItem* rightItem = [[[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(clickedUploadButtonItem:)] autorelease];
         
         self.navigationItem.rightBarButtonItem = rightItem;
@@ -193,7 +193,11 @@
 {
     if(nil == _waterfallView)
     {
-        _waterfallView = [[TMQuiltView alloc] initWithFrame:CGRectMake(0, 0, [RCTool getScreenSize].width, [RCTool getScreenSize].height)];
+        CGFloat height = [RCTool getScreenSize].height;
+        if([RCTool systemVersion] < 7.0)
+            height -= NAVIGATION_BAR_HEIGHT;
+        
+        _waterfallView = [[TMQuiltView alloc] initWithFrame:CGRectMake(0, 0, [RCTool getScreenSize].width, height)];
     }
     
 	_waterfallView.delegate = self;
@@ -511,7 +515,10 @@
         if(self.shareView)
         {
             CGRect rect = self.shareView.frame;
-            rect.origin.y = [RCTool getScreenSize].height - 216;
+            if([RCTool systemVersion] >= 7.0)
+                rect.origin.y = [RCTool getScreenSize].height - 216;
+            else
+                rect.origin.y = [RCTool getScreenSize].height - 216 - NAVIGATION_BAR_HEIGHT;
             self.shareView.frame = rect;
         }
     }];

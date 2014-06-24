@@ -29,6 +29,10 @@
 @property(nonatomic,retain)UIWebView* webView;
 @property(nonatomic,retain)UIActivityIndicatorView* indicator;
 
+@property(nonatomic,retain)IBOutlet UIView* shareView;
+@property(nonatomic,retain)IBOutlet UIButton* cancelShareButton;
+
+
 - (void)updateContent:(NSDictionary*)item token:(NSDictionary*)token;
 
 @end

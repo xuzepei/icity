@@ -28,6 +28,7 @@
 @property(nonatomic,retain)NSDictionary* item;
 @property(assign)int pageno;
 @property(nonatomic,retain)NSDictionary* adInfo;
+@property(nonatomic,assign)CGFloat offset_y;
 
 - (void)updateContent:(NSDictionary*)item;
 

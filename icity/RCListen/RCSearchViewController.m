@@ -27,6 +27,22 @@
         self.searchBar = [[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 200, 30)] autorelease];
         self.searchBar.delegate = self;
         self.searchBar.showsCancelButton = YES;
+        
+        if([RCTool systemVersion] < 7.0)
+        {
+            for (UIView *subview in self.searchBar.subviews) {
+                if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+                    [subview removeFromSuperview];
+                }
+                else if([subview isKindOfClass:[UIButton class]])
+                {
+                    UIButton *cancelButton = (UIButton*)subview;
+                    cancelButton.tintColor = NAVIGATION_BAR_COLOR;
+                }
+            }
+        }
+        
+        
         self.searchBar.placeholder = @"请输入搜索关键字";
         self.navigationItem.titleView = self.searchBar;
     }
@@ -57,15 +73,15 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
@@ -131,7 +147,11 @@
 {
     if(nil == _tableView)
     {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height)
+        CGFloat height = [RCTool getScreenSize].height;
+        if([RCTool systemVersion] < 7.0)
+            height -= NAVIGATION_BAR_HEIGHT;
+        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,height)
                                                   style:UITableViewStylePlain];
         //_tableView.backgroundColor = BG_COLOR;
         _tableView.delegate = self;

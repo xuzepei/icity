@@ -236,6 +236,7 @@
 		09D5241018D09BCF00DB2F43 /* RCButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D5240F18D09BCF00DB2F43 /* RCButtonView.m */; };
 		09E6B21C18D8BE1000DD8135 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E6B21A18D8BE1000DD8135 /* Accounts.framework */; };
 		09E6B21D18D8BE1000DD8135 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E6B21B18D8BE1000DD8135 /* Social.framework */; };
+		09E6CB411959281D00D9C25E /* RCJianJieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09E6CB401959281D00D9C25E /* RCJianJieViewController.xib */; };
 		09F871C418C4D0C700FE4E4F /* RCPublicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F871C118C4D0C700FE4E4F /* RCPublicCell.m */; };
 		09F871C518C4D0C700FE4E4F /* RCPublicCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F871C318C4D0C700FE4E4F /* RCPublicCellContentView.m */; };
 		09F871C818C4D14900FE4E4F /* RCMainListCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F871C718C4D14900FE4E4F /* RCMainListCellContentView.m */; };
@@ -652,6 +653,7 @@
 		09D5240F18D09BCF00DB2F43 /* RCButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCButtonView.m; sourceTree = "<group>"; };
 		09E6B21A18D8BE1000DD8135 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		09E6B21B18D8BE1000DD8135 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		09E6CB401959281D00D9C25E /* RCJianJieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCJianJieViewController.xib; sourceTree = "<group>"; };
 		09F871C018C4D0C700FE4E4F /* RCPublicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPublicCell.h; sourceTree = "<group>"; };
 		09F871C118C4D0C700FE4E4F /* RCPublicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicCell.m; sourceTree = "<group>"; };
 		09F871C218C4D0C700FE4E4F /* RCPublicCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPublicCellContentView.h; sourceTree = "<group>"; };
@@ -983,6 +985,7 @@
 				090D367418111714006EC3D5 /* RCLinkButton.m */,
 				09A24A0118CF0A86005931E4 /* RCJianJieViewController.h */,
 				09A24A0218CF0A86005931E4 /* RCJianJieViewController.m */,
+				09E6CB401959281D00D9C25E /* RCJianJieViewController.xib */,
 				09A24A0618CF1985005931E4 /* RCJiuDianViewController.h */,
 				09A24A0718CF1985005931E4 /* RCJiuDianViewController.m */,
 				09A24A0818CF1985005931E4 /* RCJiuDianViewController.xib */,
@@ -1566,6 +1569,7 @@
 				09FF4B2018E001550017AA03 /* btn_sina.png in Resources */,
 				09700F7218D9D0DB00F9E26D /* 1_0@2x.png in Resources */,
 				09B508BD18C5BE7900CFF6F1 /* arrow_top@2x.png in Resources */,
+				09E6CB411959281D00D9C25E /* RCJianJieViewController.xib in Resources */,
 				09D01B1E18C62151007637EB /* overlay_1@2x.png in Resources */,
 				09246C6F1929D2E70017665F /* jiudian_button@2x.png in Resources */,
 				09AB0827192CA49D00488EE3 /* adwo_recordMicrophone5.png in Resources */,
@@ -1806,7 +1810,7 @@
 				GCC_PREFIX_HEADER = "RCListen/iCity-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "RCListen/iCity-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/RCListen/ThirdParty/ZBarSDK",
@@ -1842,7 +1846,7 @@
 				GCC_PREFIX_HEADER = "RCListen/iCity-Prefix.pch";
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "RCListen/iCity-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/RCListen/ThirdParty/ZBarSDK",

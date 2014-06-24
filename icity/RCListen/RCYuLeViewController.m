@@ -38,7 +38,7 @@
         self.view.backgroundColor = BG_COLOR;
         
         UIImage *image = [UIImage imageNamed:@"map_item"];
-        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         UIBarButtonItem* rightItem = [[[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(clickedMapButtonItem:)] autorelease];
         
         self.navigationItem.rightBarButtonItem = rightItem;
@@ -174,6 +174,9 @@
 
 - (void)initHeaderView
 {
+    if([RCTool systemVersion] >= 7.0)
+        self.offset_y = NAVIGATION_BAR_HEIGHT;
+    
     //范围
     NSMutableDictionary* dict = [[[NSMutableDictionary alloc] init] autorelease];
     [dict setObject:@"范围" forKey:@"name"];
@@ -208,7 +211,7 @@
     
     if(nil == _headerButton0)
     {
-        _headerButton0 = [[RCButtonView alloc] initWithFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT, [RCTool getScreenSize].width/2.0, HEADER_VIEW_HEIGHT)];
+        _headerButton0 = [[RCButtonView alloc] initWithFrame:CGRectMake(0, self.offset_y, [RCTool getScreenSize].width/2.0, HEADER_VIEW_HEIGHT)];
         _headerButton0.delegate = self;
         _headerButton0.tag = HEADER_BUTTON0_TAG;
         [_headerButton0 updateContent:@"范围"];
@@ -217,7 +220,7 @@
     
     if(nil == _headerButton1)
     {
-        _headerButton1 = [[RCButtonView alloc] initWithFrame:CGRectMake([RCTool getScreenSize].width/2.0, NAVIGATION_BAR_HEIGHT, [RCTool getScreenSize].width/2.0, HEADER_VIEW_HEIGHT)];
+        _headerButton1 = [[RCButtonView alloc] initWithFrame:CGRectMake([RCTool getScreenSize].width/2.0, self.offset_y, [RCTool getScreenSize].width/2.0, HEADER_VIEW_HEIGHT)];
         _headerButton1.delegate = self;
         _headerButton1.tag = HEADER_BUTTON1_TAG;
         [_headerButton1 updateContent:@"类别"];
@@ -293,7 +296,10 @@
 {
     if(nil == _tableView)
     {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,NAVIGATION_BAR_HEIGHT+HEADER_VIEW_HEIGHT,[RCTool getScreenSize].width,[RCTool getScreenSize].height - (NAVIGATION_BAR_HEIGHT+HEADER_VIEW_HEIGHT))
+        self.offset_y += HEADER_VIEW_HEIGHT;
+        CGFloat height = HEADER_VIEW_HEIGHT + NAVIGATION_BAR_HEIGHT;
+        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,self.offset_y,[RCTool getScreenSize].width,[RCTool getScreenSize].height - height)
                                                   style:UITableViewStylePlain];
         _tableView.backgroundColor = BG_COLOR;
         _tableView.delegate = self;

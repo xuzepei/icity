@@ -126,7 +126,11 @@
 {
     if(nil == _tableView)
     {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,[RCTool getScreenSize].height)
+        CGFloat height = [RCTool getScreenSize].height;
+        if([RCTool systemVersion] < 7.0)
+            height -= NAVIGATION_BAR_HEIGHT;
+        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,[RCTool getScreenSize].width,height)
                                                   style:UITableViewStylePlain];
         //_tableView.backgroundColor = BG_COLOR;
         _tableView.delegate = self;

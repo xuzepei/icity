@@ -239,7 +239,11 @@
 {
     if(nil == _scrollView)
     {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [RCTool getScreenSize].width, [RCTool getScreenSize].height)];
+        CGFloat height = [RCTool getScreenSize].height;
+        if([RCTool systemVersion] < 7.0)
+            height -= NAVIGATION_BAR_HEIGHT;
+        
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [RCTool getScreenSize].width, height)];
     }
     
     [self.view addSubview:self.scrollView];
@@ -573,7 +577,11 @@
 {
     if(nil == _toolbar)
     {
-        _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, [RCTool getScreenSize].height - 44, [RCTool getScreenSize].width, 44)];
+        CGFloat offset_y = [RCTool getScreenSize].height - 44;
+        if([RCTool systemVersion] < 7.0)
+            offset_y -= NAVIGATION_BAR_HEIGHT;
+        
+        _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, offset_y, [RCTool getScreenSize].width, 44)];
         _toolbar.alpha = 0.7;
         
         UIBarButtonItem* fixedSpaceItem0 = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace

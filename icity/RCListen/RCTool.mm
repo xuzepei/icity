@@ -610,6 +610,13 @@ void systemSoundCompletionProc(SystemSoundID ssID,void *clientData)
 	return NO;
 }
 
++ (CGFloat)systemVersion
+{
+    CGFloat systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    
+    return systemVersion;
+}
+
 #pragma mark - 搜索条件缓存
 
 + (BOOL)setSearchCondition:(NSArray*)conditionArray type:(int)type

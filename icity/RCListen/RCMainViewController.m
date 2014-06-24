@@ -42,13 +42,13 @@
         [self.refreshControl addTarget:self action:@selector(updateContent) forControlEvents:UIControlEventValueChanged];
         
         UIImage *image = [UIImage imageNamed:@"back_button"];
-        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         UIBarButtonItem* leftItem = [[[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(clickedLeftButtonItem:)] autorelease];
         
         self.navigationItem.leftBarButtonItem = leftItem;
         
         image = [UIImage imageNamed:@"list_item"];
-        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         UIBarButtonItem* rightItem = [[[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStyleDone target:self action:@selector(clickedRightButtonItem:)] autorelease];
         
         self.navigationItem.rightBarButtonItem = rightItem;

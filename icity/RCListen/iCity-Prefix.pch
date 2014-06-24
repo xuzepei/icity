@@ -80,7 +80,7 @@ typedef enum{
     PT_CGYW,
 }PAY_TYPE;
 
-#define NAVIGATION_BAR_COLOR [UIColor colorWithRed:236/255.0 green:233/255.0 blue:226/255.0 alpha:1.00]
+#define NAVIGATION_BAR_COLOR [UIColor colorWithRed:226/255.0 green:226/255.0 blue:226/255.0 alpha:1.0]
 //#define NAVIGATION_BAR_TITLE_COLOR [UIColor colorWithRed:0.92 green:0.20 blue:0.04 alpha:1.00]
 
 #define NAVIGATION_BAR_TITLE_COLOR [UIColor grayColor]

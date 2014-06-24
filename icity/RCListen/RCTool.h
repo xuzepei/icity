@@ -69,6 +69,7 @@
 + (CGRect)getScreenRect;
 + (BOOL)isIphone5;
 + (BOOL)isIpad;
++ (CGFloat)systemVersion;
 
 
 #pragma mark - 搜索条件缓存

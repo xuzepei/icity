@@ -18,7 +18,7 @@
 #import "RCPlayerMaskView.h"
 
 
-@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate>
+@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate,BNNaviRoutePlanDelegate,BNNaviUIManagerDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
 @property(nonatomic,retain)NSDictionary* content;
