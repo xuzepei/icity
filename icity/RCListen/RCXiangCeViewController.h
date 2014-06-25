@@ -10,8 +10,10 @@
 #import "TMQuiltView.h"
 #import "TMPhotoQuiltViewCell.h"
 #import "FGalleryViewController.h"
+#import "iCitySDK.h"
+#import "ShareEntity.h"
 
-@interface RCXiangCeViewController : UIViewController<TMQuiltViewDataSource,TMQuiltViewDelegate,FGalleryViewControllerDelegate>
+@interface RCXiangCeViewController : UIViewController<TMQuiltViewDataSource,TMQuiltViewDelegate,FGalleryViewControllerDelegate,iCitySDKDelegate>
 
 @property(nonatomic,retain)NSMutableArray* itemArray;
 @property(nonatomic,retain)NSDictionary* item;

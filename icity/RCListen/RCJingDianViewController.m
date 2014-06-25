@@ -94,7 +94,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear: animated];
-    
+
     self.title = [self.item objectForKey:@"jd_name"];
     
     //    if(self.playButton)
@@ -657,6 +657,56 @@
     }];
 }
 
+- (IBAction)clickedCancelShareButton:(id)sender
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        if(self.shareView)
+        {
+            CGRect rect = self.shareView.frame;
+            rect.origin.y = [RCTool getScreenSize].height;
+            self.shareView.frame = rect;
+        }
+    }];
+}
+
+- (IBAction)clickedShareToSinaButton:(id)sender
+{
+    NSLog(@"clickedShareToSinaButton");
+    [self clickedCancelShareButton:nil];
+    
+    ShareEntity* entity = [[[ShareEntity alloc] init] autorelease];
+    entity.shareTitle = @"分享测试";
+    entity.shareContent = @"分享测试内容";
+    entity.shareUrl = @"http://www.baidu.com";
+    entity.shareImgURL = @"http://www.baidu.com";
+    
+    [iCitySDK shareCitySDK].delegate = self;
+    [[iCitySDK shareCitySDK] showShareInView:self.view WithEntity:entity WithFinishSEL:@selector(shareToFinished:)];
+}
+
+- (IBAction)clickedShareToQQButton:(id)sender
+{
+    NSLog(@"clickedShareToQQButton");
+    [self clickedCancelShareButton:nil];
+    
+    ShareEntity* entity = [[[ShareEntity alloc] init] autorelease];
+    entity.shareTitle = @"分享测试";
+    entity.shareContent = @"分享测试内容";
+    entity.shareUrl = @"http://www.baidu.com";
+    entity.shareImgURL = @"http://www.baidu.com";
+    
+    [iCitySDK shareCitySDK].delegate = self;
+    [[iCitySDK shareCitySDK] showShareInView:self.view WithEntity:entity WithFinishSEL:@selector(shareToFinished:)];
+}
+
+- (void)shareToFinished:(NSString*)token
+{
+    if(1 == [token intValue])
+        [RCTool showAlert:@"提示" message:@"分享成功!"];
+    else
+        [RCTool showAlert:@"提示" message:@"对不起，分享失败!"];
+}
+
 - (void)clickedFavButton:(id)sender
 {
     NSString* action = @"";
@@ -701,6 +751,7 @@
     }
 }
 
+/*
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(SHARE_TAG == actionSheet.tag)
@@ -785,18 +836,7 @@
     [self clickedCancelShareButton:nil];
     [self shareText:[RCTool getShareText] type:SHT_QQ];
 }
-
-- (IBAction)clickedCancelShareButton:(id)sender
-{
-    [UIView animateWithDuration:0.3 animations:^{
-        if(self.shareView)
-        {
-            CGRect rect = self.shareView.frame;
-            rect.origin.y = [RCTool getScreenSize].height;
-            self.shareView.frame = rect;
-        }
-    }];
-}
+*/
 
 - (IBAction)daohang:(id)sender
 {
@@ -830,6 +870,9 @@
     
     //终点
     NSString* jd_gps = [self.item objectForKey:@"jd_gps"];
+    if(0 == [jd_gps length])
+        jd_gps = [self.content objectForKey:@"jd_gps"];
+    
     if(0 == [jd_gps length])
         return;
 
@@ -916,6 +959,18 @@
     
     //路径规划成功，开始导航
     [BNCoreServices_UI showNaviUI: BN_NaviTypeReal delegete:self isNeedLandscape:YES];
+}
+
+-(void)onExitNaviUI:(NSDictionary*)extraInfo
+{
+    [BNCoreServices_Sound stopTTSPlayer];
+}
+
+- (void)routePlanDidUserCanceled:(NSDictionary*)userInfo
+{
+    NSLog(@"routePlanDidUserCanceled");
+    
+    [BNCoreServices_Sound stopTTSPlayer];
 }
 
 

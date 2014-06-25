@@ -12,8 +12,10 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import "iToast.h"
+#import "iCitySDK.h"
+#import "ShareEntity.h"
 
-@interface RCJianJieViewController : UIViewController<UIActionSheetDelegate,UIWebViewDelegate>
+@interface RCJianJieViewController : UIViewController<UIActionSheetDelegate,UIWebViewDelegate,iCitySDKDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
 @property(nonatomic,retain)NSDictionary* token;

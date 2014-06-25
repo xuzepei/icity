@@ -39,7 +39,7 @@
         self.refreshControl = [[[UIRefreshControl alloc] init] autorelease];
         //self.refreshControl.tintColor = [UIColor orangeColor];
         //self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
-        [self.refreshControl addTarget:self action:@selector(updateContent) forControlEvents:UIControlEventValueChanged];
+        [self.refreshControl addTarget:self action:@selector(updateContent2) forControlEvents:UIControlEventValueChanged];
         
         UIImage *image = [UIImage imageNamed:@"back_button"];
 //        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -172,6 +172,21 @@
     if(b)
     {
         [RCTool showIndicator:@"请稍候..."];
+    }
+}
+
+- (void)updateContent2
+{
+    NSString* jq_id = @"";
+    if(self.current_jq)
+        jq_id = [self.current_jq objectForKey:@"jq_id"];
+    NSString* urlString = [NSString stringWithFormat:@"%@/index.php?c=main&a=jdlist&jq_id=%@&token=%@",BASE_URL,jq_id,[RCTool getDeviceID]];
+    
+    RCHttpRequest* temp = [[[RCHttpRequest alloc] init] autorelease];
+    BOOL b = [temp request:urlString delegate:self resultSelector:@selector(finishedListRequest:) token:nil];
+    if(b)
+    {
+        //[RCTool showIndicator:@"请稍候..."];
     }
 }
 

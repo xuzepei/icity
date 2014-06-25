@@ -10,6 +10,7 @@
 #import "RCImageLoader.h"
 #import "RCHttpRequest.h"
 
+
 #define SHARE_TAG 112
 
 @interface RCJianJieViewController ()
@@ -262,6 +263,44 @@
             self.shareView.frame = rect;
         }
     }];
+}
+
+- (IBAction)clickedShareToSinaButton:(id)sender
+{
+    NSLog(@"clickedShareToSinaButton");
+    [self clickedCancelShareButton:nil];
+    
+    ShareEntity* entity = [[[ShareEntity alloc] init] autorelease];
+    entity.shareTitle = @"分享测试";
+    entity.shareContent = @"分享测试内容";
+    entity.shareUrl = @"http://www.baidu.com";
+    entity.shareImgURL = @"http://www.baidu.com";
+    
+    [iCitySDK shareCitySDK].delegate = self;
+    [[iCitySDK shareCitySDK] showShareInView:self.view WithEntity:entity WithFinishSEL:@selector(shareToFinished:)];
+}
+
+- (IBAction)clickedShareToQQButton:(id)sender
+{
+    NSLog(@"clickedShareToQQButton");
+    [self clickedCancelShareButton:nil];
+    
+    ShareEntity* entity = [[[ShareEntity alloc] init] autorelease];
+    entity.shareTitle = @"分享测试";
+    entity.shareContent = @"分享测试内容";
+    entity.shareUrl = @"http://www.baidu.com";
+    entity.shareImgURL = @"http://www.baidu.com";
+    
+    [iCitySDK shareCitySDK].delegate = self;
+    [[iCitySDK shareCitySDK] showShareInView:self.view WithEntity:entity WithFinishSEL:@selector(shareToFinished:)];
+}
+
+- (void)shareToFinished:(NSString*)token
+{
+    if(1 == [token intValue])
+        [RCTool showAlert:@"提示" message:@"分享成功!"];
+    else
+        [RCTool showAlert:@"提示" message:@"对不起，分享失败!"];
 }
 
 - (void)clickedFavButton:(id)sender

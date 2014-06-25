@@ -87,6 +87,8 @@
 {
     NSLog(@"searchBarSearchButtonClicked");
     
+    [searchBar resignFirstResponder];
+    
     NSString* text = self.searchBar.text;
     if([text length])
     {

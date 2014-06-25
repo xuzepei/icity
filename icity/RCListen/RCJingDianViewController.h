@@ -16,9 +16,11 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import "BMKNavigation.h"
 #import "RCPlayerMaskView.h"
+#import "iCitySDK.h"
+#import "ShareEntity.h"
 
 
-@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate,BNNaviRoutePlanDelegate,BNNaviUIManagerDelegate>
+@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate,BNNaviRoutePlanDelegate,BNNaviUIManagerDelegate,iCitySDKDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
 @property(nonatomic,retain)NSDictionary* content;

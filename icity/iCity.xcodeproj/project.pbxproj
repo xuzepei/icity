@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09064E07170860CE00BA0258 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 09064E06170860CE00BA0258 /* MBProgressHUD.m */; };
+		0906E716195A5D0300712A9A /* libiCitySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0906E714195A5D0300712A9A /* libiCitySDK.a */; };
 		09084F2A18C4DBFA0007DAA4 /* RCMainTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09084F2918C4DBFA0007DAA4 /* RCMainTitleView.m */; };
 		090D365C1810D3F3006EC3D5 /* RCIndexAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 090D365A1810D3F2006EC3D5 /* RCIndexAdViewController.m */; };
 		090D365D1810D3F3006EC3D5 /* RCIndexAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 090D365B1810D3F3006EC3D5 /* RCIndexAdViewController.xib */; };
@@ -254,6 +255,10 @@
 /* Begin PBXFileReference section */
 		09064E05170860CE00BA0258 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		09064E06170860CE00BA0258 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		0906E712195A5D0300712A9A /* BEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEntity.h; sourceTree = "<group>"; };
+		0906E713195A5D0300712A9A /* iCitySDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCitySDK.h; sourceTree = "<group>"; };
+		0906E714195A5D0300712A9A /* libiCitySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiCitySDK.a; sourceTree = "<group>"; };
+		0906E715195A5D0300712A9A /* ShareEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareEntity.h; sourceTree = "<group>"; };
 		09084F2818C4DBFA0007DAA4 /* RCMainTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMainTitleView.h; sourceTree = "<group>"; };
 		09084F2918C4DBFA0007DAA4 /* RCMainTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMainTitleView.m; sourceTree = "<group>"; };
 		090D36591810D3F2006EC3D5 /* RCIndexAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCIndexAdViewController.h; sourceTree = "<group>"; };
@@ -709,6 +714,7 @@
 				0920238F172E38B5009EAB94 /* libz.dylib in Frameworks */,
 				09AB0818192CA49D00488EE3 /* libAdwoAdSDK5.0.a in Frameworks */,
 				0920238D172E310E009EAB94 /* MobileCoreServices.framework in Frameworks */,
+				0906E716195A5D0300712A9A /* libiCitySDK.a in Frameworks */,
 				09ADF592192B547A000B0C6B /* libbaidumapapi.a in Frameworks */,
 				0920238B172E2FD5009EAB94 /* libxml2.dylib in Frameworks */,
 				0915D38A170DAA8800D86E9A /* libiconv.dylib in Frameworks */,
@@ -728,6 +734,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0906E711195A5D0300712A9A /* iCitySDK */ = {
+			isa = PBXGroup;
+			children = (
+				0906E712195A5D0300712A9A /* BEntity.h */,
+				0906E713195A5D0300712A9A /* iCitySDK.h */,
+				0906E714195A5D0300712A9A /* libiCitySDK.a */,
+				0906E715195A5D0300712A9A /* ShareEntity.h */,
+			);
+			path = iCitySDK;
+			sourceTree = "<group>";
+		};
 		090E3C18170C639200217C33 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -1391,6 +1408,7 @@
 		09CF7EE516A3D7740050A603 /* iCity */ = {
 			isa = PBXGroup;
 			children = (
+				0906E711195A5D0300712A9A /* iCitySDK */,
 				09C9FFB018D943C40027BACE /* Favorite */,
 				09B508BE18C5C9BB00CFF6F1 /* Map */,
 				09ADE12317E002A8003D0B2B /* Other */,
@@ -1821,6 +1839,7 @@
 					"$(PROJECT_DIR)/RCListen/ThirdParty/adwoSDKLib/64-bit",
 					"$(PROJECT_DIR)/RCListen/ThirdParty/baiduNaviSDK/lib",
 					"$(PROJECT_DIR)/RCListen/ThirdParty/baiduNaviSDK/TTS",
+					"$(PROJECT_DIR)/RCListen/iCitySDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1857,6 +1876,7 @@
 					"$(PROJECT_DIR)/RCListen/ThirdParty/adwoSDKLib/64-bit",
 					"$(PROJECT_DIR)/RCListen/ThirdParty/baiduNaviSDK/lib",
 					"$(PROJECT_DIR)/RCListen/ThirdParty/baiduNaviSDK/TTS",
+					"$(PROJECT_DIR)/RCListen/iCitySDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
