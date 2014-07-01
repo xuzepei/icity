@@ -93,6 +93,8 @@
         [self.itemArray removeAllObjects];
         if(_waterfallView)
             [_waterfallView reloadData];
+        self.pid = nil;
+        self.isLoading = NO;
         [self updateContent:self.item];
     }
 }
@@ -101,6 +103,7 @@
 {
     [super viewWillDisappear:animated];
     
+    [RCTool hideIndicator];
     self.title = nil;
 }
 
@@ -145,7 +148,7 @@
         pid = [lastItem objectForKey:@"p_id"];
     }
     
-    if(0 == [pid length] || [pid isEqualToString:self.pid])
+    if(0 == [pid length] || [pid isEqualToString:self.pid] || self.isLoading)
         return;
     
     self.pid = pid;
@@ -157,7 +160,7 @@
     if(b)
     {
         self.isLoading = YES;
-        
+        [RCTool hideIndicator];
         [RCTool showIndicator:@"加载中..."];
     }
 }
@@ -550,10 +553,16 @@
     [self clickedCancelShareButton:nil];
     
     ShareEntity* entity = [[[ShareEntity alloc] init] autorelease];
-    entity.shareTitle = @"分享测试";
-    entity.shareContent = @"分享测试内容";
-    entity.shareUrl = @"http://www.baidu.com";
-    entity.shareImgURL = @"http://www.baidu.com";
+    NSString* jd_name = [self.item objectForKey:@"jd_name"];
+
+    if(0 == [jd_name length])
+        jd_name = @"爱城市";
+    else
+        jd_name = [NSString stringWithFormat:@"爱城市--%@",jd_name];
+    entity.shareTitle = jd_name;
+    entity.shareContent = SHARE_CONTENT;
+    entity.shareUrl = SHARE_LINK;
+    //entity.shareImgURL = @"http://www.baidu.com";
     
     [iCitySDK shareCitySDK].delegate = self;
     [[iCitySDK shareCitySDK] showShareInView:self.view WithEntity:entity WithFinishSEL:@selector(shareToFinished:)];
@@ -565,10 +574,16 @@
     [self clickedCancelShareButton:nil];
     
     ShareEntity* entity = [[[ShareEntity alloc] init] autorelease];
-    entity.shareTitle = @"分享测试";
-    entity.shareContent = @"分享测试内容";
-    entity.shareUrl = @"http://www.baidu.com";
-    entity.shareImgURL = @"http://www.baidu.com";
+    NSString* jd_name = [self.item objectForKey:@"jd_name"];
+
+    if(0 == [jd_name length])
+        jd_name = @"爱城市";
+    else
+        jd_name = [NSString stringWithFormat:@"爱城市--%@",jd_name];
+    entity.shareTitle = jd_name;
+    entity.shareContent = SHARE_CONTENT;
+    entity.shareUrl = SHARE_LINK;
+    //entity.shareImgURL = @"http://www.baidu.com";
     
     [iCitySDK shareCitySDK].delegate = self;
     [[iCitySDK shareCitySDK] showShareInView:self.view WithEntity:entity WithFinishSEL:@selector(shareToFinished:)];

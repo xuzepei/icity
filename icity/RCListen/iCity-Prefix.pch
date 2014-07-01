@@ -111,7 +111,9 @@ typedef enum{
 #define CLICKED_APPLY_BUTTON_NOTIFICATION @"CLICKED_APPLY_BUTTON_NOTIFICATION"
 #define UPDATE_USERINFO_NOTIFICATION @"UPDATE_USERINFO_NOTIFICATION"
 
-#define SHARE_TEXT @"爱城市+"
+#define SHARE_TITLE @"爱城市+"
+#define SHARE_CONTENT @"轻触指尖，清晰实景视频呈现眼前，爱城市+看风景，带你去看世界！"
+#define SHARE_LINK @"http://acs.akange.com:81/index.php?c=hd&a=acskfj"
 
 #define TEST_TN @"201308221041280034552"
 #define TEST_MODE @"01"

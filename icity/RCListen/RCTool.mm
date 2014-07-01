@@ -1185,7 +1185,7 @@ void systemSoundCompletionProc(SystemSoundID ssID,void *clientData)
     if([text length])
         return text;
     
-    return SHARE_TEXT;
+    return @"";
 }
 
 + (void)setDeviceToken:(NSString*)token
