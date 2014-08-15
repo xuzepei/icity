@@ -584,6 +584,11 @@
     
     //创建广告对象
     _adView = AdwoAdCreateBanner(AD_ID, YES, self);
+    
+    struct AdwoAdPreferenceSettings settings;
+    settings.disableGPS = YES;
+    
+    AdwoAdSetAdAttributes(_adView, &settings);
     if(nil == _adView)
     {
         NSLog(@"Adwo ad view failed to create!");

@@ -105,12 +105,6 @@
 		098ACAF1170084C4005BDCC8 /* FGalleryPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 098ACAEC170084C4005BDCC8 /* FGalleryPhoto.m */; };
 		098ACAF2170084C4005BDCC8 /* FGalleryPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 098ACAEE170084C4005BDCC8 /* FGalleryPhotoView.m */; };
 		098ACAF3170084C4005BDCC8 /* FGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 098ACAF0170084C4005BDCC8 /* FGalleryViewController.m */; };
-		098CC3F4192CCE31008EDD73 /* baiduNaviSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 098CC3E2192CCE31008EDD73 /* baiduNaviSDK.bundle */; };
-		098CC3F5192CCE31008EDD73 /* libbaiduNaviSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 098CC3EC192CCE31008EDD73 /* libbaiduNaviSDK.a */; };
-		098CC3F6192CCE31008EDD73 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 098CC3ED192CCE31008EDD73 /* readme.txt */; };
-		098CC3F7192CCE31008EDD73 /* BNaviSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 098CC3F0192CCE31008EDD73 /* BNaviSoundManager.m */; };
-		098CC3F8192CCE31008EDD73 /* BNTTSSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 098CC3F2192CCE31008EDD73 /* BNTTSSDK.bundle */; };
-		098CC3F9192CCE31008EDD73 /* libBNaviTTSManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 098CC3F3192CCE31008EDD73 /* libBNaviTTSManager.a */; };
 		098CC3FC192CE981008EDD73 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 098CC3FB192CE981008EDD73 /* EGORefreshTableHeaderView.m */; };
 		098DA0D217CE47E5009B0728 /* RCTabBar2.m in Sources */ = {isa = PBXBuildFile; fileRef = 098DA0D117CE47E5009B0728 /* RCTabBar2.m */; };
 		098DA28318E022AA0044B972 /* back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 098DA28218E022AA0044B972 /* back_button@2x.png */; };
@@ -228,6 +222,7 @@
 		09E6B21C18D8BE1000DD8135 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E6B21A18D8BE1000DD8135 /* Accounts.framework */; };
 		09E6B21D18D8BE1000DD8135 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E6B21B18D8BE1000DD8135 /* Social.framework */; };
 		09E6CB411959281D00D9C25E /* RCJianJieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09E6CB401959281D00D9C25E /* RCJianJieViewController.xib */; };
+		09E90A631963E5670064782A /* libminizip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E90A621963E5670064782A /* libminizip.a */; };
 		09F871C418C4D0C700FE4E4F /* RCPublicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F871C118C4D0C700FE4E4F /* RCPublicCell.m */; };
 		09F871C518C4D0C700FE4E4F /* RCPublicCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F871C318C4D0C700FE4E4F /* RCPublicCellContentView.m */; };
 		09F871C818C4D14900FE4E4F /* RCMainListCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F871C718C4D14900FE4E4F /* RCMainListCellContentView.m */; };
@@ -441,21 +436,6 @@
 		098ACAEE170084C4005BDCC8 /* FGalleryPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGalleryPhotoView.m; sourceTree = "<group>"; };
 		098ACAEF170084C4005BDCC8 /* FGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGalleryViewController.h; sourceTree = "<group>"; };
 		098ACAF0170084C4005BDCC8 /* FGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGalleryViewController.m; sourceTree = "<group>"; };
-		098CC3E2192CCE31008EDD73 /* baiduNaviSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baiduNaviSDK.bundle; sourceTree = "<group>"; };
-		098CC3E4192CCE31008EDD73 /* BNCommonDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCommonDef.h; sourceTree = "<group>"; };
-		098CC3E5192CCE31008EDD73 /* BNCoreServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNCoreServices.h; sourceTree = "<group>"; };
-		098CC3E6192CCE31008EDD73 /* BNRoutePlanManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRoutePlanManagerProtocol.h; sourceTree = "<group>"; };
-		098CC3E7192CCE31008EDD73 /* BNRoutePlanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRoutePlanModel.h; sourceTree = "<group>"; };
-		098CC3E8192CCE31008EDD73 /* BNSoundManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNSoundManagerProtocol.h; sourceTree = "<group>"; };
-		098CC3E9192CCE31008EDD73 /* BNTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNTools.h; sourceTree = "<group>"; };
-		098CC3EA192CCE31008EDD73 /* BNUIManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNUIManagerProtocol.h; sourceTree = "<group>"; };
-		098CC3EC192CCE31008EDD73 /* libbaiduNaviSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaiduNaviSDK.a; sourceTree = "<group>"; };
-		098CC3ED192CCE31008EDD73 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
-		098CC3EF192CCE31008EDD73 /* BNaviSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNaviSoundManager.h; sourceTree = "<group>"; };
-		098CC3F0192CCE31008EDD73 /* BNaviSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNaviSoundManager.m; sourceTree = "<group>"; };
-		098CC3F1192CCE31008EDD73 /* BNaviTTSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNaviTTSManager.h; sourceTree = "<group>"; };
-		098CC3F2192CCE31008EDD73 /* BNTTSSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BNTTSSDK.bundle; sourceTree = "<group>"; };
-		098CC3F3192CCE31008EDD73 /* libBNaviTTSManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBNaviTTSManager.a; sourceTree = "<group>"; };
 		098CC3FA192CE981008EDD73 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		098CC3FB192CE981008EDD73 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		098DA0D017CE47E5009B0728 /* RCTabBar2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTabBar2.h; sourceTree = "<group>"; };
@@ -617,6 +597,7 @@
 		09E6B21A18D8BE1000DD8135 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		09E6B21B18D8BE1000DD8135 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		09E6CB401959281D00D9C25E /* RCJianJieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RCJianJieViewController.xib; sourceTree = "<group>"; };
+		09E90A621963E5670064782A /* libminizip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libminizip.a; sourceTree = "<group>"; };
 		09F871C018C4D0C700FE4E4F /* RCPublicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPublicCell.h; sourceTree = "<group>"; };
 		09F871C118C4D0C700FE4E4F /* RCPublicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCPublicCell.m; sourceTree = "<group>"; };
 		09F871C218C4D0C700FE4E4F /* RCPublicCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCPublicCellContentView.h; sourceTree = "<group>"; };
@@ -660,12 +641,11 @@
 				0915D386170DAA5300D86E9A /* CoreMedia.framework in Frameworks */,
 				09CF7F2516A3EA890050A603 /* AudioToolbox.framework in Frameworks */,
 				09AB07F4192CA38A00488EE3 /* AdSupport.framework in Frameworks */,
-				098CC3F9192CCE31008EDD73 /* libBNaviTTSManager.a in Frameworks */,
 				09AB07F2192CA38600488EE3 /* AddressBook.framework in Frameworks */,
 				09E6B21C18D8BE1000DD8135 /* Accounts.framework in Frameworks */,
 				09CF7F2B16A3EAAA0050A603 /* MessageUI.framework in Frameworks */,
-				098CC3F5192CCE31008EDD73 /* libbaiduNaviSDK.a in Frameworks */,
 				09CF7EE216A3D7740050A603 /* CoreGraphics.framework in Frameworks */,
+				09E90A631963E5670064782A /* libminizip.a in Frameworks */,
 				09CF7F2316A3EA810050A603 /* SystemConfiguration.framework in Frameworks */,
 				0979E3BA1814BDF700DDB418 /* OpenGLES.framework in Frameworks */,
 				0920238F172E38B5009EAB94 /* libz.dylib in Frameworks */,
@@ -1072,52 +1052,6 @@
 			path = FGallery;
 			sourceTree = "<group>";
 		};
-		098CC3E1192CCE31008EDD73 /* baiduNaviSDK */ = {
-			isa = PBXGroup;
-			children = (
-				098CC3E2192CCE31008EDD73 /* baiduNaviSDK.bundle */,
-				098CC3E3192CCE31008EDD73 /* inc */,
-				098CC3EB192CCE31008EDD73 /* lib */,
-				098CC3ED192CCE31008EDD73 /* readme.txt */,
-				098CC3EE192CCE31008EDD73 /* TTS */,
-			);
-			path = baiduNaviSDK;
-			sourceTree = "<group>";
-		};
-		098CC3E3192CCE31008EDD73 /* inc */ = {
-			isa = PBXGroup;
-			children = (
-				098CC3E4192CCE31008EDD73 /* BNCommonDef.h */,
-				098CC3E5192CCE31008EDD73 /* BNCoreServices.h */,
-				098CC3E6192CCE31008EDD73 /* BNRoutePlanManagerProtocol.h */,
-				098CC3E7192CCE31008EDD73 /* BNRoutePlanModel.h */,
-				098CC3E8192CCE31008EDD73 /* BNSoundManagerProtocol.h */,
-				098CC3E9192CCE31008EDD73 /* BNTools.h */,
-				098CC3EA192CCE31008EDD73 /* BNUIManagerProtocol.h */,
-			);
-			path = inc;
-			sourceTree = "<group>";
-		};
-		098CC3EB192CCE31008EDD73 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				098CC3EC192CCE31008EDD73 /* libbaiduNaviSDK.a */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		098CC3EE192CCE31008EDD73 /* TTS */ = {
-			isa = PBXGroup;
-			children = (
-				098CC3EF192CCE31008EDD73 /* BNaviSoundManager.h */,
-				098CC3F0192CCE31008EDD73 /* BNaviSoundManager.m */,
-				098CC3F1192CCE31008EDD73 /* BNaviTTSManager.h */,
-				098CC3F2192CCE31008EDD73 /* BNTTSSDK.bundle */,
-				098CC3F3192CCE31008EDD73 /* libBNaviTTSManager.a */,
-			);
-			path = TTS;
-			sourceTree = "<group>";
-		};
 		09AB07FF192CA49D00488EE3 /* adwoSDKLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -1131,6 +1065,7 @@
 		09AB0800192CA49D00488EE3 /* 32-bit */ = {
 			isa = PBXGroup;
 			children = (
+				09E90A621963E5670064782A /* libminizip.a */,
 				09AB0801192CA49D00488EE3 /* libAdwoAdSDK5.0.a */,
 			);
 			path = "32-bit";
@@ -1321,7 +1256,6 @@
 			children = (
 				098CC3FA192CE981008EDD73 /* EGORefreshTableHeaderView.h */,
 				098CC3FB192CE981008EDD73 /* EGORefreshTableHeaderView.m */,
-				098CC3E1192CCE31008EDD73 /* baiduNaviSDK */,
 				09AB07FF192CA49D00488EE3 /* adwoSDKLib */,
 				09C48F1C18D7E03E00774BCB /* TMQuiltView */,
 				09F871C018C4D0C700FE4E4F /* RCPublicCell.h */,
@@ -1416,7 +1350,6 @@
 			files = (
 				09A24A1418CF1A87005931E4 /* RCYuLeViewController.xib in Resources */,
 				0941EED116EB95B800327D1A /* iCity-Info.plist in Resources */,
-				098CC3F4192CCE31008EDD73 /* baiduNaviSDK.bundle in Resources */,
 				09FF4B1F18E001550017AA03 /* btn_qq.png in Resources */,
 				09AB0820192CA49D00488EE3 /* adwo_audioRecord.png in Resources */,
 				09AB0821192CA49D00488EE3 /* adwo_audioShare.png in Resources */,
@@ -1430,7 +1363,6 @@
 				09700F7418D9D0DB00F9E26D /* 2_0@2x.png in Resources */,
 				09AB0829192CA49D00488EE3 /* adwo_share2sina.png in Resources */,
 				0948767C18D6FD6F00CB71BB /* btn_here@2x.png in Resources */,
-				098CC3F8192CCE31008EDD73 /* BNTTSSDK.bundle in Resources */,
 				09700F7518D9D0DB00F9E26D /* 2_1@2x.png in Resources */,
 				09AB081F192CA49D00488EE3 /* adwo_audioPlay.png in Resources */,
 				09AB081D192CA49D00488EE3 /* adwo_audioBar.png in Resources */,
@@ -1438,7 +1370,6 @@
 				09C9FFAC18D934000027BACE /* upload_btn@2x.png in Resources */,
 				09700F6118D9BE3F00F9E26D /* btn_pause@2x.png in Resources */,
 				0920237B172E2D56009EAB94 /* README-GHUnit in Resources */,
-				098CC3F6192CCE31008EDD73 /* readme.txt in Resources */,
 				09B508C318C5D80300CFF6F1 /* RCMainMapViewController.xib in Resources */,
 				098DA28318E022AA0044B972 /* back_button@2x.png in Resources */,
 				09AB081C192CA49D00488EE3 /* adwo_audio_icon.png in Resources */,
@@ -1575,7 +1506,6 @@
 				09202377172E2D56009EAB94 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				09202378172E2D56009EAB94 /* ASICloudFilesObject.m in Sources */,
 				098CC3FC192CE981008EDD73 /* EGORefreshTableHeaderView.m in Sources */,
-				098CC3F7192CCE31008EDD73 /* BNaviSoundManager.m in Sources */,
 				09846F9918D72DF700A2E91B /* RCMeiShiCellContentView.m in Sources */,
 				09202379172E2D56009EAB94 /* ASICloudFilesObjectRequest.m in Sources */,
 				0920237A172E2D56009EAB94 /* ASICloudFilesRequest.m in Sources */,

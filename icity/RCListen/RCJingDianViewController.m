@@ -16,7 +16,7 @@
 #import "RCYuLeViewController.h"
 #import "RCXiangCeViewController.h"
 #import "iToast.h"
-#import "BNTools.h"
+//#import "BNTools.h"
 
 
 #define VIDEO_HEIGHT 180.0f
@@ -76,6 +76,7 @@
     
     self.maskView = nil;
     self.playButton = nil;
+    self.restoreButton = nil;
     
     self.shareView = nil;
     self.cancelShareButton = nil;
@@ -282,17 +283,16 @@
          name:MPMoviePlayerPlaybackDidFinishNotification
          object:_videoPlayer];
         
-//        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
-//        [doubleTap setNumberOfTapsRequired:2];
-//        [_videoPlayer.view addGestureRecognizer:doubleTap];
-//        [doubleTap release];
+        UITapGestureRecognizer *oneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleOneTap:)];
+        oneTap.delegate = self;
+        [oneTap setNumberOfTapsRequired:1];
+        [_videoPlayer.view addGestureRecognizer:oneTap];
+        [oneTap release];
     }
     
     _videoPlayer.view.frame = CGRectMake(0, 0, [RCTool getScreenSize].width, VIDEO_HEIGHT);
     
     [self.scrollView addSubview:_videoPlayer.view];
-    
-    //[self.scrollView addSubview:_maskView];
 }
 
 - (BOOL)play
@@ -377,9 +377,42 @@
     }
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return YES;
+}
+// this enables you to handle multiple recognizers on single view
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+
+- (void)handleOneTap:(UIGestureRecognizer *)gestureRecognizer
+{
+    NSLog(@"handleOneTap");
+    
+    if(self.isFullScreen)
+    {
+        CGRect rect = self.restoreButton.frame;
+        if(10 == rect.origin.y)
+        {
+            self.isHiding = YES;
+            self.restoreButton.frame = CGRectMake([RCTool getScreenSize].height - 60,-60, 40, 40);
+        }
+        else if(-60 == rect.origin.y)
+        {
+            [UIView animateWithDuration:0.3 animations:^{
+                self.isHiding = NO;
+                self.restoreButton.frame = CGRectMake([RCTool getScreenSize].height - 60,10, 40, 40);
+            } completion:^(BOOL finished) {
+                self.isHiding = YES;
+                [self performSelector:@selector(hideRestoreButton:) withObject:nil afterDelay:3.0];
+            }];
+        }
+    }
+}
+
 - (void)handleDoubleTap:(UIGestureRecognizer *)gestureRecognizer
 {
-    NSLog(@"handleDoubleTap");
+    //NSLog(@"handleDoubleTap");
     
     //if(MPMoviePlaybackStateStopped != self.videoPlayer.playbackState)
     {
@@ -407,12 +440,20 @@
         
         [[_videoPlayer view] setTransform:CGAffineTransformMakeRotation(M_PI/2)];
         
-        UIButton* restoreButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        restoreButton.frame = CGRectMake(4,4, 82, 28);
-        restoreButton.tag = 222;
-        [restoreButton setImage:[UIImage imageNamed:@"restore_button"] forState:UIControlStateNormal];
-        [restoreButton addTarget:self action:@selector(restoreScreen) forControlEvents:UIControlEventTouchUpInside];
-        [_videoPlayer.view addSubview:restoreButton];
+        self.restoreButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.restoreButton.frame = CGRectMake([RCTool getScreenSize].height - 60,-60, 40, 40);
+        self.restoreButton.tag = 222;
+        [self.restoreButton setImage:[UIImage imageNamed:@"restore_button"] forState:UIControlStateNormal];
+        [self.restoreButton addTarget:self action:@selector(restoreScreen) forControlEvents:UIControlEventTouchUpInside];
+        [_videoPlayer.view addSubview:self.restoreButton];
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            self.isHiding = NO;
+            self.restoreButton.frame = CGRectMake([RCTool getScreenSize].height - 60,10, 40, 40);
+        } completion:^(BOOL finished) {
+            self.isHiding = YES;
+            [self performSelector:@selector(hideRestoreButton:) withObject:nil afterDelay:3.0];
+        }];
         
         _videoIndicator.center = CGPointMake([RCTool getScreenSize].height/2, [RCTool getScreenSize].width/2);
         [_videoPlayer.view addSubview:_videoIndicator];
@@ -420,6 +461,16 @@
         [[RCTool frontWindow] addSubview:_videoPlayer.view];
     }
     
+}
+
+- (void)hideRestoreButton:(id)agrument
+{
+    if(NO == self.isHiding)
+        return;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.restoreButton.frame = CGRectMake([RCTool getScreenSize].height - 60,-60, 40, 40);
+    }];
 }
 
 - (void)restoreScreen
@@ -858,6 +909,21 @@
 
 - (IBAction)daohang:(id)sender
 {
+    
+    NSString* jd_gps = [self.item objectForKey:@"jd_gps"];
+    if(0 == [jd_gps length])
+        jd_gps = [self.content objectForKey:@"jd_gps"];
+    
+    if(0 == [jd_gps length])
+        return;
+    
+    NSArray* array = @[@{@"gps":jd_gps}];
+    RCRouteMapViewController* temp = [[RCRouteMapViewController alloc] initWithNibName:nil bundle:nil];
+    [temp updateContent:array title:@"路径规划"];
+    [self.navigationController pushViewController:temp animated:YES];
+    [temp release];
+ 
+/*
     //节点数组
     NSMutableArray *nodesArray = [[[NSMutableArray alloc]    initWithCapacity:2] autorelease];
     
@@ -967,9 +1033,10 @@
 //        //调启百度地图客户端导航
 //        [BMKNavigation openBaiduMapNavigation:para];
 //    }
-
+*/
 }
 
+/*
 //算路成功回调
 -(void)routePlanDidFinished:(NSDictionary *)userInfo
 {
@@ -991,6 +1058,6 @@
     [BNCoreServices_Sound stopTTSPlayer];
 }
 
-
+*/
 
 @end

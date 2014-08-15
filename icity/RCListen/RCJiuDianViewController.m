@@ -102,7 +102,10 @@
     NSLog(@"clickedMapButtonItem");
     
     if(0 == [self.itemArray count])
+    {
+        [RCTool showAlert:@"提示" message:@"暂无地图数据！"];
         return;
+    }
     
     RCJingDianMapViewController* temp = [[RCJingDianMapViewController alloc] initWithNibName:nil bundle:nil];
     [temp updateContent:self.itemArray title:self.title];

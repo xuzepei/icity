@@ -20,7 +20,7 @@
 #import "ShareEntity.h"
 
 
-@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate,BNNaviRoutePlanDelegate,BNNaviUIManagerDelegate,iCitySDKDelegate>
+@interface RCJingDianViewController : UIViewController<UIActionSheetDelegate,/*BNNaviRoutePlanDelegate,BNNaviUIManagerDelegate,*/iCitySDKDelegate>
 
 @property(nonatomic,retain)NSDictionary* item;
 @property(nonatomic,retain)NSDictionary* content;
@@ -35,8 +35,11 @@
 @property(assign)BOOL isFaved;
 @property(nonatomic,retain)RCPlayerMaskView* maskView;
 @property(nonatomic,retain)UIButton* playButton;
+@property(nonatomic,retain)UIButton* restoreButton;
+@property(assign)BOOL isHiding;
 @property(assign)BOOL isPlaying;
 @property(assign)BOOL isLoading;
+
 
 
 @property(nonatomic,retain)IBOutlet UIView* shareView;

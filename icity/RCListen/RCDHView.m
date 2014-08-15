@@ -44,8 +44,8 @@
         [BG_COLOR_1 set];
         UIRectFill(self.bounds);
         
-        title = @"导航";
-        subTitle = @"SEARCH";
+        title = @"路径规划";
+        subTitle = @"ROUTE";
         imageName = @"daohang_button";
     }
     else if(2 == self.type)

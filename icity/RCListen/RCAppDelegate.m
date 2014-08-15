@@ -9,9 +9,9 @@
 #import "RCAppDelegate.h"
 #import "RCTool.h"
 #import "RCHttpRequest.h"
-#import "BNCoreServices.h"
+//#import "BNCoreServices.h"
 #import "BMKMapView.h"
-#import "BNaviSoundManager.h"
+//#import "BNaviSoundManager.h"
 
 #define UPDATE_TAG 122
 
@@ -37,13 +37,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+/*
     //初始化导航SDK引擎
     [BNCoreServices_Instance initServices:BAIDU_MAP_KEY];
     
     //开启引擎
     [BNCoreServices_Instance startServicesAsyn:nil fail:nil SoundService:[BNaviSoundManager getInstance]];
-    
+ */
     _mapManager = [[BMKMapManager alloc] init];
     // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
     BOOL ret = [_mapManager start:BAIDU_MAP_KEY  generalDelegate:nil];
