@@ -900,6 +900,8 @@ void systemSoundCompletionProc(SystemSoundID ssID,void *clientData)
     
     jsonString = [jsonString stringByReplacingOccurrencesOfString:@"    " withString:@""];
     
+    jsonString = [jsonString stringByReplacingOccurrencesOfString:@"ï»¿" withString:@""];
+    
 	SBJSON* sbjson = [[SBJSON alloc] init];
     
     NSError* error = nil;

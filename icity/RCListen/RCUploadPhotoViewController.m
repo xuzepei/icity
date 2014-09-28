@@ -352,7 +352,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 - (void)uploadRequestFailed:(ASIHTTPRequest *)request{
     
-//    NSLog(@" Error - Statistics file upload failed: \"%@\"",[[request error] localizedDescription]);
+    NSLog(@" Error - Statistics file upload failed: \"%@\"",[[request error] localizedDescription]);
     
     [self clear];
     [RCTool showAlert:@"提示" message:@"图片上传失败！"];
